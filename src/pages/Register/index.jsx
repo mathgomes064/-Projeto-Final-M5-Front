@@ -1,6 +1,7 @@
 import logo from "../../assets/img/logoNiceJobs.png";
 import { Container } from "./style";
 import Input from "../../components/Input";
+import InputPassword from "../../components/InputPassword";
 import Button from "../../components/Button";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -30,7 +31,7 @@ const Register = () => {
     contact: yup
       .string()
       .required("Número para contato obrigatório")
-      .min(11, "Preencha o campo corretamente")
+      .min(11, "Digite seu número para contato corretamente")
       .matches(/(?=.*?[0-9])/, "Digite seu contato em números apenas"),
     bio: yup
       .string()
@@ -48,71 +49,79 @@ const Register = () => {
   return (
     <>
       <Container>
-        <div className="imgDiv">
-          <img src={logo} alt="Logo NiceJobs" />
-        </div>
-        <form onSubmit={handleSubmit()}>
-          <Input
-            placeholder="Nome"
-            type="text"
-            id="name"
-            {...register("name")}
-            label="Nome"
-          />
-          <p> {errors.name?.message}</p>
-          <Input
-            placeholder="Email"
-            type="email"
-            id="email"
-            {...register("email")}
-            label="Email"
-          />
-          <p>{errors.email?.message}</p>
-          <Input
-            placeholder="Senha"
-            id="password"
-            type="password"
-            {...register("password")}
-            label="Senha"
-          />
-          <p>{errors.password?.message} </p>
-          <Input
-            placeholder="Confirmar senha"
-            type="password"
-            id="confirmPassword"
-            {...register("confirmPassword")}
-            label="Confirme sua senha"
-          />
-          <p> {errors.confirmPassword?.message}</p>
-          <Input
-            placeholder="(00) 0 0000 - 0000"
-            id="contact"
-            label="Contato"
-            type="number"
-            {...register("contact")}
-          />
-          <p> {errors.contact?.message}</p>
-          <Input
-            placeholder="Fale sobre você"
-            id="bio"
-            type="text"
-            {...register("bio")}
-            label="Bio"
-          />
-          <p> {errors.bio?.message}</p>
-          <div className="selectDiv">
-            <label htmlFor="select">Pretendo</label>
-            <select title="type" id="select" {...register("type")}>
-              <option value="Fornecer Serviço">Fornecer Serviço</option>
-              <option value="Contratar Serviço">Contratar Serviço</option>
-            </select>
+        <div className="registerForm">
+          <div className="imgDiv">
+            <img src={logo} alt="Logo NiceJobs" />
           </div>
-          <Button type="submit" text="Cadastre-se" />
-        </form>
-        <div className="redirectDiv">
-          <p>
-            Já possui cadastro? Clique <a href="">aqui</a>
-          </p>
+          <form onSubmit={handleSubmit()}>
+            <div className="form">
+              <div className="column">
+                <Input
+                  placeholder="Nome"
+                  type="text"
+                  id="name"
+                  {...register("name")}
+                  label="Nome"
+                />
+                <p> {errors.name?.message}</p>
+                <Input
+                  placeholder="Email"
+                  type="email"
+                  id="email"
+                  {...register("email")}
+                  label="Email"
+                />
+                <p>{errors.email?.message}</p>
+                <InputPassword
+                  placeholder="Senha"
+                  id="password"
+                  type="password"
+                  {...register("password")}
+                  label="Senha"
+                />
+                <p>{errors.password?.message} </p>
+                <InputPassword
+                  placeholder="Confirmar senha"
+                  type="password"
+                  id="confirmPassword"
+                  {...register("confirmPassword")}
+                  label="Confirme sua senha"
+                />
+                <p> {errors.confirmPassword?.message}</p>
+              </div>
+              <div className="column">
+                <Input
+                  placeholder="(00) 0 0000 - 0000"
+                  id="contact"
+                  label="Contato"
+                  type="number"
+                  {...register("contact")}
+                />
+                <p> {errors.contact?.message}</p>
+                <Input
+                  placeholder="Fale sobre você"
+                  id="bio"
+                  type="text"
+                  {...register("bio")}
+                  label="Bio"
+                />
+                <p> {errors.bio?.message}</p>
+                <div className="selectDiv">
+                  <label htmlFor="select">Pretendo</label>
+                  <select title="type" id="select" {...register("type")}>
+                    <option value="Fornecer Serviço">Fornecer Serviço</option>
+                    <option value="Contratar Serviço">Contratar Serviço</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <Button type="submit" text="Cadastre-se" />
+          </form>
+          <div className="redirectDiv">
+            <p>
+              Já possui cadastro? Clique <a href="">aqui</a>
+            </p>
+          </div>
         </div>
       </Container>
     </>
