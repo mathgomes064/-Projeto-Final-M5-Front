@@ -30,7 +30,7 @@ export const Container = styled.section`
   }
 
   div > .tittleImage > h1 {
-    width: 80%;
+    width: 74%;
     font-size: 32px;
     color: var(--white);
   }
@@ -82,13 +82,31 @@ export const Container = styled.section`
     align-items: center;
   }
 
-  div > .logoForm > div > form > input {
+  div > .logoForm > div > form > .divPassword {
     width: 98%;
     height: 40px;
     background-color: var(--grey-3);
     padding: 0 0 0 10px;
     border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     outline: 0;
+  }
+
+  div > .logoForm > div > form > .divPassword > .inputPassword {
+    width: 90%;
+    height: 100%;
+    background-color: var(--grey-3);
+    outline: 0;
+  }
+
+  div > .logoForm > div > form > .divPassword > .eye {
+    padding-right: 10px;
+  }
+
+  div > .logoForm > div > form > span {
+    color: red;
   }
 
   div > .logoForm > div > form > button {
@@ -98,8 +116,9 @@ export const Container = styled.section`
     border: none;
     background-color: var(--color-primary);
     color: var(--white);
-    cursor: pointer;
     padding: 0;
+    margin-top: 10px;
+    cursor: pointer;
   }
 
   div > .logoForm > div > form > button:hover {
@@ -165,19 +184,40 @@ export const Container = styled.section`
     }
 
     div > .logoForm > div > form > label {
-      width: 90%;
+      width: 100%;
       height: 30px;
       display: flex;
       align-items: center;
     }
 
-    div > .logoForm > div > form > input {
-      max-width: 90%;
+    div > .logoForm > div > form > .divPassword {
+      width: 98%;
       height: 40px;
+      background-color: var(--grey-3);
+      padding: 0 0 0 10px;
+      border: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    div > .logoForm > div > form > .divPassword > .inputPassword {
+      width: 90%;
+      height: 100%;
+      background-color: var(--grey-3);
+      outline: 0;
+    }
+
+    div > .logoForm > div > form > .divPassword > .eye {
+      padding-right: 10px;
+    }
+
+    div > .logoForm > div > form > span {
+      width: 91.5%;
     }
 
     div > .logoForm > div > form > button {
-      max-width: 90%;
+      width: 100%;
       height: 40px;
     }
   }
