@@ -1,13 +1,11 @@
-import Register from "./pages/Register";
+import Routes from "./routes";
 import Global from "./styles/global";
 
 function App() {
-  return (
     <>
       <Global />
-      <Register />
+      <Routes />
     </>
-  );
 }
 
 export default App;
