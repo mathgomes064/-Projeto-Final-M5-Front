@@ -1,24 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  .button {
-    background-color: var(--color-primary);
+.button{
+    background-color: #06C3BD;
     border-radius: 5px;
     height: 50px;
-    width: 100%;
     font-weight: 700;
-    text-transform: none;
-    padding: 17px;
-  }
-  .button:hover {
-    background-color: var(--color-primary-focus);
-    color: var(--black);
-  }
-  @media screen and (min-width: 1023px) {
-    text-align: center;
-    margin-top: 45px;
-    .button {
-      width: 50%;
-    }
-  }
-`;
+    text-transform: capitalize;
+    padding: 17px 134px;
+}
+.button:hover{
+    background-color: #00EEE6;
+}
+`
