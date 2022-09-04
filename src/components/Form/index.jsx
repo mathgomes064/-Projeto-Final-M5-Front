@@ -64,7 +64,6 @@ const Form = ({ type }) => {
               <div className="infoSelector">
                 <Input
                   placeholder="Nome"
-                  type="text"
                   id="name"
                   {...register("name")}
                   label="Nome"
@@ -76,7 +75,6 @@ const Form = ({ type }) => {
               <div className="infoSelector">
                 <Input
                   placeholder="Email"
-                  type="email"
                   id="email"
                   {...register("email")}
                   label="Email"
@@ -99,8 +97,8 @@ const Form = ({ type }) => {
               <div className="infoSelector">
                 <Input
                   placeholder="Confirmar senha"
-                  type="password"
                   id="confirmPassword"
+                  type="password"
                   {...register("confirmPassword")}
                   label="Confirme sua senha"
                 />
@@ -125,7 +123,6 @@ const Form = ({ type }) => {
                 <Input
                   placeholder="Fale sobre você"
                   id="bio"
-                  type="text"
                   {...register("bio")}
                   label="Bio"
                 />

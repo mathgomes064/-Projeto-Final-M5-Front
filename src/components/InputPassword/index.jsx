@@ -8,13 +8,7 @@ const InputPassword = forwardRef(({ label, id, placeholder, ...rest }, ref) => {
     <Container>
       <label htmlFor={id}>{label}</label>
       <div className="inputPassword">
-        <input
-          type={type}
-          placeholder={placeholder}
-          id={id}
-          {...rest}
-          ref={ref}
-        />
+        <input type={type} id={id} {...rest} ref={ref} />
 
         {type === "password" ? (
           <FiEyeOff onClick={() => setType("text")} />
