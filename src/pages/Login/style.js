@@ -5,220 +5,122 @@ export const Container = styled.section`
   height: 100vh;
   background-color: var(--background-color);
   display: flex;
-  justify-content: center;
   align-items: center;
+  padding: 0 15px;
 
-  .board {
-    width: 90%;
-    height: 80%;
-    background-color: var(--white);
-    border-radius: 30px;
+  .align {
+    max-width: 1170px;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
 
-  div > .tittleImage {
-    width: 50%;
-    height: 100%;
-    background-color: var(--color-primary);
-    border-radius: 30px 0 0 30px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+    .tittleImage {
+      display: none;
+    }
 
-  div > .tittleImage > h1 {
-    width: 74%;
-    font-size: 32px;
-    color: var(--white);
-  }
-
-  div > .tittleImage > img {
-    width: 80%;
-    height: 70%;
-  }
-
-  div > .logoForm {
-    width: 50%;
-    height: 100%;
-    border-radius: 0 30px 30px 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  div > .logoForm > div {
-    min-width: 100%;
-    height: 100%;
-    border-radius: 0 30px 30px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-  }
-
-  div > .logoForm > div > img {
-    width: 220px;
-    height: 110px;
-  }
-
-  div > .logoForm > div > form {
-    width: 70%;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  div > .logoForm > div > h1 {
-    display: none;
-  }
-
-  div > .logoForm > div > form > label {
-    height: 30px;
-    display: flex;
-    align-items: center;
-  }
-
-  div > .logoForm > div > form > .divPassword {
-    width: 98%;
-    height: 40px;
-    background-color: var(--grey-3);
-    padding: 0 0 0 10px;
-    border: none;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    outline: 0;
-  }
-
-  div > .logoForm > div > form > .divPassword > .inputPassword {
-    width: 90%;
-    height: 100%;
-    background-color: var(--grey-3);
-    outline: 0;
-  }
-
-  div > .logoForm > div > form > .divPassword > .eye {
-    padding-right: 10px;
-  }
-
-  div > .logoForm > div > form > span {
-    color: red;
-  }
-
-  div > .logoForm > div > form > button {
-    width: 100%;
-    height: 40px;
-    font-size: 20px;
-    border: none;
-    background-color: var(--color-primary);
-    color: var(--white);
-    padding: 0;
-    margin-top: 10px;
-    cursor: pointer;
-  }
-
-  div > .logoForm > div > form > button:hover {
-    background-color: var(--color-primary-focus);
-    transition: 144ms;
-  }
-
-  div > .logoForm > div > p {
-    font-size: 14px;
-  }
-
-  div > .logoForm > div > p > button {
-    border: none;
-    background-color: var(--white);
-    color: var(--color-primary);
-    cursor: pointer;
-  }
-
-  div > .logoForm > div > p > button:hover {
-    color: var(--color-primary-focus);
-    transition: 144ms;
-  }
-
-  @media screen and (max-width: 930px) {
     .board {
-      width: 90%;
-      height: 80%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    div > .tittleImage {
-      display: none;
-    }
-
-    div > .tittleImage > img {
-      display: none;
-    }
-
-    div > .tittleImage > h1 {
-      display: none;
-    }
-
-    div > .logoForm {
-      width: 100%;
+      background-color: var(--white);
       border-radius: 30px;
-    }
-
-    div > .logoForm > div > form {
-      width: 85%;
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-
-    div > .logoForm > div > h1 {
-      width: 80%;
-      color: var(--color-primary);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    div > .logoForm > div > form > label {
+      padding: 20px 10px;
       width: 100%;
-      height: 30px;
+
+      .logoForm {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        img {
+          width: 271px;
+        }
+
+        h1 {
+          font-size: 18px;
+          text-align: center;
+          margin-bottom: 30px;
+          width: 80%;
+          color: var(--color-primary);
+        }
+
+        form {
+          width: 100%;
+          margin-bottom: 20px;
+        }
+
+        p {
+          font-size: 16px;
+          width: 80%;
+          text-align: center;
+
+          a {
+            color: var(--color-primary);
+            :hover {
+              color: var(--color-primary-focus);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 1200px) {
+    .align {
+      max-width: 1170px;
+      margin: 0 auto;
       display: flex;
-      align-items: center;
-    }
 
-    div > .logoForm > div > form > .divPassword {
-      width: 98%;
-      height: 40px;
-      background-color: var(--grey-3);
-      padding: 0 0 0 10px;
-      border: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+      .tittleImage {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--color-primary);
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
 
-    div > .logoForm > div > form > .divPassword > .inputPassword {
-      width: 90%;
-      height: 100%;
-      background-color: var(--grey-3);
-      outline: 0;
-    }
+        h1 {
+          font-size: 32px;
+          font-weight: 400;
+          width: 80%;
+          text-align: center;
+          margin-top: 80px;
+          color: var(--white);
+        }
 
-    div > .logoForm > div > form > .divPassword > .eye {
-      padding-right: 10px;
-    }
+        img {
+          width: 584px;
+        }
+      }
 
-    div > .logoForm > div > form > span {
-      width: 91.5%;
-    }
+      .board {
+        width: 585px;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
 
-    div > .logoForm > div > form > button {
-      width: 100%;
-      height: 40px;
+        .logoForm {
+          img {
+            width: 413px;
+          }
+
+          h1 {
+            display: none;
+          }
+
+          label {
+            font-size: 20px;
+          }
+
+          input,
+          .inputPassword {
+            height: 51px;
+            font-size: 16px;
+          }
+          button {
+            height: 51px;
+            font-size: 20px;
+          }
+        }
+      }
     }
   }
 `;

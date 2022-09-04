@@ -1,11 +1,11 @@
 import Button from "@mui/material/Button";
 import { Container } from "./style";
 
-const BasicButtons = ({ text, type }) => {
+const BasicButtons = ({ children, type }) => {
   return (
     <Container>
       <Button className="button" variant="contained" type={type}>
-        {text}
+        {children}
       </Button>
     </Container>
   );

@@ -3,10 +3,11 @@ import { FiEyeOff, FiEye } from "react-icons/fi";
 import { Container } from "./style";
 const InputPassword = forwardRef(({ label, id, placeholder, ...rest }, ref) => {
   const [type, setType] = useState("password");
+
   return (
     <Container>
       <label htmlFor={id}>{label}</label>
-      <div>
+      <div className="inputPassword">
         <input
           type={type}
           placeholder={placeholder}
@@ -14,6 +15,7 @@ const InputPassword = forwardRef(({ label, id, placeholder, ...rest }, ref) => {
           {...rest}
           ref={ref}
         />
+
         {type === "password" ? (
           <FiEyeOff onClick={() => setType("text")} />
         ) : (

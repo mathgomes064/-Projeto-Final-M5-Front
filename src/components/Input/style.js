@@ -1,18 +1,16 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  div {
+  label {
+    font-size: 14px;
+  }
+
+  input {
+    height: 40px;
     background-color: var(--grey-3);
-    height: 49px;
+    margin: 12px 0 0 0;
     border-radius: 10px;
     padding: 0 15px;
-    margin: 12px 0 0 0;
-    input {
-      border: 0;
-      outline: 0;
-      height: 100%;
-      width: 100%;
-      background-color: transparent;
-    }
+    width: 100%;
   }
 `;

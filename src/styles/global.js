@@ -11,6 +11,7 @@ const Global = createGlobalStyle`
     --grey-3: #F1F1F1;
     --white: #FFFFFF;
     --black: #000000;
+	--error: #ff0000;
 }
 
 html, body, div, span, applet, object, iframe,
@@ -29,7 +30,8 @@ time, mark, audio, video, input, select, option {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font-size: 100%;
+	outline: none;
+	box-sizing: border-box;
 	font-family: 'Inter', sans-serif;
 	vertical-align: baseline;
 }

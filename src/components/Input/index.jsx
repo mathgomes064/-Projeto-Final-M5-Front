@@ -4,9 +4,7 @@ const Input = forwardRef(({ label, id, placeholder, ...rest }, ref) => {
   return (
     <Container>
       <label htmlFor={id}>{label}</label>
-      <div>
-        <input placeholder={placeholder} id={id} {...rest} ref={ref} />
-      </div>
+      <input placeholder={placeholder} id={id} {...rest} ref={ref} />
     </Container>
   );
 });
