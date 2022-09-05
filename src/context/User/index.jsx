@@ -20,7 +20,7 @@ const UserProvider = ({ children }) => {
         setUser(data.user);
         toast.success("Usuário logado com sucesso!", {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -29,7 +29,18 @@ const UserProvider = ({ children }) => {
           toastId: 1,
         });
       })
-      .catch((err) => console.log(err));
+      .catch(() =>
+        toast.error("Email ou senha inválidos!", {
+          position: "top-right",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          toastId: 1,
+        })
+      );
   };
 
   const register = ({ email, name, password, contact, bio, type }) => {
@@ -41,7 +52,7 @@ const UserProvider = ({ children }) => {
         navigate("/");
         toast.success("Usuário cadastrado com sucesso!", {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
@@ -53,7 +64,7 @@ const UserProvider = ({ children }) => {
       .catch(() =>
         toast.error("Email já cadastrado.", {
           position: "top-right",
-          autoClose: 5000,
+          autoClose: 2000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
