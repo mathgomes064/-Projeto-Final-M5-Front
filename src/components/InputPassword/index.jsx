@@ -1,7 +1,7 @@
 import { forwardRef, useState } from "react";
 import { FiEyeOff, FiEye } from "react-icons/fi";
 import { Container } from "./style";
-const InputPassword = forwardRef(({ label, id, placeholder, ...rest }, ref) => {
+const InputPassword = forwardRef(({ label, id, ...rest }, ref) => {
   const [type, setType] = useState("password");
 
   return (

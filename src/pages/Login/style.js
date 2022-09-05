@@ -87,8 +87,8 @@ export const Container = styled.section`
           color: var(--white);
         }
 
-        img {
-          width: 584px;
+        .container {
+          width: 600px;
         }
       }
 
