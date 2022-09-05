@@ -4,7 +4,6 @@ import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import Form from "../../components/Form";
 import LoginAnimation from "../../components/animations/LoginPage";
-import EditServiceModal from "../../modals/EditService";
 
 const Login = () => {
   return (
@@ -21,7 +20,7 @@ const Login = () => {
             <h1>Encontre ou oferte serviços de maneira rápida e eficiente</h1>
 
             <Form type="login" />
-            <EditServiceModal />
+
             <p>
               Ainda não possui cadastro? <Link to="/register">Clique aqui</Link>
             </p>
