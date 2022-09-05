@@ -1,10 +1,9 @@
-import Dashboard from "./pages/Dashboard/dashboard.index";
-
 function App() {
   return (
-    <div>
-      <Dashboard />
-    </div>
+    <>
+      <Global />
+      <Routes />
+    </>
   );
 }
 
