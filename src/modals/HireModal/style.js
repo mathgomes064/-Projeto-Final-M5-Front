@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const DetailsStyle = styled.div`
+export const HireStyle = styled.div`
   @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-  .detailsButton {
+  .hireButton {
     background-color: var(--color-primary);
     color: var(--white);
     border: none;
@@ -14,70 +14,59 @@ export const DetailsStyle = styled.div`
     font-weight: 300;
   }
 
-  .detailsButton:hover {
+  .hireButton:hover {
     background-color: var(--color-primary-focus);
   }
 
-  .serviceModal {
+  .hireModal {
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
     align-items: center;
     background-color: var(--white);
     border-radius: 10px;
     height: 50vh;
-    max-height: 360px;
+    max-height: 370px;
   }
 
-  .category {
+  .contacts p {
+    width: 70%;
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .contacts {
     background-color: var(--color-primary);
     color: var(--white);
-    height: 40px;
+    height: 50px;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 10px 10px 0px 0px;
-    font-weight: 700;
-    font-size: 18px;
+    font-size: 14px;
   }
+
   .otherInfos {
-    display: flex;
     margin-top: 20px;
     align-items: center;
   }
 
-  img {
-    width: 35vw;
-    max-width: 110px;
-    height: 13vh;
-    max-height: 100px;
-    margin-right: 10px;
+  .infos {
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
   }
 
-  .nameAndValue p {
-    font-weight: 700;
-    margin: 7px;
-    font-size: 14px;
+  .icon {
+    margin-right: 20px;
+    width: 25px;
+    height: 25px;
   }
 
-  .description {
-    font-size: 13px;
-    font-weight: 500;
-    padding: 7px;
-    margin-left: 8px;
-    margin-top: 8px;
-    height: 120px;
-  }
-
-  .infosModal {
-    background-color: var(--color-primary);
-    color: var(--white);
-    border: none;
-    border-radius: 3px;
-    width: 220px;
-    height: 30px;
-    font-size: 16px;
-    font-weight: 300;
+  .crown {
+    color: var(--premium-detail);
   }
 `;
