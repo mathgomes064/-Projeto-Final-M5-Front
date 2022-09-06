@@ -1,10 +1,9 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
-import { Container } from "./styles";
+import { Container, Button } from "./styles";
 import { FaCrown } from "react-icons/fa";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 const style = {
   position: "absolute",
@@ -36,7 +35,9 @@ export default function ModalPremium() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button onClick={handleOpen}>
+        Nice Chat <FaCrown className="crown" />
+      </Button>
       <Modal
         open={open}
         onClose={handleClose}

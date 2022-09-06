@@ -1,9 +1,8 @@
 import * as React from "react";
 import * as yup from "yup";
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
-import { Container, Form } from "./styles";
+import { Container, Form, Button } from "./styles";
 import { useForm } from "react-hook-form";
 
 const style = {
@@ -32,7 +31,7 @@ export default function ModalPerfil() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <Button onClick={handleOpen}>Editar Perfil</Button>
       <Modal
         open={open}
         onClose={handleClose}

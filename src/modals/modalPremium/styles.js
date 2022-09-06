@@ -58,3 +58,8 @@ export const Container = styled.div`
     color: var(--premium-detail);
   }
 `;
+
+export const Button = styled.li`
+  margin: 2px 0px;
+  cursor: pointer;
+`;

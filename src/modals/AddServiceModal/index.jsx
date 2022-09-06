@@ -4,7 +4,7 @@ import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-import { Container } from "./style";
+import { Container, ModalButton } from "./style";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { useForm } from "react-hook-form";
@@ -37,7 +37,7 @@ const AddServiceModal = () => {
 
   return (
     <div>
-      <button onClick={handleOpen}>Click here</button>
+      <ModalButton onClick={handleOpen}>Cadastrar Serviço</ModalButton>
       <Modal
         open={open}
         onClose={handleClose}
