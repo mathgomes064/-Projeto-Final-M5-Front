@@ -1,4 +1,5 @@
 import react from "react";
+import MenuCategory from "../CategoryHeader";
 import Menu from "../MenuHeader/menu.index";
 import { Header } from "./styles";
 
@@ -17,7 +18,7 @@ const HeaderDashboard = () => {
       <section className="navegation">
         <input type="text" placeholder="Pesquise um serviço" />
         <Menu />
-        <button>Categorias</button>
+        <MenuCategory />
       </section>
     </Header>
   );
