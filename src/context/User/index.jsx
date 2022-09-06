@@ -17,7 +17,11 @@ const UserProvider = ({ children }) => {
       .post("/login", data)
       .then(({ data }) => {
         setToken(data.accessToken);
+
         setUser(data.user);
+
+        navigate("/dashboard");
+
         toast.success("Usuário logado com sucesso!", {
           position: "top-right",
           autoClose: 2000,
