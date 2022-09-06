@@ -50,18 +50,5 @@ export const Header = styled.header`
         padding-left: 10px;
       }
     }
-
-    button {
-      background: #06c3bd;
-      border: 1px solid #ffffff;
-      border-radius: 5px;
-      color: #ffffff;
-      height: 26px;
-      font-size: 11px;
-      width: 70px;
-      margin-left: 59px;
-      margin-bottom: 20px;
-      margin-top: -3px;
-    }
   }
 `;
