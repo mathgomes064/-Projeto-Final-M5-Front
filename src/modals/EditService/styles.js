@@ -40,6 +40,20 @@ export const Container = styled.div`
       margin: 0;
       font-size: 18px;
     }
+    div {
+      display: flex;
+      flex-direction: column;
+      margin: 15px 0;
+
+      select {
+        width: 100%;
+        padding-left: 7px;
+        margin-top: 10px;
+        height: 40px;
+        background-color: var(--grey-3);
+        border-radius: 10px;
+      }
+    }
   }
   @media screen and (min-width: 320px) {
     width: 293px;
@@ -57,6 +71,9 @@ export const Container = styled.div`
       }
       Button {
         margin-top: 0;
+      }
+      select {
+        height: 49px;
       }
     }
   }

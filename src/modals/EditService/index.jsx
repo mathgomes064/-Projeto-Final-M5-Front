@@ -42,16 +42,11 @@ const EditServiceModal = () => {
           <Box sx={style}>
             <Container>
               <div className="title">
-                <h3>Cadastre o serviço</h3>
+                <h3>Edite o serviço</h3>
                 <button onClick={handleClose}>X</button>
               </div>
               <div className="body">
                 <form onSubmit={handleSubmit()}>
-                  <Input
-                    label="Editar nome"
-                    placeholder="Frete"
-                    {...register("name")}
-                  />
                   <Input
                     label="Editar preço"
                     placeholder="R$100"
@@ -63,6 +58,22 @@ const EditServiceModal = () => {
                     placeholder="Descrição"
                     {...register("description")}
                   />
+                  <div>
+                    <label title="select"> Editar Categoria </label>
+                    <select
+                      label="Categoria"
+                      title="select"
+                      id="select"
+                      {...register("type")}
+                    >
+                      <option value="Frete">Frete</option>
+                      <option value="Construção Civil">Construção Civil</option>
+                      <option value="Serviços Domésticos">
+                        Serviços Domésticos
+                      </option>
+                      <option value="Outros">Outros</option>
+                    </select>
+                  </div>
 
                   <Button type="submit">Salvar alterações</Button>
                 </form>
