@@ -1,13 +1,22 @@
 import react from "react";
-import { FaCrown } from "react-icons/fa";
 import { useState } from "react";
 import { Div } from "./styles";
+import ModalPerfil from "../../modals/modalPerfil";
+import AddServiceModal from "../../modals/AddServiceModal";
+import ModalPremium from "../../modals/modalPremium";
+import { useNavigate } from "react-router-dom";
 
 const Menu = () => {
   const [activeMenu, setActiveMenu] = useState(false);
+  const navigate = useNavigate();
 
   const toggleMenu = () => {
     setActiveMenu(!activeMenu);
+  };
+
+  const Logout = () => {
+    localStorage.clear();
+    navigate("/");
   };
 
   return (
@@ -21,14 +30,17 @@ const Menu = () => {
       <div className={activeMenu ? "menu menuOpen" : "menu menuClose"}>
         <menu className="list">
           <ul className="listItems">
-            <li>Editar Perfil</li>
-            <li>Cadastrar Serviço</li>
             <li>
-              Nice Chat
-              <FaCrown className="crown" />
+              <ModalPerfil />
+            </li>
+            <li>
+              <AddServiceModal />
+            </li>
+            <li>
+              <ModalPremium />
             </li>
             <li>Meus Serviços</li>
-            <li>Sair</li>
+            <li onClick={Logout}>Sair</li>
           </ul>
         </menu>
       </div>

@@ -4,7 +4,7 @@ export const Div = styled.div`
   .icon {
     position: absolute;
     z-index: 4;
-    left: 61.5%;
+    left: 63.5%;
     top: 16.5%;
     width: fit-content;
     height: 44px;
@@ -52,6 +52,7 @@ export const Div = styled.div`
     padding: 9px 0 0;
     flex-wrap: nowrap;
     color: #06c3bd;
+    line-height: 17px;
 
     .crown {
       color: #ffb71c;
@@ -66,6 +67,7 @@ export const Div = styled.div`
     list-style: none;
     padding: 0;
     padding-left: 11px;
+    margin-top: 27px;
   }
 
   .list .lisItems li {
@@ -101,10 +103,10 @@ export const Div = styled.div`
     position: absolute;
     margin-left: 1px;
     width: 127px;
-    height: 28vh;
+    height: 30vh;
     background: #fff;
     border-radius: 15px;
-    box-shadow: 10px 0 69px 0 rgba(0, 0, 0, 0.59);
+    box-shadow: 10px 0 69px 0 rgba(0, 0, 0, 0.29);
   }
 
   .menu.menuClose {

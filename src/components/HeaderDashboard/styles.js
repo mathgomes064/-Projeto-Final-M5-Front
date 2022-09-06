@@ -39,29 +39,17 @@ export const Header = styled.header`
 
     input {
       margin-left: 7px;
-      height: 20px;
+      height: 25px;
       background: #fff;
       border: 2px solid #06c3bd;
-      border-radius: 8px;
+      border-radius: 7px;
       margin-top: -3px;
+      padding-bottom: 2px;
 
       &::placeholder {
         color: #06c3bd;
         padding-left: 10px;
       }
-    }
-
-    button {
-      background: #06c3bd;
-      border: 1px solid #ffffff;
-      border-radius: 5px;
-      color: #ffffff;
-      height: 26px;
-      font-size: 11px;
-      width: 70px;
-      margin-left: 59px;
-      margin-bottom: 20px;
-      margin-top: -3px;
     }
   }
 `;
