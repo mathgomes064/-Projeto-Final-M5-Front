@@ -4,6 +4,7 @@ import { UserContext } from "../../context/User";
 import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 
 import { BodyStyle } from "./style";
+import TransitionsModal from "../../modals/DetailsModal";
 
 const Body = () => {
   const { token } = useContext(UserContext);
@@ -26,7 +27,7 @@ const Body = () => {
                   <p className="serviceName">{service.name}</p>
                   <p className="serviceUserName">{service.user.name}</p>
                   <p className="serviceValue">R$ {service.value},00</p>
-                  <button className="detailsButton">detalhes</button>
+                  <TransitionsModal service={service}></TransitionsModal>
                 </div>
               );
             })}

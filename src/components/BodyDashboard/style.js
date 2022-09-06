@@ -57,21 +57,6 @@ export const BodyStyle = styled.div`
     font-weight: 700;
   }
 
-  .detailsButton {
-    background-color: var(--color-primary);
-    color: var(--white);
-    border: none;
-    border-radius: 3px;
-    width: 85%;
-    height: 8%;
-    font-size: 16px;
-    font-weight: 300;
-  }
-
-  .detailsButton:focus {
-    background-color: var(--color-primary-focus);
-  }
-
   @media (min-width: 770px) {
     .services {
       display: flex;
