@@ -75,3 +75,8 @@ export const Container = styled.div`
     }
   }
 `;
+
+export const ModalButton = styled.li`
+  margin: 2px 0px;
+  cursor: pointer;
+`;
