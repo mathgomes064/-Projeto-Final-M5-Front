@@ -1,9 +1,8 @@
 import { Container } from "./style";
-import image from "../../assets/image.png";
 import logo from "../../assets/logo.png";
-
 import { Link } from "react-router-dom";
 import Form from "../../components/Form";
+import LoginAnimation from "../../components/animations/LoginPage";
 
 const Login = () => {
   return (
@@ -11,7 +10,7 @@ const Login = () => {
       <div className="align">
         <div className="tittleImage">
           <h1>Encontre ou oferte serviços de maneira rápida e eficiente</h1>
-          <img src={image} alt="image" className="image" />
+          <LoginAnimation />
         </div>
         <div className="board">
           <div className="logoForm">
@@ -20,7 +19,6 @@ const Login = () => {
             <h1>Encontre ou oferte serviços de maneira rápida e eficiente</h1>
 
             <Form type="login" />
-
             <p>
               Ainda não possui cadastro? <Link to="/register">Clique aqui</Link>
             </p>

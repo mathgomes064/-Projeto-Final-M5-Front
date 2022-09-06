@@ -1,14 +1,14 @@
-import react from "react";
 import Body from "../../components/BodyDashboard";
 import { Footer } from "../../components/Footer";
+import HeaderDashboard from "../../components/HeaderDashboard/header.index";
 
 const Dashboard = () => {
   return (
     <>
+      <HeaderDashboard />
       <Body />
       <Footer />
     </>
   );
-};
 
 export default Dashboard;
