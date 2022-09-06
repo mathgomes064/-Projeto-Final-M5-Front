@@ -4,7 +4,6 @@ import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 import Form from "../../components/Form";
 import LoginAnimation from "../../components/animations/LoginPage";
-
 const Login = () => {
   return (
     <Container>
