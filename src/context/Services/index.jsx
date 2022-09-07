@@ -12,12 +12,10 @@ const ServicesProvider = ({ children }) => {
 
   const [services, setServices] = useState(null);
 
-  const navigate = useNavigate();
-
   useEffect(() => {
     if (token) {
       api.defaults.headers.authorization = `Bearer ${token}`;
-      api.get("/services?_expand=user").then((res) => setServices(res));
+      api.get("/services?_expand=user").then((res) => setServices(res.data));
     }
   }, [services]);
 

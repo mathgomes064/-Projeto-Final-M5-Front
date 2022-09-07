@@ -1,18 +1,21 @@
-import react from "react";
 import MenuCategory from "../CategoryHeader";
 import Menu from "../MenuHeader/menu.index";
 import { ContainerHeader } from "./styles";
 import { BiSearchAlt2 } from "react-icons/bi";
 import logo from "../../assets/logo 2.png";
+import { useContext } from "react";
+import { UserContext } from "../../context/User";
 
 const HeaderDashboard = () => {
+  const { user } = useContext(UserContext);
+
   return (
     <ContainerHeader>
       <section className="userInfo">
-        <img className="imgUser" src="src/assets/Amongus 3.png" alt="user" />
+        <img className="imgUser" src={user.image} alt="user" />
         <div>
-          <h2>Kenzinho</h2>
-          <p>Desenvolvedor Freelancer</p>
+          <h2>{user.name}</h2>
+          <p>{user.bio}</p>
         </div>
       </section>
       <section className="sectionNavegation">
