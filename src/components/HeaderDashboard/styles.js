@@ -7,18 +7,15 @@ export const Header = styled.header`
   }
   .imgUser {
     width: 55px;
+    height: 55px;
     margin-left: 12px;
-    top: 26px;
     position: absolute;
+    border-radius: 50%;
   }
-
-  .userInfo > .imgUser {
-    width: 55px;
-    margin-left: 10px;
+  .infoUser {
+    padding-top: 20px;
   }
-
   h2 {
-    margin-top: 28px;
     margin-left: 75px;
     font-weight: 600;
     font-family: "Inter";
@@ -83,11 +80,16 @@ export const Header = styled.header`
     }
     .navegation {
       gap: 10px;
-      width: 40%;
+      width: 60%;
       align-items: center;
       .search {
         height: 40px;
       }
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    .navegation {
+      width: 40%;
     }
   }
 `;
