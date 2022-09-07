@@ -65,10 +65,6 @@ export default function HireModal({ service }) {
                     <p>NiceChat</p>
                     <FaCrown className="crown" />
                   </div>
-                  <div className="infos">
-                    <SiGooglecalendar className="icon" />
-                    <p>Calendar</p>
-                  </div>
                 </div>
               </div>
             </HireStyle>

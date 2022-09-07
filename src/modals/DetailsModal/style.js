@@ -25,7 +25,8 @@ export const DetailsStyle = styled.div`
     align-items: center;
     background-color: var(--white);
     border-radius: 10px;
-    height: 50vh;
+    height: fit-content;
+    padding: 0 0 10px 0;
     max-height: 360px;
   }
 

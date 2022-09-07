@@ -58,5 +58,11 @@ export const Form = styled.form`
 
 export const Button = styled.button`
   margin: 2px 0px;
+  background-color: transparent;
+  border: 0;
+  padding: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-primary);
   cursor: pointer;
 `;

@@ -7,7 +7,7 @@ export const FooterStyle = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 150px;
+    bottom: 0;
   }
   div {
     display: flex;
