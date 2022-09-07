@@ -1,55 +1,97 @@
 import styled from "styled-components";
 
-export const Header = styled.header`
-  background: #06c3bd;
+export const ContainerHeader = styled.header`
+  background-color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  .imgUser {
-    width: 55px;
-    margin-left: 12px;
-    top: 26px;
-    position: absolute;
+  .userInfo {
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
   }
 
-  .infoUser {
-    display: flex;
-    flex-direction: column;
+  .userInfo > .imgUser {
+    width: 55px;
+    margin-left: 10px;
+  }
 
-    h2 {
-      margin: 0px;
-      margin-top: 28px;
-      margin-left: 75px;
-      font-weight: 600;
-      font-family: "Inter";
-      font-size: 20px;
-      line-height: 29px;
-      color: #ffffff;
-    }
+  .userInfo > div {
+    margin-left: 10px;
+  }
 
-    p {
-      margin: 0px;
-      margin-left: 75px;
-      margin-bottom: 30px;
-      font-size: 14px;
-      color: #ffffff;
-    }
+  .userInfo > div > h2 {
+    font-weight: 600;
+    font-family: "Inter";
+    font-size: 20px;
+    line-height: 29px;
+    color: var(--white);
+  }
+
+  .userInfo > div > p {
+    font-size: 12px;
+    color: var(--white);
+  }
+
+  .sectionNavegation > img {
+    display: none;
   }
 
   .navegation {
+    width: 320px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
-    input {
-      margin-left: 7px;
-      height: 25px;
-      background: #fff;
-      border: 2px solid #06c3bd;
-      border-radius: 7px;
-      margin-top: -3px;
-      padding-bottom: 2px;
+  .navegation > .divInput {
+    width: 190px;
+    height: 35px;
+    background-color: var(--white);
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 
-      &::placeholder {
-        color: #06c3bd;
-        padding-left: 10px;
-      }
+  .navegation > .divInput > input {
+    outline: 0;
+    height: 35px;
+    width: 80%;
+
+    &::placeholder {
+      color: var(--color-primary);
+    }
+  }
+
+  .glass {
+    color: var(--color-primary);
+  }
+
+  @media screen and (min-width: 700px) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+
+    .userInfo {
+      margin-right: 10px;
+    }
+
+    .sectionNavegation {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .sectionNavegation > img {
+      display: block;
+    }
+
+    .navegation {
+      margin-left: 10px;
     }
   }
 `;
