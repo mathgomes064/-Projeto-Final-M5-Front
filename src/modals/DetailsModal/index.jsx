@@ -6,13 +6,12 @@ import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 
 import { DetailsStyle } from "./style";
-import { useState } from "react";
-import duck from "./duck.png";
+import HireModal from "../HireModal";
 
 const style = {
   position: "absolute",
-  top: "50%",
-  left: "50%",
+  top: "50vh",
+  left: "50vw",
   transform: "translate(-50%, -50%)",
   width: 250,
   boxShadow: 20,
@@ -47,14 +46,14 @@ export default function TransitionsModal({ service }) {
               <div className="serviceModal">
                 <div className="category">{service.category}</div>
                 <div className="otherInfos">
-                  <img src={duck}></img>
+                  <img src={service.user.image}></img>
                   <div className="nameAndValue">
                     <p>{service.user.name}</p>
                     <p>R$ {service.value},00</p>
                   </div>
                 </div>
                 <p className="description">{service.description}</p>
-                <button className="infosModal">Contratar</button>
+                <HireModal service={service}></HireModal>
               </div>
             </DetailsStyle>
           </Box>

@@ -9,7 +9,50 @@ import TransitionsModal from "../../modals/DetailsModal";
 const Body = () => {
   const { token } = useContext(UserContext);
 
-  const [services, setServices] = useState([]);
+  const [services, setServices] = useState([
+    {
+      name: "Transporte",
+      category: "Construção civil",
+      description: "adsaadsdasdas",
+      value: 10,
+      status: false,
+      userId: 1,
+      id: 1,
+      user: {
+        email: "matheus@mail.com",
+        password:
+          "$2a$10$TMn/xsO7A/NkDGCZRuxZPeuupWo/DEx/8Qm3N9iJVL2tMo9vxL6Gu",
+        name: "Matheus Gomes",
+        contact: "92940028922",
+        bio: "Graduando em Economia",
+        type: "Solicitar Serviço",
+        id: 1,
+        image: null,
+        premium: false,
+      },
+    },
+    {
+      name: "Transporte",
+      category: "Frete",
+      description: "adsaadsdasdas",
+      value: 100,
+      status: false,
+      userId: 1,
+      id: 2,
+      user: {
+        email: "matheus@mail.com",
+        password:
+          "$2a$10$TMn/xsO7A/NkDGCZRuxZPeuupWo/DEx/8Qm3N9iJVL2tMo9vxL6Gu",
+        name: "Matheus Gomes",
+        contact: "92940028922",
+        bio: "Graduando em Economia",
+        type: "Solicitar Serviço",
+        id: 1,
+        image: null,
+        premium: false,
+      },
+    },
+  ]);
 
   return (
     <BodyStyle>
