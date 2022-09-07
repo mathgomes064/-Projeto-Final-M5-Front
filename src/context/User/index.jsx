@@ -8,7 +8,6 @@ export const UserContext = createContext({});
 const UserProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("@Nice-jobs:token"));
   const [user, setUser] = useState({});
-  console.log(user);
 
   const navigate = useNavigate();
 
