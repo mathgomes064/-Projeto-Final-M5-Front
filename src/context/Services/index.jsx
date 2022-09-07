@@ -1,6 +1,4 @@
 import { createContext, useContext, useEffect } from "react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import api from "../../services/api";
 import { UserContext } from "../User";
@@ -8,9 +6,7 @@ import { UserContext } from "../User";
 export const ServicesContext = createContext({});
 
 const ServicesProvider = ({ children }) => {
-  const { token } = useContext(UserContext);
-
-  const [services, setServices] = useState(null);
+  const { token, services, setServices } = useContext(UserContext);
 
   useEffect(() => {
     if (token) {

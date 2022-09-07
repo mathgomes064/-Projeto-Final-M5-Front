@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useContext, useState } from "react";
 import * as yup from "yup";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
@@ -9,6 +9,7 @@ import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { ServicesContext } from "../../context/Services";
 
 const style = {
   position: "absolute",
@@ -18,7 +19,7 @@ const style = {
 };
 
 const AddServiceModal = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
@@ -34,6 +35,14 @@ const AddServiceModal = () => {
   } = useForm({
     resolver: yupResolver(schema),
   });
+
+  const { createService } = useContext(ServicesContext);
+
+  const handleAdd = (data) => {
+    const userId = localStorage.getItem("@Nice-jobs:id");
+
+    createService(data, userId);
+  };
 
   return (
     <div>
@@ -55,7 +64,7 @@ const AddServiceModal = () => {
                 <button onClick={handleClose}>X</button>
               </div>
               <div className="body">
-                <form onSubmit={handleSubmit()}>
+                <form onSubmit={handleSubmit(handleAdd)}>
                   <Input
                     label="Nome do serviço"
                     placeholder="Frete"

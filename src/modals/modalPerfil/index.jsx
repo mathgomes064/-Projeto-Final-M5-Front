@@ -1,9 +1,9 @@
-import * as React from "react";
-import * as yup from "yup";
+import { useContext, useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import { Container, Form, Button } from "./styles";
 import { useForm } from "react-hook-form";
+import { UserContext } from "../../context/User";
 
 const style = {
   position: "absolute",
@@ -19,15 +19,34 @@ const style = {
 };
 
 export default function ModalPerfil() {
-  const [open, setOpen] = React.useState(false);
+  const { editUser } = useContext(UserContext);
+
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
+
+  const handleEdit = ({ name, contact, bio, image }) => {
+    const userId = localStorage.getItem("@Nice-jobs:id");
+
+    let data = {};
+
+    if (name) {
+      data = { ...data, name };
+    }
+    if (contact) {
+      data = { ...data, contact };
+    }
+    if (bio) {
+      data = { ...data, bio };
+    }
+    if (image) {
+      data = { ...data, image };
+    }
+
+    editUser(data, userId);
+  };
 
   return (
     <div>
@@ -45,12 +64,12 @@ export default function ModalPerfil() {
               <p onClick={handleClose}>X</p>
             </div>
             <div>
-              <Form onSubmit={handleSubmit()}>
+              <Form onSubmit={handleSubmit(handleEdit)}>
                 <label>Nome</label>
                 <input
                   type="text"
                   placeholder="Insira seu novo nome"
-                  {...register("nome")}
+                  {...register("name")}
                 />
                 <label>Contato</label>
                 <input
@@ -68,7 +87,7 @@ export default function ModalPerfil() {
                 <input
                   type="url"
                   placeholder="Insira sua nova imagem"
-                  {...register("img")}
+                  {...register("image")}
                 />
                 <button type="submit">Salvar</button>
               </Form>

@@ -8,6 +8,7 @@ export const UserContext = createContext({});
 const UserProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("@Nice-jobs:token"));
   const [user, setUser] = useState({});
+  const [services, setServices] = useState(null);
 
   const navigate = useNavigate();
 
@@ -17,6 +18,9 @@ const UserProvider = ({ children }) => {
 
   useEffect(() => {
     api.defaults.headers.authorization = `Bearer ${token}`;
+
+    api.get("/services?_expand=user").then((res) => setServices(res.data));
+
     const userId = localStorage.getItem("@Nice-jobs:id");
 
     if (userId) {
@@ -63,7 +67,7 @@ const UserProvider = ({ children }) => {
   };
 
   const register = ({ email, name, password, contact, bio, type }) => {
-    const formattedData = {
+    const data = {
       email,
       name,
       password,
@@ -76,7 +80,7 @@ const UserProvider = ({ children }) => {
     };
 
     api
-      .post("/register", formattedData)
+      .post("/register", data)
       .then(() => {
         navigate("/", { replace: true });
         toast.success("Usuário cadastrado com sucesso!", {
@@ -112,7 +116,7 @@ const UserProvider = ({ children }) => {
   // }
   // };
 
-  const editUser = (id, data) => {
+  const editUser = (data, id) => {
     if (token) {
       api.defaults.headers.authorization = `Bearer ${token}`;
 
@@ -181,7 +185,16 @@ const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ token, user, login, register, editUser, deleteUser }}
+      value={{
+        token,
+        user,
+        login,
+        register,
+        editUser,
+        deleteUser,
+        setServices,
+        services,
+      }}
     >
       {children}
     </UserContext.Provider>
