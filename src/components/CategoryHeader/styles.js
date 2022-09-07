@@ -8,9 +8,10 @@ export const Button = styled.button`
   height: 26px;
   font-size: 11px;
   width: 70px;
-  margin-left: 59px;
-  margin-bottom: 20px;
-  margin-top: -3px;
+
+  @media screen and (min-width: 768px) {
+    height: 40px;
+  }
 `;
 
 export const P = styled.p`

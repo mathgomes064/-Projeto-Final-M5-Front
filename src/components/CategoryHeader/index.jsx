@@ -1,6 +1,6 @@
 import * as React from "react";
 import { styled, alpha } from "@mui/material/styles";
-import { Button, P } from "./styles";
+import { Button } from "./styles";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 
@@ -19,13 +19,10 @@ const StyledMenu = styled((props) => (
   />
 ))(({ theme }) => ({
   "& .MuiPaper-root": {
-    borderRadius: 15,
+    borderRadius: 6,
     marginTop: theme.spacing(1),
     minWidth: 180,
-    color:
-      theme.palette.mode === "light"
-        ? "var(--color-primary)"
-        : theme.palette.grey[300],
+    color: theme.palette.mode === "light" ? "#06c3bd" : theme.palette.grey[300],
     boxShadow:
       "rgb(255, 255, 255) 0px 0px 0px 0px, rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px",
     "& .MuiMenu-list": {
@@ -47,7 +44,7 @@ const StyledMenu = styled((props) => (
   },
 }));
 
-export default function CustomizedMenus() {
+export default function MenuCategory() {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -79,7 +76,6 @@ export default function CustomizedMenus() {
         open={open}
         onClose={handleClose}
       >
-        <P onClick={handleClose}>X</P>
         <MenuItem>Construção Civil</MenuItem>
         <MenuItem>Manutenção de Eletronicos</MenuItem>
         <MenuItem>Frete</MenuItem>
