@@ -39,7 +39,7 @@ const Menu = () => {
             <li>
               <ModalPremium />
             </li>
-            <li onClick={() => navigate("/userprofile")}>Meus Serviços</li>
+            <li>Meus Serviços</li>
             <li onClick={Logout}>Sair</li>
           </ul>
         </menu>

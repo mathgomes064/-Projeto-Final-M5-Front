@@ -12,7 +12,6 @@ const HeaderDashboard = () => {
   return (
     <Header>
       <section className="infoUser">
-        {" "}
         <img className="imgUser" src={user.image} alt="foto do usuario" />
         <h2>{user.name}</h2>
         <p>{user.bio}</p>

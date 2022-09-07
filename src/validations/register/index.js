@@ -26,10 +26,7 @@ const schema = yup.object().shape({
     .required("Número para contato obrigatório")
     .min(11, "O número para contato deve ter 11 digitos")
     .matches(/(?=.*?[0-9])/, "Digite seu contato em números apenas"),
-  bio: yup
-    .string()
-    .required("Biografia obrigatória")
-    .min(20, "Sua bio deve conter no mínimo 20 caracteres"),
+  bio: yup.string().required("Biografia obrigatória"),
 });
 
 export default schema;

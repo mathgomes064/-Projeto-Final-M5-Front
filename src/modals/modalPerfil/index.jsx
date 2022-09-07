@@ -73,7 +73,7 @@ export default function ModalPerfil() {
                 />
                 <label>Contato</label>
                 <input
-                  type="text"
+                  type="number"
                   placeholder="Insira seu novo contato"
                   {...register("contact")}
                 />
