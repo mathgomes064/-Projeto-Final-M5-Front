@@ -59,7 +59,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Button = styled.li`
+export const Button = styled.button`
   margin: 2px 0px;
   cursor: pointer;
 `;

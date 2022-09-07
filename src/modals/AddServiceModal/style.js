@@ -76,7 +76,7 @@ export const Container = styled.div`
   }
 `;
 
-export const ModalButton = styled.li`
+export const ModalButton = styled.button`
   margin: 2px 0px;
   cursor: pointer;
 `;

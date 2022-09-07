@@ -1,5 +1,4 @@
-import { createContext } from "react";
-import { useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import api from "../../services/api";
@@ -7,20 +6,36 @@ import api from "../../services/api";
 export const UserContext = createContext({});
 
 const UserProvider = ({ children }) => {
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(localStorage.getItem("@Nice-jobs:token"));
   const [user, setUser] = useState({});
 
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (token) navigate("/dashboard", { replace: true });
+  }, [token]);
+
+  useEffect(() => {
+    api.defaults.headers.authorization = `Bearer ${token}`;
+    const userId = localStorage.getItem("@Nice-jobs:id");
+
+    if (userId) {
+      api.get(`/users/${userId}`).then((res) => setUser(res.data));
+    }
+  }, [token]);
 
   const login = (data) => {
     api
       .post("/login", data)
       .then(({ data }) => {
+        localStorage.setItem("@Nice-jobs:token", data.accessToken);
+        localStorage.setItem("@Nice-jobs:id", data.user.id);
+
         setToken(data.accessToken);
 
         setUser(data.user);
 
-        navigate("/dashboard");
+        navigate("/dashboard", { replace: true });
 
         toast.success("Usuário logado com sucesso!", {
           position: "top-right",
@@ -48,12 +63,22 @@ const UserProvider = ({ children }) => {
   };
 
   const register = ({ email, name, password, contact, bio, type }) => {
-    const formattedData = { email, name, password, contact, bio, type };
+    const formattedData = {
+      email,
+      name,
+      password,
+      contact,
+      bio,
+      type,
+      premium: false,
+      image:
+        "https://imgs.search.brave.com/KbRNVWFimWUnThr3tB08-RFa0i7K1uc-zlK6KQedwUU/rs:fit:860:752:1/g:ce/aHR0cHM6Ly93d3cu/a2luZHBuZy5jb20v/cGljYy9tLzI0LTI0/ODI1M191c2VyLXBy/b2ZpbGUtZGVmYXVs/dC1pbWFnZS1wbmct/Y2xpcGFydC1wbmct/ZG93bmxvYWQucG5n",
+    };
 
     api
       .post("/register", formattedData)
       .then(() => {
-        navigate("/");
+        navigate("/", { replace: true });
         toast.success("Usuário cadastrado com sucesso!", {
           position: "top-right",
           autoClose: 2000,

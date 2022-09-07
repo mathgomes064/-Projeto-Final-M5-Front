@@ -1,18 +1,22 @@
-import { createContext, useEffect } from "react";
+import { createContext, useContext, useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import api from "../../services/api";
+import { UserContext } from "../User";
 
 export const ServicesContext = createContext({});
 
 const ServicesProvider = ({ children }) => {
+  const { token } = useContext(UserContext);
+
   const [services, setServices] = useState(null);
 
-  const navigate = useNavigate();
-
   useEffect(() => {
-    api.get("/services?_expand=user").then((res) => setServices(res));
+    if (token) {
+      api.defaults.headers.authorization = `Bearer ${token}`;
+      api.get("/services?_expand=user").then((res) => setServices(res.data));
+    }
   }, [services]);
 
   //   api.get("/services).then((res) => setServices(res));

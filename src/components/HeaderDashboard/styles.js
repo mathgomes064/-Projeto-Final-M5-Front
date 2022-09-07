@@ -1,5 +1,6 @@
 import styled from "styled-components";
 
+<<<<<<< HEAD
 export const Header = styled.header`
   background: #06c3bd;
   .whiteLogo {
@@ -10,12 +11,28 @@ export const Header = styled.header`
     margin-left: 12px;
     top: 26px;
     position: absolute;
+=======
+export const ContainerHeader = styled.header`
+  background-color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .userInfo {
+    height: 80px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+>>>>>>> 295f3f8f722cd197c271d17228c41ae663816f5c
   }
 
-  .infoUser {
-    display: flex;
-    flex-direction: column;
+  .userInfo > .imgUser {
+    width: 55px;
+    margin-left: 10px;
+  }
 
+<<<<<<< HEAD
     h2 {
       margin-top: 28px;
       margin-left: 75px;
@@ -32,10 +49,33 @@ export const Header = styled.header`
       font-size: 14px;
       color: #ffffff;
     }
+=======
+  .userInfo > div {
+    margin-left: 10px;
+  }
+
+  .userInfo > div > h2 {
+    font-weight: 600;
+    font-family: "Inter";
+    font-size: 20px;
+    line-height: 29px;
+    color: var(--white);
+  }
+
+  .userInfo > div > p {
+    font-size: 12px;
+    color: var(--white);
+  }
+
+  .sectionNavegation > img {
+    display: none;
+>>>>>>> 295f3f8f722cd197c271d17228c41ae663816f5c
   }
 
   .navegation {
+    width: 320px;
     display: flex;
+<<<<<<< HEAD
     justify-content: space-around;
     width: 320px;
     .search {
@@ -85,6 +125,57 @@ export const Header = styled.header`
       .search {
         height: 40px;
       }
+=======
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .navegation > .divInput {
+    width: 190px;
+    height: 35px;
+    background-color: var(--white);
+    border-radius: 7px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .navegation > .divInput > input {
+    outline: 0;
+    height: 35px;
+    width: 80%;
+
+    &::placeholder {
+      color: var(--color-primary);
+    }
+  }
+
+  .glass {
+    color: var(--color-primary);
+  }
+
+  @media screen and (min-width: 700px) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+
+    .userInfo {
+      margin-right: 10px;
+    }
+
+    .sectionNavegation {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .sectionNavegation > img {
+      display: block;
+    }
+
+    .navegation {
+      margin-left: 10px;
+>>>>>>> 295f3f8f722cd197c271d17228c41ae663816f5c
     }
   }
 `;

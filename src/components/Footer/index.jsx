@@ -13,16 +13,28 @@ export const Footer = () => {
         <div className="blueLine"></div>
         <div>
           <div>
-            <a href="https://github.com/1-grupo-vilson-projeto-front-end/projeto-front-end">
+            <a
+              href="https://github.com/1-grupo-vilson-projeto-front-end/projeto-front-end"
+              target="_blank"
+            >
               <FaInstagram className="links" />
             </a>
-            <a href="https://github.com/1-grupo-vilson-projeto-front-end/projeto-front-end">
+            <a
+              href="https://github.com/1-grupo-vilson-projeto-front-end/projeto-front-end"
+              target="_blank"
+            >
               <BsFacebook className="links" />
             </a>
-            <a href="https://github.com/1-grupo-vilson-projeto-front-end/projeto-front-end">
+            <a
+              href="https://github.com/1-grupo-vilson-projeto-front-end/projeto-front-end"
+              target="_blank"
+            >
               <BsGithub className="links" />
             </a>
-            <a href="https://github.com/1-grupo-vilson-projeto-front-end/projeto-front-end">
+            <a
+              href="https://github.com/1-grupo-vilson-projeto-front-end/projeto-front-end"
+              target="_blank"
+            >
               <AiOutlineLinkedin className="links" />
             </a>
           </div>
