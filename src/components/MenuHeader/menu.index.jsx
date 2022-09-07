@@ -4,7 +4,7 @@ import { Div } from "./styles";
 import ModalPerfil from "../../modals/modalPerfil";
 import AddServiceModal from "../../modals/AddServiceModal";
 import ModalPremium from "../../modals/modalPremium";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Menu = () => {
   const [activeMenu, setActiveMenu] = useState(false);
@@ -39,7 +39,7 @@ const Menu = () => {
             <li>
               <ModalPremium />
             </li>
-            <li>Meus Serviços</li>
+            <li onClick={() => navigate("/userprofile")}>Meus Serviços</li>
             <li onClick={Logout}>Sair</li>
           </ul>
         </menu>
