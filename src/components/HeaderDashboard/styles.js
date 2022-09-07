@@ -2,7 +2,9 @@ import styled from "styled-components";
 
 export const Header = styled.header`
   background: #06c3bd;
-
+  .whiteLogo {
+    display: none;
+  }
   .imgUser {
     width: 55px;
     margin-left: 12px;
@@ -15,7 +17,6 @@ export const Header = styled.header`
     flex-direction: column;
 
     h2 {
-      margin: 0px;
       margin-top: 28px;
       margin-left: 75px;
       font-weight: 600;
@@ -26,7 +27,6 @@ export const Header = styled.header`
     }
 
     p {
-      margin: 0px;
       margin-left: 75px;
       margin-bottom: 30px;
       font-size: 14px;
@@ -36,19 +36,54 @@ export const Header = styled.header`
 
   .navegation {
     display: flex;
+    justify-content: space-around;
+    width: 320px;
+    .search {
+      display: flex;
+      width: 190px;
+      height: 28px;
+      background-color: #ffffff;
+      border-radius: 10px;
+      margin-left: 12px;
 
-    input {
-      margin-left: 7px;
-      height: 25px;
-      background: #fff;
-      border: 2px solid #06c3bd;
-      border-radius: 7px;
-      margin-top: -3px;
-      padding-bottom: 2px;
-
-      &::placeholder {
+      input {
+        background-color: transparent;
+        padding: 0 10px;
+        width: 90%;
+      }
+      button {
+        background-color: transparent;
+        border: 0;
+        cursor: pointer;
+      }
+      .searchIcon {
         color: #06c3bd;
-        padding-left: 10px;
+        margin: 5px;
+      }
+    }
+  }
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    .whiteLogo {
+      display: block;
+      width: 120px;
+      height: 90px;
+    }
+    .infoUser {
+      margin-right: 2%;
+    }
+    .navegationDiv {
+      width: 70%;
+      margin-left: 2%;
+    }
+    .navegation {
+      gap: 10px;
+      width: 40%;
+      align-items: center;
+      .search {
+        height: 40px;
       }
     }
   }

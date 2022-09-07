@@ -2,12 +2,12 @@ import styled from "styled-components";
 
 export const Div = styled.div`
   .icon {
-    position: absolute;
-    z-index: 4;
-    left: 63.5%;
-    top: 16.5%;
     width: fit-content;
     height: 44px;
+    position: relative;
+    padding: 10px;
+    top: -15%;
+    margin-left: 10px;
   }
 
   .hamburguer {
@@ -47,9 +47,10 @@ export const Div = styled.div`
   }
 
   .list {
+    width: 160px;
     display: flex;
     flex-direction: column;
-    padding: 9px 0 0;
+    padding: 9px 0;
     flex-wrap: nowrap;
     color: #06c3bd;
     line-height: 17px;
@@ -67,15 +68,11 @@ export const Div = styled.div`
     list-style: none;
     padding: 0;
     padding-left: 11px;
-    margin-top: 27px;
   }
 
-  .list .lisItems li {
-    margin: 2px 8px;
-
-    &:hover {
-      font-weight: 800px;
-    }
+  li {
+    margin: 10px 0;
+    font-weight: 600;
   }
 
   .icon.iconActive .hamburguer {
@@ -105,11 +102,26 @@ export const Div = styled.div`
     width: 127px;
     height: 30vh;
     background: #fff;
+    width: 160px;
     border-radius: 15px;
     box-shadow: 10px 0 69px 0 rgba(0, 0, 0, 0.29);
   }
 
   .menu.menuClose {
     display: none;
+  }
+  @media screen and (min-width: 768px) {
+    ul {
+      padding: 0;
+      padding-left: 11px;
+    }
+
+    li {
+      margin: 20px 0;
+      font-weight: 600;
+    }
+    .menu.menuOpen {
+      height: fit-content;
+    }
   }
 `;
