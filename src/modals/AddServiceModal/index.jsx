@@ -43,6 +43,9 @@ const AddServiceModal = () => {
 
     createService(data, userId);
     handleClose();
+    setTimeout(() => {
+      location.reload();
+    }, 500);
   };
 
   return (
