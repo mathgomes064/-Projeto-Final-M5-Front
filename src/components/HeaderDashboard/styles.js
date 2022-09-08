@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Header = styled.header`
   background: #06c3bd;
+
   .whiteLogo {
     display: none;
   }
@@ -38,6 +39,7 @@ export const Header = styled.header`
     width: 320px;
     .search {
       display: flex;
+      align-items: center;
       width: 190px;
       height: 28px;
       background-color: #ffffff;
@@ -49,11 +51,6 @@ export const Header = styled.header`
         padding: 0 10px;
         width: 90%;
       }
-      button {
-        background-color: transparent;
-        border: 0;
-        cursor: pointer;
-      }
       .searchIcon {
         color: #06c3bd;
         margin: 5px;
@@ -61,7 +58,7 @@ export const Header = styled.header`
     }
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 829px) {
     display: flex;
     justify-content: space-between;
     flex-direction: row-reverse;
@@ -84,12 +81,8 @@ export const Header = styled.header`
       align-items: center;
       .search {
         height: 40px;
+        width: 40%;
       }
-    }
-  }
-  @media screen and (min-width: 1024px) {
-    .navegation {
-      width: 40%;
     }
   }
 `;

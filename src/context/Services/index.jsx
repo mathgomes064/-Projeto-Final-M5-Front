@@ -6,7 +6,13 @@ import { UserContext } from "../User";
 export const ServicesContext = createContext({});
 
 const ServicesProvider = ({ children }) => {
-  const { token, services, setServices } = useContext(UserContext);
+  const {
+    token,
+    services,
+    setServices,
+    setFilteredServices,
+    filteredServices,
+  } = useContext(UserContext);
 
   useEffect(() => {
     if (token) {
@@ -109,9 +115,51 @@ const ServicesProvider = ({ children }) => {
       );
   };
 
+  const filterCategory = (filterType) => {
+    if (filterType === "Todos") {
+      setFilteredServices(services);
+    } else {
+      setFilteredServices(
+        services.filter(({ category }) => category === filterType)
+      );
+    }
+  };
+
+  const filterSearchField = (searchField) => {
+    if (searchField !== "".trim()) {
+      setFilteredServices(
+        services.filter(
+          ({ category, name, user }) =>
+            category
+              .toLocaleLowerCase()
+              .trim()
+              .includes(searchField.toLocaleLowerCase().trim()) ||
+            name
+              .toLocaleLowerCase()
+              .trim()
+              .includes(searchField.toLocaleLowerCase().trim()) ||
+            user.name
+              .toLocaleLowerCase()
+              .trim()
+              .includes(searchField.toLocaleLowerCase().trim())
+        )
+      );
+    } else {
+      setFilteredServices(services);
+    }
+  };
+
   return (
     <ServicesContext.Provider
-      value={{ services, createService, editService, deleteService }}
+      value={{
+        services,
+        createService,
+        editService,
+        deleteService,
+        filterCategory,
+        filteredServices,
+        filterSearchField,
+      }}
     >
       {children}
     </ServicesContext.Provider>

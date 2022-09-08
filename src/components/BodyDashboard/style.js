@@ -17,6 +17,16 @@ export const BodyStyle = styled.div`
     display: flex;
     height: 350px;
     overflow: auto;
+    max-width: 870px;
+
+    ::-webkit-scrollbar {
+      width: 12px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      border-radius: 20px;
+      background-color: var(--color-primary);
+    }
   }
 
   .serviceCard {

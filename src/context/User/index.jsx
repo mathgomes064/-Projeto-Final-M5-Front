@@ -9,6 +9,8 @@ const UserProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("@Nice-jobs:token"));
   const [user, setUser] = useState({});
   const [services, setServices] = useState(null);
+  const [filteredServices, setFilteredServices] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
 
@@ -19,12 +21,18 @@ const UserProvider = ({ children }) => {
   useEffect(() => {
     api.defaults.headers.authorization = `Bearer ${token}`;
 
-    api.get("/services?_expand=user").then((res) => setServices(res.data));
+    api.get("/services?_expand=user").then((res) => {
+      setServices(res.data);
+      setFilteredServices(res.data);
+    });
 
     const userId = localStorage.getItem("@Nice-jobs:id");
 
     if (userId) {
-      api.get(`/users/${userId}`).then((res) => setUser(res.data));
+      api
+        .get(`/users/${userId}`)
+        .then((res) => setUser(res.data))
+        .finally(() => setLoading(false));
     }
   }, [token]);
 
@@ -194,6 +202,9 @@ const UserProvider = ({ children }) => {
         deleteUser,
         setServices,
         services,
+        filteredServices,
+        setFilteredServices,
+        loading,
       }}
     >
       {children}

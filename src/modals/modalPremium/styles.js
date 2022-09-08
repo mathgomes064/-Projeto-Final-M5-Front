@@ -48,6 +48,7 @@ export const Container = styled.div`
     border-radius: 6px;
     background: var(--premium-detail);
     color: var(--white);
+    cursor: pointer;
   }
 
   .pClose {
@@ -56,6 +57,7 @@ export const Container = styled.div`
     padding-bottom: 8px;
     font-size: 22px;
     color: var(--premium-detail);
+    cursor: pointer;
   }
 `;
 

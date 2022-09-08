@@ -8,8 +8,9 @@ export const Button = styled.button`
   height: 26px;
   font-size: 11px;
   width: 70px;
+  cursor: pointer;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 829px) {
     height: 40px;
   }
 `;

@@ -35,6 +35,9 @@ time, mark, audio, video, input, select, option {
 	font-family: 'Inter', sans-serif;
 	vertical-align: baseline;
 }
+button {
+	outline: none;
+}
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;

@@ -4,9 +4,10 @@ import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 
 import { BodyStyle } from "./style";
 import TransitionsModal from "../../modals/DetailsModal";
+import EmptyServices from "../EmptyServices";
 
 const BodyDashboard = () => {
-  const { services } = useContext(ServicesContext);
+  const { filteredServices } = useContext(ServicesContext);
 
   return (
     <BodyStyle>
@@ -17,17 +18,31 @@ const BodyDashboard = () => {
         </button>
 
         <div className="servicesContainer">
-          {services?.map((service) => {
-            return (
-              <div key={service.id} className="serviceCard">
-                <img src={service.user.image} className="serviceImage"></img>
-                <p className="serviceName">{service.name}</p>
-                <p className="serviceUserName">{service.user.name}</p>
-                <p className="serviceValue">R$ {service.value},00</p>
-                <TransitionsModal service={service}></TransitionsModal>
-              </div>
-            );
-          })}
+          {filteredServices ? (
+            filteredServices.length > 0 ? (
+              filteredServices.map((service) => {
+                return (
+                  <div
+                    key={`${service.id} & ${service.user.id}`}
+                    className="serviceCard"
+                  >
+                    <img
+                      src={service.user.image}
+                      className="serviceImage"
+                    ></img>
+                    <p className="serviceName">{service.name}</p>
+                    <p className="serviceUserName">{service.user.name}</p>
+                    <p className="serviceValue">R$ {service.value},00</p>
+                    <TransitionsModal service={service}></TransitionsModal>
+                  </div>
+                );
+              })
+            ) : (
+              <EmptyServices />
+            )
+          ) : (
+            <EmptyServices />
+          )}
         </div>
 
         <button className="nextButton">

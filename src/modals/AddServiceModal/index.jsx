@@ -42,6 +42,7 @@ const AddServiceModal = () => {
     const userId = localStorage.getItem("@Nice-jobs:id");
 
     createService(data, userId);
+    handleClose();
   };
 
   return (
@@ -90,10 +91,13 @@ const AddServiceModal = () => {
                       label="Categoria"
                       title="select"
                       id="select"
-                      {...register("type")}
+                      {...register("category")}
                     >
-                      <option value="Frete">Frete</option>
                       <option value="Construção Civil">Construção Civil</option>
+                      <option value="Manutenção de Eletronicos">
+                        Manutenção de Eletronicos
+                      </option>
+                      <option value="Frete">Frete</option>
                       <option value="Serviços Domésticos">
                         Serviços Domésticos
                       </option>

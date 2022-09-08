@@ -1,8 +1,9 @@
-import * as React from "react";
+import { useState, useContext } from "react";
 import { styled, alpha } from "@mui/material/styles";
 import { Button } from "./styles";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { ServicesContext } from "../../context/Services";
 
 const StyledMenu = styled((props) => (
   <Menu
@@ -45,7 +46,7 @@ const StyledMenu = styled((props) => (
 }));
 
 export default function MenuCategory() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -53,6 +54,8 @@ export default function MenuCategory() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const { filterCategory } = useContext(ServicesContext);
 
   return (
     <div>
@@ -76,11 +79,48 @@ export default function MenuCategory() {
         open={open}
         onClose={handleClose}
       >
-        <MenuItem>Construção Civil</MenuItem>
-        <MenuItem>Manutenção de Eletronicos</MenuItem>
-        <MenuItem>Frete</MenuItem>
-        <MenuItem>Serviços Domésticos</MenuItem>
-        <MenuItem>Outros</MenuItem>
+        <MenuItem
+          onClick={() => {
+            filterCategory("Todos");
+          }}
+        >
+          Todos
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            filterCategory("Construção civil");
+          }}
+        >
+          Construção Civil
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            filterCategory("Manutenção de Eletronicos");
+          }}
+        >
+          Manutenção de Eletronicos
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            filterCategory("Frete");
+          }}
+        >
+          Frete
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            filterCategory("Serviços Domésticos");
+          }}
+        >
+          Serviços Domésticos
+        </MenuItem>
+        <MenuItem
+          onClick={() => {
+            filterCategory("Outros");
+          }}
+        >
+          Outros
+        </MenuItem>
       </StyledMenu>
     </div>
   );

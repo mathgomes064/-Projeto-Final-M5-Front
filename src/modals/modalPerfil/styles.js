@@ -17,9 +17,10 @@ export const Container = styled.div`
 
   p {
     padding-left: 276px;
-    margin-top: -38px;
+    margin-top: -22px;
     font-size: 21px;
     color: var(--white);
+    cursor: pointer;
   }
 `;
 
@@ -53,6 +54,7 @@ export const Form = styled.form`
     background: var(--color-primary);
     color: var(--white);
     border: none;
+    cursor: pointer;
   }
 `;
 

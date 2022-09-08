@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const Div = styled.div`
+  cursor: pointer;
+  z-index: 1;
+
   .icon {
     width: fit-content;
     height: 44px;
@@ -67,12 +70,15 @@ export const Div = styled.div`
   ul {
     list-style: none;
     padding: 0;
-    padding-left: 11px;
   }
 
   li {
     margin: 10px 0;
     font-weight: 600;
+    padding: 7px 0 7px 10px;
+    :hover {
+      background-color: var(--grey-3);
+    }
   }
 
   .icon.iconActive .hamburguer {
@@ -100,7 +106,6 @@ export const Div = styled.div`
     position: absolute;
     margin-left: 1px;
     width: 127px;
-    height: 30vh;
     background: #fff;
     width: 160px;
     border-radius: 15px;
@@ -113,7 +118,6 @@ export const Div = styled.div`
   @media screen and (min-width: 768px) {
     ul {
       padding: 0;
-      padding-left: 11px;
     }
 
     li {

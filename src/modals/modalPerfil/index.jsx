@@ -4,6 +4,8 @@ import Modal from "@mui/material/Modal";
 import { Container, Form, Button } from "./styles";
 import { useForm } from "react-hook-form";
 import { UserContext } from "../../context/User";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const style = {
   position: "absolute",
@@ -46,6 +48,10 @@ export default function ModalPerfil() {
     }
 
     editUser(data, userId);
+    handleClose();
+    setTimeout(() => {
+      location.reload();
+    }, 500);
   };
 
   return (
