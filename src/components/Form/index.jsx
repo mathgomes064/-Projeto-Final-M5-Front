@@ -4,7 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 
 import { UserContext } from "../../context/User";
 import schemaLogin from "../../validations/login";
-import schemaRegister from "../../validations/Register";
+import schemaRegister from "../../validations/register";
 
 import Input from "../Input";
 import InputPassword from "../InputPassword";
