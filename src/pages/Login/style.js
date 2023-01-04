@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.section`
   width: 100vw;
   height: 100vh;
-  background-color: var(--background-color);
+  background-image: linear-gradient(to bottom right, #0281aa, #001740);
   display: flex;
   align-items: center;
   padding: 0 15px;
@@ -23,7 +23,7 @@ export const Container = styled.section`
       display: flex;
       justify-content: center;
       align-items: center;
-      padding: 20px 10px;
+      padding: 5px 10px 20px 10px;
       width: 100%;
 
       .logoForm {
@@ -98,8 +98,10 @@ export const Container = styled.section`
         border-bottom-left-radius: 0;
 
         .logoForm {
+
           img {
-            width: 413px;
+            width: 241px;
+            margin-bottom: 20px;
           }
 
           h1 {

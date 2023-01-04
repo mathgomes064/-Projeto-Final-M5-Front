@@ -11,7 +11,7 @@ export const Container = styled.div`
   .registerForm {
     border-radius: 15px;
     width: 100%;
-    padding: 20px 15px;
+    padding: 0px 15px 20px 15px;
     background-color: var(--white);
     margin: 0 auto;
     max-width: 1170px;
@@ -35,7 +35,7 @@ export const Container = styled.div`
     }
 
     img {
-      width: 70%;
+      width: 60%;
     }
 
     form {
@@ -80,6 +80,7 @@ export const Container = styled.div`
 
       img {
         width: 20%;
+        margin-bottom: 20px;
       }
     }
 
