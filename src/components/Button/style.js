@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+display: flex;
+justify-content: center;
+
   .button {
     background-color: var(--color-primary);
     color: var(--white);
