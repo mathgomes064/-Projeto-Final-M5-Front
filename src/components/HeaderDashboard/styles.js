@@ -2,41 +2,40 @@ import styled from "styled-components";
 
 export const Header = styled.header`
   background: #06c3bd;
+  height: 40px;
 
   .whiteLogo {
     display: none;
+    width: 90%;
+    height: 90%;
   }
   .imgUser {
-    width: 55px;
-    height: 55px;
-    margin-left: 12px;
-    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
+    margin: auto;
   }
   .infoUser {
-    padding-top: 20px;
-  }
-  h2 {
-    margin-left: 75px;
-    font-weight: 600;
-    font-family: "Inter";
-    font-size: 20px;
-    line-height: 29px;
-    color: #ffffff;
-  }
-
-  p {
-    margin-left: 75px;
-    margin-bottom: 30px;
-    font-size: 14px;
-    color: #ffffff;
-  }
-
-  .navegation {
-    width: 320px;
     display: flex;
-    justify-content: space-around;
-    width: 320px;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    width: 400px;
+
+    input {
+      background-color: transparent;
+      padding: 0 10px;
+      width: 90%;
+      :focus {
+        outline: none;
+      }
+    }
+    .searchIcon {
+      color: #06c3bd;
+      margin: 5px;
+    }
+
     .search {
       display: flex;
       align-items: center;
@@ -45,16 +44,14 @@ export const Header = styled.header`
       background-color: #ffffff;
       border-radius: 10px;
       margin-left: 12px;
-
-      input {
-        background-color: transparent;
-        padding: 0 10px;
-        width: 90%;
-      }
-      .searchIcon {
-        color: #06c3bd;
-        margin: 5px;
-      }
+    }
+    h2 {
+      margin-left: 75px;
+      font-weight: 600;
+      font-family: "Inter";
+      font-size: 20px;
+      line-height: 29px;
+      color: #ffffff;
     }
   }
 
@@ -65,13 +62,15 @@ export const Header = styled.header`
 
     .whiteLogo {
       display: block;
-      width: 120px;
-      height: 90px;
+      width: 70px;
+      height: 40px;
     }
     .infoUser {
+      display: flex;
       margin-right: 2%;
     }
     .navegationDiv {
+      display: flex;
       width: 70%;
       margin-left: 2%;
     }
@@ -80,7 +79,7 @@ export const Header = styled.header`
       width: 60%;
       align-items: center;
       .search {
-        height: 40px;
+        height: 30px;
         width: 40%;
       }
     }

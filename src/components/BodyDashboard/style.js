@@ -8,16 +8,11 @@ export const BodyStyle = styled.div`
     display: none;
   }
 
-  .nextButton {
-    display: none;
-  }
-
   .servicesContainer {
     margin-top: 30px;
     display: flex;
-    height: 350px;
-    overflow: auto;
-    max-width: 870px;
+    flex-direction: row;
+    flex-wrap: wrap;
 
     ::-webkit-scrollbar {
       width: 12px;
@@ -77,15 +72,6 @@ export const BodyStyle = styled.div`
       font-size: 25px;
       font-weight: 700;
       margin: 30px;
-    }
-
-    .nextButton {
-      display: block;
-      color: var(--color-primary);
-      background: none;
-      border: none;
-      width: 55px;
-      height: 55px;
     }
     .servicesContainer {
       margin-top: 0px;

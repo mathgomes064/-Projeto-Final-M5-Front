@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Div } from "./styles";
+import { useContext } from "react";
+import { UserContext } from "../../context/User";
 import ModalPerfil from "../../modals/modalPerfil";
 import AddServiceModal from "../../modals/AddServiceModal";
 import ModalPremium from "../../modals/modalPremium";
@@ -9,6 +11,7 @@ import { toast } from "react-toastify";
 const Menu = () => {
   const [activeMenu, setActiveMenu] = useState(false);
   const navigate = useNavigate();
+  const { user } = useContext(UserContext);
 
   const toggleMenu = () => {
     setActiveMenu(!activeMenu);
@@ -45,13 +48,8 @@ const Menu = () => {
 
   return (
     <Div>
-      <div
-        className={activeMenu ? "icon iconActive" : "icon"}
-        onClick={toggleMenu}
-      >
-        <div className="hamburguer hamburguerIcon"></div>
-      </div>
-      <div className={activeMenu ? "menu menuOpen" : "menu menuClose"}>
+      <img onMouseOver={toggleMenu} className="imgUser" src={user.image ? user.image : "./src/assets/Amongus 3.png"} alt="foto do usuario" />
+      <div onMouseLeave={toggleMenu} className={activeMenu ? "menu menuOpen" : "menu menuClose"}>
         <menu className="list">
           <ul className="listItems">
             <li>

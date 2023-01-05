@@ -104,7 +104,8 @@ export const Div = styled.div`
 
   .menu.menuOpen {
     position: absolute;
-    margin-left: 1px;
+    right: 10px;
+    margin: 16px;
     width: 127px;
     background: #fff;
     width: 160px;
