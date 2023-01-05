@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Header = styled.header`
-  background: #06c3bd;
+  background: var(--color-primary);
   height: 40px;
 
   .whiteLogo {

@@ -76,6 +76,7 @@ export const Div = styled.div`
     margin: 10px 0;
     font-weight: 600;
     padding: 7px 0 7px 10px;
+    color: var(--color-primary);
     :hover {
       background-color: var(--grey-3);
     }
