@@ -14,14 +14,6 @@ const HeaderDashboard = () => {
   return (
     <Header>
       <section className="infoUser">
-        <img className="imgUser" src={user.image} alt="foto do usuario" />
-        <h2>{user.name}</h2>
-        <p>{user.bio}</p>
-      </section>
-      <div className="navegationDiv">
-        <section className="navegation">
-          <img className="whiteLogo" src={logo} alt="logo branca" />
-          <Menu />
           <div className="search">
             <input
               type="text"
@@ -30,9 +22,11 @@ const HeaderDashboard = () => {
             />
             <FiSearch className="searchIcon" />
           </div>
-          <MenuCategory />
+          <Menu />
         </section>
-      </div>
+        <div className="navegationDiv">
+          <img className="whiteLogo" src={logo} alt="logo branca" />
+        </div>
     </Header>
   );
 };

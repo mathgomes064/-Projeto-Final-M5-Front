@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { ServicesContext } from "../../context/Services";
-import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 
 import { BodyStyle } from "./style";
 import TransitionsModal from "../../modals/DetailsModal";
@@ -13,10 +12,6 @@ const BodyDashboard = () => {
     <BodyStyle>
       <h2>Encontre seu serviço aqui</h2>
       <div className="services">
-        <button className="nextButton">
-          <AiOutlineDoubleLeft className="nextButton" />
-        </button>
-
         <div className="servicesContainer">
           {filteredServices ? (
             filteredServices.length > 0 ? (
@@ -44,10 +39,6 @@ const BodyDashboard = () => {
             <EmptyServices />
           )}
         </div>
-
-        <button className="nextButton">
-          <AiOutlineDoubleRight className="nextButton" />
-        </button>
       </div>
     </BodyStyle>
   );
