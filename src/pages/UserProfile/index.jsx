@@ -18,6 +18,9 @@ const UserProfile = () => {
     <>
       <ContainerMain>
         <HeaderUserProfile />
+        <section>
+          <h1>header do usuário</h1>
+        </section>
         <ContainerInfo>
           <ContainerService>
             <div className="tittleAndButton">
@@ -82,21 +85,21 @@ const UserProfile = () => {
             </div>
           </ContainerCard>
         </ContainerInfo>
-        <ContainerFooter>
-          <div className="footerImages">
-            <img src={instagram} alt="" />
-            <img src={facebook} alt="" />
-            <img src={git} alt="" />
-            <img src={linkedin} alt="" />
-            <img className="logo" src={logo} alt="" />
-          </div>
-          <div>
-            <p>
-              Desenvolvido por: Daniel Matos | Esther Suriel | Matheus Gomes |
-              Sidarta Kauã |Tainá Tenório
-            </p>
-          </div>
-        </ContainerFooter>
+          <ContainerFooter> 
+            <div className="footerImages">
+              <img src={instagram} alt="" />
+              <img src={facebook} alt="" />
+              <img src={git} alt="" />
+              <img src={linkedin} alt="" />
+              <img className="logo" src={logo} alt="" />
+            </div>
+            <div>
+              <p>
+                Desenvolvido por: Daniel Matos | Esther Suriel | Matheus Gomes |
+                Sidarta Kauã |Tainá Tenório
+              </p>
+            </div>
+          </ContainerFooter>
       </ContainerMain>
     </>
   );

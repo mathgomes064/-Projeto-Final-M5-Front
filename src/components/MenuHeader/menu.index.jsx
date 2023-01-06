@@ -34,21 +34,16 @@ const Menu = () => {
     });
   };
 
-  const notify = () =>
-    toast.warn("Desculpe, nós ainda estamos em desenvolvimento :(", {
-      position: "top-right",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      toastId: 1,
-    });
+  const toUserProfile = () =>{
+    navigate("/userprofile");
+  }
 
   return (
     <Div>
-      <img onMouseOver={toggleMenu} className="imgUser" src={user.image ? user.image : "./src/assets/Amongus 3.png"} alt="foto do usuario" />
+      <div className="userName">
+        <h1>Matheus Gomes</h1>
+        <img onMouseOver={toggleMenu} className="imgUser" src={user.image ? user.image : "./src/assets/Amongus 3.png"} alt="foto do usuario" />
+      </div>
       <div onMouseLeave={toggleMenu} className={activeMenu ? "menu menuOpen" : "menu menuClose"}>
         <menu className="list">
           <ul className="listItems">
@@ -61,7 +56,7 @@ const Menu = () => {
             <li>
               <ModalPremium />
             </li>
-            <li onClick={notify}>Meus Serviços</li>
+            <li onClick={toUserProfile}>Meus Serviços</li>
             <li onClick={Logout}>Sair</li>
           </ul>
         </menu>
