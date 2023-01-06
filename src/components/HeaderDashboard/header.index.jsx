@@ -6,10 +6,12 @@ import { ServicesContext } from "../../context/Services";
 import logo from "../../assets/whiteLogo.png";
 import { Header } from "./styles";
 import { FiSearch } from "react-icons/fi";
+import {useNavigate} from "react-router-dom"
 
 const HeaderDashboard = () => {
   const { user } = useContext(UserContext);
   const { filterSearchField } = useContext(ServicesContext);
+  const navigate = useNavigate()
 
   return (
     <Header>
@@ -25,7 +27,7 @@ const HeaderDashboard = () => {
           <Menu />
         </section>
         <div className="navegationDiv">
-          <img className="whiteLogo" src={logo} alt="logo branca" />
+          <img onClick={() => navigate("/dashboard")} className="whiteLogo" src={logo} alt="logo branca" />
         </div>
     </Header>
   );
