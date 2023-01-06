@@ -21,9 +21,9 @@ const UserProvider = ({ children }) => {
   useEffect(() => {
     api.defaults.headers.authorization = `Bearer ${token}`;
 
-    api.get("/services?_expand=user").then((res) => {
-      setServices(res.data);
-      setFilteredServices(res.data);
+    api.get("/services/").then((res) => {
+      setServices(res.data.results);
+      setFilteredServices(res.data.results);
     });
 
     const userId = localStorage.getItem("@Nice-jobs:id");
@@ -38,14 +38,15 @@ const UserProvider = ({ children }) => {
 
   const login = (data) => {
     api
-      .post("/login", data)
+      .post("login/", data)
       .then(({ data }) => {
-        localStorage.setItem("@Nice-jobs:token", data.accessToken);
-        localStorage.setItem("@Nice-jobs:id", data.user.id);
+        console.log(data);
+        localStorage.setItem("@Nice-jobs:token", data.access);
+        // localStorage.setItem("@Nice-jobs:id", data.user.id);
 
-        setToken(data.accessToken);
+        setToken(data.access);
 
-        setUser(data.user);
+        // setUser(data.user);
 
         navigate("/dashboard", { replace: true });
 
