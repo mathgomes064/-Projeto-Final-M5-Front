@@ -4,6 +4,20 @@ export const Div = styled.div`
   cursor: pointer;
   z-index: 1;
 
+  .userName{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+    width: 150px;
+
+    h1{
+      font-size: 14px;
+      color: var(--white)
+    }
+  }
+
+
   .icon {
     width: fit-content;
     height: 44px;
