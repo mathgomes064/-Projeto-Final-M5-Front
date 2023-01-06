@@ -17,17 +17,11 @@ const BodyDashboard = () => {
             filteredServices.length > 0 ? (
               filteredServices.map((service) => {
                 return (
-                  <div
-                    key={`${service.id} & ${service.user.id}`}
-                    className="serviceCard"
-                  >
-                    <img
-                      src={service.user.image}
-                      className="serviceImage"
-                    ></img>
-                    <p className="serviceName">{service.name}</p>
-                    <p className="serviceUserName">{service.user.name}</p>
-                    <p className="serviceValue">R$ {service.value},00</p>
+                  <div key={`${service.id} & ${service.user.id}`} className="serviceCard">
+                    <img src={service.user.image} className="serviceImage"></img>
+                    <p className="serviceName">{service.service_name}</p>
+                    <p className="serviceUserName">{service.user.username}</p>
+                    <p className="serviceValue">R$ {service.description.service_value}</p>
                     <TransitionsModal service={service}></TransitionsModal>
                   </div>
                 );

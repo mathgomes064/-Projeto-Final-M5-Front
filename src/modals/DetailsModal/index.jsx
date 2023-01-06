@@ -44,15 +44,15 @@ export default function TransitionsModal({ service }) {
           <Box sx={style}>
             <DetailsStyle>
               <div className="serviceModal">
-                <div className="category">{service.category}</div>
+                <div className="category">{service.category.name}</div>
                 <div className="otherInfos">
                   <img src={service.user.image}></img>
                   <div className="nameAndValue">
-                    <p>{service.user.name}</p>
-                    <p>R$ {service.value},00</p>
+                    <p>{service.user.username}</p>
+                    <p>R$ {service.description.service_value}</p>
                   </div>
                 </div>
-                <p className="description">{service.description}</p>
+                <p className="description">{service.description.service_description}</p>
                 <HireModal service={service}></HireModal>
               </div>
             </DetailsStyle>
