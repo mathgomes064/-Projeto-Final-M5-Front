@@ -17,7 +17,7 @@ const ServicesProvider = ({ children }) => {
   useEffect(() => {
     if (token) {
       api.defaults.headers.authorization = `Bearer ${token}`;
-      api.get("/services?_expand=user").then((res) => setServices(res.data));
+      // api.get("/services?_expand=user").then((res) => setServices(res.data));
     }
   }, [services]);
 

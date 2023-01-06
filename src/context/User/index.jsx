@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import api from "../../services/api";
 
@@ -14,8 +14,16 @@ const UserProvider = ({ children }) => {
 
   const navigate = useNavigate();
 
+  const location = useLocation()
+
   useEffect(() => {
-    if (token) navigate("/dashboard", { replace: true });
+    if (location.pathname == "/" & token) {
+      navigate("/dashboard", { replace: true });
+    }
+    if(!token) {
+      navigate("/", {replace: true})
+    }
+
   }, [token]);
 
   useEffect(() => {
