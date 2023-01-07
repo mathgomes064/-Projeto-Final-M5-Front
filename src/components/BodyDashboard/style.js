@@ -6,7 +6,7 @@ export const BodyStyle = styled.div`
   margin-bottom: 5%;
   h2 {
     display: none;
-    color: var(--white);
+    color: var(--color-primary);
   }
 
   .servicesContainer {
@@ -73,7 +73,7 @@ export const BodyStyle = styled.div`
       text-align: center;
       font-size: 25px;
       font-weight: 700;
-      margin: 30px;
+      margin: 10px 0px
     }
     .servicesContainer {
       margin-top: 0px;
