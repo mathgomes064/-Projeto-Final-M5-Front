@@ -41,7 +41,7 @@ const Menu = () => {
   return (
     <Div>
       <div className="userName">
-        <h1>Matheus Gomes</h1>
+        <h1>{user?.username}</h1>
         <img
           onMouseOver={toggleMenu}
           className="imgUser"

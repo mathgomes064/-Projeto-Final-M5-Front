@@ -10,38 +10,15 @@ const UserProvider = ({ children }) => {
   const [user, setUser] = useState({});
   const [services, setServices] = useState(null);
   const [filteredServices, setFilteredServices] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
   const location = useLocation()
 
   useEffect(() => {
-<<<<<<< HEAD
-    if (location.pathname == "/" & token) {
-      navigate("/dashboard", { replace: true });
-    }
-    if(!token) {
-      navigate("/", {replace: true})
-    }
-
-  }, [token]);
-
-  useEffect(() => {
-    api.defaults.headers.authorization = `Bearer ${token}`;
-
-    api.get("/services/").then((res) => {
-      setServices(res.data.results);
-      setFilteredServices(res.data.results);
-    });
-
-    const userId = localStorage.getItem("@Nice-jobs:id");
-
-    if (userId) {
-=======
     if (token) {
       api.defaults.headers.authorization = `Bearer ${token}`;
->>>>>>> 52f4e0e09fac5ee40d9053c0d6b5b236b47d688a
       api
         .get("users/profile/")
         .then(({ data }) => {
@@ -71,14 +48,18 @@ const UserProvider = ({ children }) => {
   }
 
   const login = (data) => {
+    setLoading(true)
     api
-      .post("login/", data)
+      .post("/login/", data)
       .then(({ data }) => {
         localStorage.setItem("@Nice-jobs:token", data.access);
 
         setToken(data.access);
 
         navigate("/dashboard", { replace: true });
+        setTimeout(() => {
+          setLoading(false)
+        }, 2000);
 
         toast.success("Usuário logado com sucesso!", {
           position: "top-right",
