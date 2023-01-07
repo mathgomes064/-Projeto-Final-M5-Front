@@ -2,7 +2,8 @@ import styled from "styled-components";
 
 export const Header = styled.header`
   background: var(--color-primary);
-  height: 40px;
+  height: 50px;
+
 
   .whiteLogo {
     display: none;
@@ -42,7 +43,7 @@ export const Header = styled.header`
       width: 190px;
       height: 28px;
       background-color: #ffffff;
-      border-radius: 10px;
+      border-radius: 0px;
       margin-left: 12px;
     }
     h2 {
@@ -71,8 +72,10 @@ export const Header = styled.header`
     }
     .navegationDiv {
       display: flex;
+      align-items: top;
       width: 70%;
       margin-left: 2%;
+      margin-top: 2px;
     }
     .navegation {
       gap: 10px;
