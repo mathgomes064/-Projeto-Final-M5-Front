@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import api from "../../services/api";
 
@@ -10,45 +10,56 @@ const UserProvider = ({ children }) => {
   const [user, setUser] = useState({});
   const [services, setServices] = useState(null);
   const [filteredServices, setFilteredServices] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    if (token) navigate("/dashboard", { replace: true });
-  }, [token]);
+  const location = useLocation()
 
   useEffect(() => {
-    api.defaults.headers.authorization = `Bearer ${token}`;
-
-    api.get("/services/").then((res) => {
-      setServices(res.data.results);
-      setFilteredServices(res.data.results);
-    });
-
-    const userId = localStorage.getItem("@Nice-jobs:id");
-
-    if (userId) {
+    if (token) {
+      api.defaults.headers.authorization = `Bearer ${token}`;
       api
-        .get(`/users/${userId}`)
-        .then((res) => setUser(res.data))
-        .finally(() => setLoading(false));
+        .get("users/profile/")
+        .then(({ data }) => {
+          console.log(data);
+          localStorage.setItem("@Nice-jobs:id", data.id);
+          setUser(data);
+        })
+        .catch((err) => signOut());
+    } else {
+      signOut();
     }
-  }, [token]);
+
+    // const userId = localStorage.getItem("@Nice-jobs:id");
+
+    // if (userId) {
+    //   api
+    //     .get(`/users/${userId}`)
+    //     .then((res) => setUser(res.data))
+    //     .finally(() => setLoading(false));
+    // }
+  }, []);
+
+  function signOut() {
+    setUser(null);
+    localStorage.clear();
+    navigate("/", { replace: true });
+  }
 
   const login = (data) => {
+    setLoading(true)
     api
-      .post("login/", data)
+      .post("/login/", data)
       .then(({ data }) => {
-        console.log(data);
         localStorage.setItem("@Nice-jobs:token", data.access);
-        // localStorage.setItem("@Nice-jobs:id", data.user.id);
 
         setToken(data.access);
 
-        // setUser(data.user);
-
         navigate("/dashboard", { replace: true });
+        setTimeout(() => {
+          setLoading(false)
+        }, 2000);
 
         toast.success("Usuário logado com sucesso!", {
           position: "top-right",
@@ -75,21 +86,20 @@ const UserProvider = ({ children }) => {
       );
   };
 
-  const register = ({ email, name, password, contact, bio, type }) => {
+  const register = ({ email, username, password, fone, bio, is_offering }) => {
     const data = {
       email,
-      name,
+      username,
       password,
-      contact,
+      fone,
       bio,
-      type,
-      premium: false,
+      is_offering: is_offering === "Fornecer Serviço",
       image:
         "https://imgs.search.brave.com/KbRNVWFimWUnThr3tB08-RFa0i7K1uc-zlK6KQedwUU/rs:fit:860:752:1/g:ce/aHR0cHM6Ly93d3cu/a2luZHBuZy5jb20v/cGljYy9tLzI0LTI0/ODI1M191c2VyLXBy/b2ZpbGUtZGVmYXVs/dC1pbWFnZS1wbmct/Y2xpcGFydC1wbmct/ZG93bmxvYWQucG5n",
     };
 
     api
-      .post("/register", data)
+      .post("/users/", data)
       .then(() => {
         navigate("/", { replace: true });
         toast.success("Usuário cadastrado com sucesso!", {

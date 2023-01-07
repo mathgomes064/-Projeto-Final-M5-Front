@@ -10,7 +10,7 @@ const BodyDashboard = () => {
 
   return (
     <BodyStyle>
-      <h2>Encontre seu serviço aqui</h2>
+      <h2>Encontre o seu serviço aqui</h2>
       <div className="services">
         <div className="servicesContainer">
           {filteredServices ? (

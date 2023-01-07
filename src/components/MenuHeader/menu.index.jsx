@@ -34,15 +34,20 @@ const Menu = () => {
     });
   };
 
-  const toUserProfile = () =>{
+  const toUserProfile = () => {
     navigate("/userprofile");
-  }
+  };
 
   return (
     <Div>
       <div className="userName">
-        <h1>Matheus Gomes</h1>
-        <img onMouseOver={toggleMenu} className="imgUser" src={user.image ? user.image : "./src/assets/Amongus 3.png"} alt="foto do usuario" />
+        <h1>{user?.username}</h1>
+        <img
+          onMouseOver={toggleMenu}
+          className="imgUser"
+          src={user?.image ? user.image : "./src/assets/Amongus 3.png"}
+          alt="foto do usuario"
+        />
       </div>
       <div onMouseLeave={toggleMenu} className={activeMenu ? "menu menuOpen" : "menu menuClose"}>
         <menu className="list">

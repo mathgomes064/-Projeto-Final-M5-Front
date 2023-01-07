@@ -13,20 +13,25 @@ import facebook from "../../assets/insta.png";
 import instagram from "../../assets/face.png";
 import linkedin from "../../assets/git.png";
 import git from "../../assets/in.png";
+import { UserContext } from "../../context/User";
+import { useContext } from "react";
 
 const UserProfile = () => {
+
+  const { user } = useContext(UserContext)
+
   return (
     <>
       <ContainerMain>
         <HeaderUserProfile />
         <UserInfo>
           <div>
-            <h1>username: Matheus Gomes</h1>
-            <h1>email: matheus@hotmail.com</h1>
-            <h1>phone: 00 00000-0000</h1>
+            <h1>{user?.username}</h1>
+            <h1>{user?.email}</h1>
+            <h1>{user?.fone}</h1>
           </div>
           <div>
-            <h1>Desenvolvedor Freelancer</h1>
+            <h1>{user?.bio}</h1>
           </div>
         </UserInfo>
         <ContainerInfo>
@@ -70,9 +75,9 @@ const UserProfile = () => {
           <ContainerCard>
             <div className="card">
               <div className="userInfo">
-                <img src={user} alt="" />
+                <img src={defaultUserProfilePic} alt="" />
                 <div>
-                  <h1>Kenzinho da Silva</h1>
+                  <h1>{user?.username}</h1>
                   <span>Frete</span>
                   <p>R$100,00</p>
                 </div>
