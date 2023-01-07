@@ -6,6 +6,7 @@ export const BodyStyle = styled.div`
   margin-bottom: 5%;
   h2 {
     display: none;
+    color: var(--white);
   }
 
   .servicesContainer {
@@ -33,8 +34,8 @@ export const BodyStyle = styled.div`
     min-width: 200px;
     height: 300px;
     margin: 10px;
-    border: 3px solid var(--grey-3);
-    border-radius: 5px;
+    border: 1px solid var(--grey-3);
+    border-radius: 0px;
   }
 
   .serviceImage {
@@ -65,9 +66,10 @@ export const BodyStyle = styled.div`
       justify-content: center;
       align-items: center;
     }
+    
     h2 {
       display: block;
-      color: var(--color-primary);
+      color: var(--white);
       text-align: center;
       font-size: 25px;
       font-weight: 700;

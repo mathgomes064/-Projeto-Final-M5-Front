@@ -15,7 +15,13 @@ export const ContainerLogin = styled.form`
       font-size: 12px;
     }
   }
-`;
+
+  .divPassword{
+    border-radius: 0px;
+    box-shadow: 0px 3px gray;
+  }
+
+  `;
 
 export const ContainerRegister = styled.form`
   display: flex;

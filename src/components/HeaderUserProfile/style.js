@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.header`
   width: 100vw;
-  height: 60px;
+  height: 50px;
   background-color: var(--color-primary);
   display: flex;
   justify-content: space-between;
@@ -26,7 +26,7 @@ export const Container = styled.header`
     background-color: var(--color-primary);
     border: 1px solid var(--white);
     color: var(--white);
-    border-radius: 10px;
+    border-radius: 0px;
     cursor: pointer;
   }
 
