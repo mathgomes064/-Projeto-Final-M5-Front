@@ -4,12 +4,8 @@ export const BodyStyle = styled.div`
   @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
   h2 {
-    display: block;
-    color: var(--color-primary);
-    text-align: center;
-    font-size: 25px;
-    font-weight: 700;
-    margin: 30px;
+    display: none;
+    color: var(--white);
   }
 
   .servicesContainer {
@@ -37,8 +33,8 @@ export const BodyStyle = styled.div`
     min-width: 200px;
     height: 300px;
     margin: 10px;
-    border: 3px solid var(--grey-3);
-    border-radius: 5px;
+    border: 1px solid var(--grey-3);
+    border-radius: 0px;
   }
 
   .serviceImage {
@@ -69,9 +65,10 @@ export const BodyStyle = styled.div`
       justify-content: center;
       align-items: center;
     }
+
     h2 {
       display: block;
-      color: var(--color-primary);
+      color: var(--white);
       text-align: center;
       font-size: 25px;
       font-weight: 700;

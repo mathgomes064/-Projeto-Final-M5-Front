@@ -5,6 +5,7 @@ import {
   ContainerInfo,
   ContainerMain,
   ContainerService,
+  UserInfo
 } from "./style";
 import user from "../../assets/Amongus 3.png";
 import logo from "../../assets/logo.png";
@@ -18,9 +19,16 @@ const UserProfile = () => {
     <>
       <ContainerMain>
         <HeaderUserProfile />
-        <section>
-          <h1>header do usuário</h1>
-        </section>
+        <UserInfo>
+          <div>
+            <h1>username: Matheus Gomes</h1>
+            <h1>email: matheus@hotmail.com</h1>
+            <h1>phone: 00 00000-0000</h1>
+          </div>
+          <div>
+            <h1>Desenvolvedor Freelancer</h1>
+          </div>
+        </UserInfo>
         <ContainerInfo>
           <ContainerService>
             <div className="tittleAndButton">

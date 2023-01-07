@@ -13,6 +13,15 @@ export const ContainerMain = styled.main`
   }
 `;
 
+export const UserInfo = styled.section`
+  width: 83vw;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var( --color-primary)
+`;
+
 export const ContainerInfo = styled.section`
   width: 100%;
   height: 100%;
@@ -31,7 +40,6 @@ export const ContainerInfo = styled.section`
 
 export const ContainerService = styled.section`
   width: 90vw;
-  margin-top: 40px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -59,7 +67,7 @@ export const ContainerService = styled.section`
     width: 90px;
     height: 35px;
     background-color: var(--color-primary);
-    border-radius: 5px;
+    border-radius: 0px;
     border: none;
     color: var(--white);
     cursor: pointer;
@@ -99,7 +107,7 @@ export const ContainerService = styled.section`
     align-items: center;
     max-width: 600px;
     height: 50px;
-    border-radius: 10px;
+    border-radius: 0px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin: 0 auto;
     cursor: pointer;
@@ -149,7 +157,6 @@ export const ContainerService = styled.section`
 
 export const ContainerCard = styled.section`
   width: 90vw;
-  margin-top: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -158,7 +165,7 @@ export const ContainerCard = styled.section`
     max-width: 320px;
     height: 300px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 15px;
+    border-radius: 0px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -221,6 +228,7 @@ export const ContainerCard = styled.section`
     border-radius: 5px;
     padding: 0;
     cursor: pointer;
+    border-radius: 0px;
   }
 
   .card > .editButtons > button:hover {

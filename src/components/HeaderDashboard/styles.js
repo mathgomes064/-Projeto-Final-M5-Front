@@ -2,25 +2,7 @@ import styled from "styled-components";
 
 export const Header = styled.header`
   background: var(--color-primary);
-  height: 40px;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row-reverse;
-
-  .navegationDiv {
-    display: flex;
-    width: 100%;
-    margin-left: 2%;
-  }
-  .navegation {
-    gap: 10px;
-    width: 60%;
-    align-items: center;
-    .search {
-      height: 30px;
-      width: 40%;
-    }
-  }
+  height: 50px;
 
   .whiteLogo {
     width: 80px;
@@ -61,8 +43,8 @@ export const Header = styled.header`
       width: 190px;
       height: 28px;
       background-color: #ffffff;
-      border-radius: 10px;
-      margin-left: 5px;
+      border-radius: 0px;
+      margin-left: 12px;
     }
     h2 {
       margin-left: 75px;
@@ -90,8 +72,10 @@ export const Header = styled.header`
     }
     .navegationDiv {
       display: flex;
-      width: 100%;
+      align-items: top;
+      width: 70%;
       margin-left: 2%;
+      margin-top: 2px;
     }
     .navegation {
       gap: 10px;
