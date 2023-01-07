@@ -24,9 +24,9 @@ const AddServiceModal = () => {
   const handleClose = () => setOpen(false);
 
   const schema = yup.object().shape({
-    name: yup.string().required("Nome do serviço obrigatório"),
-    value: yup.string().required("Preço obrigatório"),
-    description: yup.string().required("Descrição do serviço obrigatória"),
+    service_name: yup.string().required("Nome do serviço obrigatório"),
+    service_value: yup.string().required("Preço obrigatório"),
+    service_description: yup.string().required("Descrição do serviço obrigatória"),
   });
   const {
     register,
@@ -39,13 +39,8 @@ const AddServiceModal = () => {
   const { createService } = useContext(ServicesContext);
 
   const handleAdd = (data) => {
-    const userId = localStorage.getItem("@Nice-jobs:id");
-
-    createService(data, userId);
+    createService(data);
     handleClose();
-    setTimeout(() => {
-      location.reload();
-    }, 500);
   };
 
   return (
@@ -72,38 +67,25 @@ const AddServiceModal = () => {
                   <Input
                     label="Nome do serviço"
                     placeholder="Frete"
-                    {...register("name")}
+                    {...register("service_name")}
                   />
-                  <span className="error">{errors.name?.message}</span>
-                  <Input
-                    label="Preço"
-                    placeholder="R$100"
-                    {...register("value")}
-                  />
-                  <span className="error">{errors.value?.message}</span>
+                  <span className="error">{errors.service_name?.message}</span>
+                  <Input label="Preço" placeholder="R$100" {...register("service_value")} />
+                  <span className="error">{errors.service_value?.message}</span>
 
                   <Input
                     label="Detalhes"
                     placeholder="Descreva seu serviço"
-                    {...register("description")}
+                    {...register("service_description")}
                   />
-                  <span className="error">{errors.description?.message}</span>
+                  <span className="error">{errors.service_description?.message}</span>
                   <div>
                     <label name="select">Categoria</label>
-                    <select
-                      label="Categoria"
-                      title="select"
-                      id="select"
-                      {...register("category")}
-                    >
+                    <select label="Categoria" title="select" id="select" {...register("category")}>
                       <option value="Construção Civil">Construção Civil</option>
-                      <option value="Manutenção de Eletronicos">
-                        Manutenção de Eletronicos
-                      </option>
+                      <option value="Manutenção de Eletronicos">Manutenção de Eletronicos</option>
                       <option value="Frete">Frete</option>
-                      <option value="Serviços Domésticos">
-                        Serviços Domésticos
-                      </option>
+                      <option value="Serviços Domésticos">Serviços Domésticos</option>
                       <option value="Outros">Outros</option>
                     </select>
                   </div>

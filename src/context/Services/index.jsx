@@ -19,15 +19,22 @@ const ServicesProvider = ({ children }) => {
     }
   }, []);
 
-  const createService = (data, userId) => {
+  const createService = (data) => {
     const formattedData = {
-      ...data,
-      userId: userId,
+      service_name: data.service_name,
+      description: {
+        service_description: data.service_description,
+        service_value: data.service_value,
+        atuation_area: "Brasil",
+      },
+      category: {
+        name: data.category,
+      },
     };
 
     api
-      .post("/services", formattedData)
-      .then(() =>
+      .post("/services/", formattedData)
+      .then(() => {
         toast.success("Serviço cadastrado com sucesso!", {
           position: "top-right",
           autoClose: 2000,
@@ -37,8 +44,13 @@ const ServicesProvider = ({ children }) => {
           draggable: true,
           progress: undefined,
           toastId: 1,
-        })
-      )
+        });
+
+        api.get("/services/").then((res) => {
+          setServices(res.data.results);
+          setFilteredServices(res.data.results);
+        });
+      })
       .catch(() =>
         toast.error("Algo deu errado!", {
           position: "top-right",

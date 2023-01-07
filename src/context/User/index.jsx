@@ -80,18 +80,18 @@ const UserProvider = ({ children }) => {
       );
   };
 
-  const register = ({ email, username, password, fone, bio, type }) => {
+  const register = ({ email, username, password, fone, bio, is_offering }) => {
     const data = {
       email,
       username,
       password,
       fone,
       bio,
-      type: type === "Fornecer Serviço",
+      is_offering: is_offering === "Fornecer Serviço",
       image:
         "https://imgs.search.brave.com/KbRNVWFimWUnThr3tB08-RFa0i7K1uc-zlK6KQedwUU/rs:fit:860:752:1/g:ce/aHR0cHM6Ly93d3cu/a2luZHBuZy5jb20v/cGljYy9tLzI0LTI0/ODI1M191c2VyLXBy/b2ZpbGUtZGVmYXVs/dC1pbWFnZS1wbmct/Y2xpcGFydC1wbmct/ZG93bmxvYWQucG5n",
     };
-    console.log(data);
+
     api
       .post("/users/", data)
       .then(() => {
