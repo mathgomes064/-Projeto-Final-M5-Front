@@ -6,22 +6,18 @@ import { UserContext } from "../User";
 export const ServicesContext = createContext({});
 
 const ServicesProvider = ({ children }) => {
-  const {
-    token,
-    services,
-    setServices,
-    setFilteredServices,
-    filteredServices,
-  } = useContext(UserContext);
+  const { token, services, setServices, setFilteredServices, filteredServices } =
+    useContext(UserContext);
 
   useEffect(() => {
     if (token) {
       api.defaults.headers.authorization = `Bearer ${token}`;
-      // api.get("/services?_expand=user").then((res) => setServices(res.data));
+      api.get("/services/").then((res) => {
+        setServices(res.data.results);
+        setFilteredServices(res.data.results);
+      });
     }
-  }, [services]);
-
-  //   api.get("/services).then((res) => setServices(res));
+  }, []);
 
   const createService = (data, userId) => {
     const formattedData = {
@@ -119,9 +115,7 @@ const ServicesProvider = ({ children }) => {
     if (filterType === "Todos") {
       setFilteredServices(services);
     } else {
-      setFilteredServices(
-        services.filter(({ category }) => category === filterType)
-      );
+      setFilteredServices(services.filter(({ category }) => category === filterType));
     }
   };
 
@@ -130,18 +124,9 @@ const ServicesProvider = ({ children }) => {
       setFilteredServices(
         services.filter(
           ({ category, name, user }) =>
-            category
-              .toLocaleLowerCase()
-              .trim()
-              .includes(searchField.toLocaleLowerCase().trim()) ||
-            name
-              .toLocaleLowerCase()
-              .trim()
-              .includes(searchField.toLocaleLowerCase().trim()) ||
-            user.name
-              .toLocaleLowerCase()
-              .trim()
-              .includes(searchField.toLocaleLowerCase().trim())
+            category.toLocaleLowerCase().trim().includes(searchField.toLocaleLowerCase().trim()) ||
+            name.toLocaleLowerCase().trim().includes(searchField.toLocaleLowerCase().trim()) ||
+            user.name.toLocaleLowerCase().trim().includes(searchField.toLocaleLowerCase().trim())
         )
       );
     } else {
