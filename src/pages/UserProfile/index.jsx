@@ -7,8 +7,8 @@ import {
   ContainerService,
   UserInfo
 } from "./style";
-import defaultUserProfilePic from "../../assets/Amongus 3.png";
-import logo from "../../assets/logo.png";
+import user from "../../assets/Amongus 3.png";
+import logo from "../../assets/newlogo.png";
 import facebook from "../../assets/insta.png";
 import instagram from "../../assets/face.png";
 import linkedin from "../../assets/git.png";
