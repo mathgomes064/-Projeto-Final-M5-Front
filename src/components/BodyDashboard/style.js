@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const BodyStyle = styled.div`
   @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-  margin-bottom: 5%;
   h2 {
     display: none;
     color: var(--white);
@@ -66,7 +65,7 @@ export const BodyStyle = styled.div`
       justify-content: center;
       align-items: center;
     }
-    
+
     h2 {
       display: block;
       color: var(--white);

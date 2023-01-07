@@ -11,6 +11,7 @@ export const FooterStyle = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: absolute;
     bottom: 0;
   }
   div {

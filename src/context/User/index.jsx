@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import api from "../../services/api";
 
@@ -10,9 +10,11 @@ const UserProvider = ({ children }) => {
   const [user, setUser] = useState({});
   const [services, setServices] = useState(null);
   const [filteredServices, setFilteredServices] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+
+  const location = useLocation()
 
   useEffect(() => {
     if (token) {
@@ -46,14 +48,18 @@ const UserProvider = ({ children }) => {
   }
 
   const login = (data) => {
+    setLoading(true)
     api
-      .post("login/", data)
+      .post("/login/", data)
       .then(({ data }) => {
         localStorage.setItem("@Nice-jobs:token", data.access);
 
         setToken(data.access);
 
         navigate("/dashboard", { replace: true });
+        setTimeout(() => {
+          setLoading(false)
+        }, 2000);
 
         toast.success("Usuário logado com sucesso!", {
           position: "top-right",
