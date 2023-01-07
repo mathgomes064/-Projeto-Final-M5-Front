@@ -62,23 +62,13 @@ const Form = ({ type }) => {
           <div className="form">
             <div className="column">
               <div className="infoSelector">
-                <Input
-                  placeholder="Nome"
-                  id="name"
-                  {...register("name")}
-                  label="Nome"
-                />
+                <Input placeholder="Nome" id="name" {...register("username")} label="Nome" />
 
-                <span>{errorsRegister.name?.message}</span>
+                <span>{errorsRegister.username?.message}</span>
               </div>
 
               <div className="infoSelector">
-                <Input
-                  placeholder="Email"
-                  id="email"
-                  {...register("email")}
-                  label="Email"
-                />
+                <Input placeholder="Email" id="email" {...register("email")} label="Email" />
 
                 <span>{errorsRegister.email?.message}</span>
               </div>
@@ -112,20 +102,15 @@ const Form = ({ type }) => {
                   placeholder="(00) 0 0000 - 0000"
                   id="contact"
                   label="Contato"
-                  type="number"
-                  {...register("contact")}
+                  type="text"
+                  {...register("fone")}
                 />
 
-                <span>{errorsRegister.contact?.message}</span>
+                <span>{errorsRegister.fone?.message}</span>
               </div>
 
               <div className="infoSelector">
-                <Input
-                  placeholder="Fale sobre você"
-                  id="bio"
-                  {...register("bio")}
-                  label="Bio"
-                />
+                <Input placeholder="Fale sobre você" id="bio" {...register("bio")} label="Bio" />
 
                 <span>{errorsRegister.bio?.message}</span>
               </div>
@@ -133,7 +118,7 @@ const Form = ({ type }) => {
               <div className="selectDiv">
                 <label htmlFor="select">Pretendo</label>
 
-                <select title="type" id="select" {...register("type")}>
+                <select title="type" id="select" {...register("is_offering")}>
                   <option value="Fornecer Serviço">Fornecer Serviço</option>
                   <option value="Contratar Serviço">Contratar Serviço</option>
                 </select>

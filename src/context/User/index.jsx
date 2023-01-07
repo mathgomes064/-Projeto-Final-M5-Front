@@ -15,38 +15,43 @@ const UserProvider = ({ children }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (token) navigate("/dashboard", { replace: true });
-  }, [token]);
-
-  useEffect(() => {
-    api.defaults.headers.authorization = `Bearer ${token}`;
-
-    api.get("/services/").then((res) => {
-      setServices(res.data.results);
-      setFilteredServices(res.data.results);
-    });
-
-    const userId = localStorage.getItem("@Nice-jobs:id");
-
-    if (userId) {
+    if (token) {
+      api.defaults.headers.authorization = `Bearer ${token}`;
       api
-        .get(`/users/${userId}`)
-        .then((res) => setUser(res.data))
-        .finally(() => setLoading(false));
+        .get("users/profile/")
+        .then(({ data }) => {
+          console.log(data);
+          localStorage.setItem("@Nice-jobs:id", data.id);
+          setUser(data);
+        })
+        .catch((err) => signOut());
+    } else {
+      signOut();
     }
-  }, [token]);
+
+    // const userId = localStorage.getItem("@Nice-jobs:id");
+
+    // if (userId) {
+    //   api
+    //     .get(`/users/${userId}`)
+    //     .then((res) => setUser(res.data))
+    //     .finally(() => setLoading(false));
+    // }
+  }, []);
+
+  function signOut() {
+    setUser(null);
+    localStorage.clear();
+    navigate("/", { replace: true });
+  }
 
   const login = (data) => {
     api
       .post("login/", data)
       .then(({ data }) => {
-        console.log(data);
         localStorage.setItem("@Nice-jobs:token", data.access);
-        // localStorage.setItem("@Nice-jobs:id", data.user.id);
 
         setToken(data.access);
-
-        // setUser(data.user);
 
         navigate("/dashboard", { replace: true });
 
@@ -75,21 +80,20 @@ const UserProvider = ({ children }) => {
       );
   };
 
-  const register = ({ email, name, password, contact, bio, type }) => {
+  const register = ({ email, username, password, fone, bio, type }) => {
     const data = {
       email,
-      name,
+      username,
       password,
-      contact,
+      fone,
       bio,
-      type,
-      premium: false,
+      type: type === "Fornecer Serviço",
       image:
         "https://imgs.search.brave.com/KbRNVWFimWUnThr3tB08-RFa0i7K1uc-zlK6KQedwUU/rs:fit:860:752:1/g:ce/aHR0cHM6Ly93d3cu/a2luZHBuZy5jb20v/cGljYy9tLzI0LTI0/ODI1M191c2VyLXBy/b2ZpbGUtZGVmYXVs/dC1pbWFnZS1wbmct/Y2xpcGFydC1wbmct/ZG93bmxvYWQucG5n",
     };
-
+    console.log(data);
     api
-      .post("/register", data)
+      .post("/users/", data)
       .then(() => {
         navigate("/", { replace: true });
         toast.success("Usuário cadastrado com sucesso!", {
