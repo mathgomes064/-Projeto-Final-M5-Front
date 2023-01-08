@@ -3,15 +3,13 @@ import { CategoriesList } from "./styles";
 import MenuItem from "@mui/material/MenuItem";
 import { ServicesContext } from "../../context/Services";
 
-
 export default function MenuCategory() {
-
   const { filterCategory } = useContext(ServicesContext);
 
   return (
     <div>
-  <CategoriesList>
-      <MenuItem
+      <CategoriesList>
+        <MenuItem
           onClick={() => {
             filterCategory("Todos");
           }}
@@ -27,7 +25,7 @@ export default function MenuCategory() {
         </MenuItem>
         <MenuItem
           onClick={() => {
-            filterCategory("Manutenção de Eletronicos");
+            filterCategory("Manutenção de Eletrônicos");
           }}
         >
           Manutenção de Eletronicos
@@ -53,7 +51,7 @@ export default function MenuCategory() {
         >
           Outros
         </MenuItem>
-    </CategoriesList>
+      </CategoriesList>
     </div>
   );
 }

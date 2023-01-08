@@ -11,8 +11,8 @@ export const FooterStyle = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    bottom: 0;
+    /* position: absolute;
+    bottom: 0; */
   }
   div {
     display: flex;
@@ -20,13 +20,13 @@ export const FooterStyle = styled.div`
     align-items: center;
   }
 
-  .innerPart{
+  .innerPart {
     width: 100vw;
     border-top: 1px solid var(--color-primary);
     /* background-color: gray; */
   }
 
-  .liksAndNames{
+  .liksAndNames {
     display: flex;
     flex-direction: column;
     justify-content: center;

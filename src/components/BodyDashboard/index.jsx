@@ -18,7 +18,7 @@ const BodyDashboard = () => {
               filteredServices.map((service) => {
                 return (
                   <div key={`${service.id} & ${service.user.id}`} className="serviceCard">
-                    <img src={service.user.image} className="serviceImage"></img>
+                    <img src={`img/${service.category.name}.jpg`} className="serviceImage"></img>
                     <p className="serviceName">{service.service_name}</p>
                     <p className="serviceUserName">{service.user.username}</p>
                     <p className="serviceValue">R$ {service.description.service_value}</p>
