@@ -5,9 +5,9 @@ import {
   ContainerInfo,
   ContainerMain,
   ContainerService,
-  UserInfo
+  UserInfo,
 } from "./style";
-import user from "../../assets/Amongus 3.png";
+import defaultUserProfilePic from "../../assets/Amongus 3.png";
 import logo from "../../assets/newlogo.png";
 import facebook from "../../assets/insta.png";
 import instagram from "../../assets/face.png";
@@ -17,8 +17,7 @@ import { UserContext } from "../../context/User";
 import { useContext } from "react";
 
 const UserProfile = () => {
-
-  const { user } = useContext(UserContext)
+  const { user } = useContext(UserContext);
 
   return (
     <>
@@ -84,10 +83,9 @@ const UserProfile = () => {
               </div>
 
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet
-                est, maiores repellat molestias quo sapiente praesentium
-                inventore quisquam dolor perspiciatis ad exercitationem
-                accusamus earum aut ea id dolorum minus repudiandae?
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet est, maiores repellat
+                molestias quo sapiente praesentium inventore quisquam dolor perspiciatis ad
+                exercitationem accusamus earum aut ea id dolorum minus repudiandae?
               </p>
 
               <div className="editButtons">
@@ -98,21 +96,21 @@ const UserProfile = () => {
             </div>
           </ContainerCard>
         </ContainerInfo>
-          <ContainerFooter> 
-            <div className="footerImages">
-              <img src={instagram} alt="" />
-              <img src={facebook} alt="" />
-              <img src={git} alt="" />
-              <img src={linkedin} alt="" />
-              <img className="logo" src={logo} alt="" />
-            </div>
-            <div>
-              <p>
-                Desenvolvido por: Daniel Matos | Esther Suriel | Matheus Gomes |
-                Sidarta Kauã |Tainá Tenório
-              </p>
-            </div>
-          </ContainerFooter>
+        <ContainerFooter>
+          <div className="footerImages">
+            <img src={instagram} alt="" />
+            <img src={facebook} alt="" />
+            <img src={git} alt="" />
+            <img src={linkedin} alt="" />
+            <img className="logo" src={logo} alt="" />
+          </div>
+          <div>
+            <p>
+              Desenvolvido por: Daniel Matos | Esther Suriel | Matheus Gomes | Sidarta Kauã |Tainá
+              Tenório
+            </p>
+          </div>
+        </ContainerFooter>
       </ContainerMain>
     </>
   );

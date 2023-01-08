@@ -39,6 +39,7 @@ const AddServiceModal = () => {
   const { createService } = useContext(ServicesContext);
 
   const handleAdd = (data) => {
+    console.log(data);
     createService(data);
     handleClose();
   };
@@ -82,8 +83,8 @@ const AddServiceModal = () => {
                   <div>
                     <label name="select">Categoria</label>
                     <select label="Categoria" title="select" id="select" {...register("category")}>
-                      <option value="Construção Civil">Construção Civil</option>
-                      <option value="Manutenção de Eletronicos">Manutenção de Eletronicos</option>
+                      <option value="Construção civil">Construção Civil</option>
+                      <option value="Manutenção de Eletrônicos">Manutenção de Eletronicos</option>
                       <option value="Frete">Frete</option>
                       <option value="Serviços Domésticos">Serviços Domésticos</option>
                       <option value="Outros">Outros</option>

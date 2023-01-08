@@ -127,7 +127,7 @@ const ServicesProvider = ({ children }) => {
     if (filterType === "Todos") {
       setFilteredServices(services);
     } else {
-      setFilteredServices(services.filter(({ category }) => category === filterType));
+      setFilteredServices(services.filter(({ category }) => category.name === filterType));
     }
   };
 
