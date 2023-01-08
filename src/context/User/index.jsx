@@ -14,7 +14,7 @@ const UserProvider = ({ children }) => {
 
   const navigate = useNavigate();
 
-  const location = useLocation()
+  const location = useLocation();
 
   useEffect(() => {
     if (token) {
@@ -22,7 +22,6 @@ const UserProvider = ({ children }) => {
       api
         .get("users/profile/")
         .then(({ data }) => {
-          console.log(data);
           localStorage.setItem("@Nice-jobs:id", data.id);
           setUser(data);
         })
@@ -48,7 +47,7 @@ const UserProvider = ({ children }) => {
   }
 
   const login = (data) => {
-    setLoading(true)
+    setLoading(true);
     api
       .post("/login/", data)
       .then(({ data }) => {
@@ -58,7 +57,7 @@ const UserProvider = ({ children }) => {
 
         navigate("/dashboard", { replace: true });
         setTimeout(() => {
-          setLoading(false)
+          setLoading(false);
         }, 2000);
 
         toast.success("Usuário logado com sucesso!", {

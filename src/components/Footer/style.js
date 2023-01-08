@@ -1,15 +1,13 @@
 import styled from "styled-components";
 
 export const FooterStyle = styled.div`
-
-
   @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;&display=swap");
   footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: absolute;
-    bottom: 0;
+    /* position: absolute;
+    bottom: 0; */
   }
   div {
     display: flex;
@@ -17,7 +15,7 @@ export const FooterStyle = styled.div`
     align-items: center;
   }
 
-  .innerFooter{
+  .innerPart {
     width: 100vw;
     border-top: 1px solid var(--color-primary);
     display: flex;
@@ -25,14 +23,14 @@ export const FooterStyle = styled.div`
     align-items: center;
   }
 
-  .innerDiv{
+  .innerDiv {
     width: 95%;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  .liksAndNames{
+  .liksAndNames {
     display: flex;
     flex-direction: column;
     justify-content: center;
