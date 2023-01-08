@@ -1,14 +1,9 @@
 import styled from "styled-components";
 
 export const FooterStyle = styled.div`
-  display: flex;
-  align-items: flex-end;
-  background-color: gray;
-
   @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;&display=swap");
   footer {
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     /* position: absolute;
@@ -23,7 +18,16 @@ export const FooterStyle = styled.div`
   .innerPart {
     width: 100vw;
     border-top: 1px solid var(--color-primary);
-    /* background-color: gray; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .innerDiv {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .liksAndNames {
@@ -34,14 +38,14 @@ export const FooterStyle = styled.div`
   }
 
   img {
-    width: 40vw;
-    max-width: 150px;
-    height: 15vh;
-    max-height: 80px;
+    width: 25vw;
+    max-width: 80px;
+    height: 12.5vh;
+    max-height: 45px;
   }
 
   .links {
-    margin: 10px;
+    margin: 5px;
     width: 10vw;
     max-width: 25px;
     height: 5vh;
