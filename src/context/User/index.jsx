@@ -38,7 +38,7 @@ const UserProvider = ({ children }) => {
     //     .then((res) => setUser(res.data))
     //     .finally(() => setLoading(false));
     // }
-  }, []);
+  }, [token]);
 
   function signOut() {
     setUser(null);
@@ -52,7 +52,7 @@ const UserProvider = ({ children }) => {
       .post("/login/", data)
       .then(({ data }) => {
         localStorage.setItem("@Nice-jobs:token", data.access);
-
+        setToken(data.access);
         setToken(data.access);
 
         navigate("/dashboard", { replace: true });
