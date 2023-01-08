@@ -5,12 +5,14 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 
-import { HireStyle } from "./style";
+import { HireStyle, ButtonWhats } from "./style";
 import { BsWhatsapp } from "react-icons/bs";
 import { FiMail } from "react-icons/fi";
 import { BsFillChatDotsFill } from "react-icons/bs";
 import { FaCrown } from "react-icons/fa";
 import { SiGooglecalendar } from "react-icons/si";
+
+// import ReactWhatsapp from "react-whatsapp";
 
 const style = {
   position: "absolute",
@@ -52,10 +54,12 @@ export default function HireModal({ service }) {
                   <p>Entre em contato com {service.user.name}</p>
                 </div>
                 <div className="otherInfos">
-                  <div className="infos">
-                    <BsWhatsapp className="icon" />
-                    <p>{service.user.contact}</p>
-                  </div>
+                  <ButtonWhats number={service.user.fone}>
+                    <div className="infos">
+                      <BsWhatsapp className="icon" />
+                      <p>{service.user.fone}</p>
+                    </div>
+                  </ButtonWhats>
                   <div className="infos">
                     <FiMail className="icon" />
                     <p>{service.user.email}</p>

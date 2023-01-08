@@ -17,7 +17,7 @@ const ServicesProvider = ({ children }) => {
         setFilteredServices(res.data.results);
       });
     }
-  }, []);
+  }, [token]);
 
   const createService = (data) => {
     const formattedData = {
