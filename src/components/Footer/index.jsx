@@ -3,15 +3,15 @@ import { BsFacebook } from "react-icons/bs";
 import { BsGithub } from "react-icons/bs";
 import { AiOutlineLinkedin } from "react-icons/ai";
 
-import logo from "../../assets/logo.png";
+import logo from "../../assets/newlogo.png";
 import { FooterStyle } from "./style";
 
 export const Footer = () => {
   return (
     <FooterStyle>
-      <footer>
-        <div className="innerPart">
-          <div>
+      <footer className="innerFooter">
+        <div className="innerDiv">
+          <div className="developersInfo">
             <div className="liksAndNames">
               <div>
                 <a
@@ -49,7 +49,6 @@ export const Footer = () => {
             <img src={logo}></img>
           </div>
         </div>
-
       </footer>
     </FooterStyle>
   );
