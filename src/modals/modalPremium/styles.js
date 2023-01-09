@@ -45,13 +45,12 @@ export const Container = styled.div`
     margin-top: 15px;
     height: 34px;
     border: none;
-    border-radius: 6px;
     background: var(--premium-detail);
     color: var(--white);
     cursor: pointer;
   }
 
-  .pClose {
+  .closeButton{
     padding-top: 6px;
     margin-left: 273px;
     padding-bottom: 8px;

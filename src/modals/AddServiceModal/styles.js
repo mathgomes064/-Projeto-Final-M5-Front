@@ -10,12 +10,16 @@ export const Container = styled.div`
     padding: 15px;
     display: flex;
     justify-content: space-between;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
     color: var(--white);
     h3 {
       font-size: 20px;
     }
+
+    .closeButton{
+      font-size: 20px;
+      cursor: pointer;
+    }
+
     button {
       background-color: transparent;
       border: 0;
@@ -30,8 +34,6 @@ export const Container = styled.div`
     background-color: var(--white);
     width: 100%;
     padding: 15px;
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
     label {
       font-size: 14px;
       padding: 0 10px;
@@ -42,7 +44,6 @@ export const Container = styled.div`
       padding: 0 15px;
       margin: 15px 0;
       border: 0;
-      border-radius: 10px;
       background-color: var(--grey-3);
     }
 

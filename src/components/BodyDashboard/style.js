@@ -51,10 +51,13 @@ export const BodyStyle = styled.div`
     height: 40%;
   }
 
-  .serviceName,
+  .serviceName{
+    font-size: 17px;
+    margin: 10px;
+  }
+  
   .serviceValue {
     font-size: 17px;
-    font-weight: bold;
     margin: 10px;
   }
 
@@ -69,6 +72,26 @@ export const BodyStyle = styled.div`
   }
 
   @media (min-width: 770px) {
+
+    .serviceName{
+    height: 40px;
+    font-size: 14px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .serviceUserName{
+      font-size: 14px;
+      margin: 10px;
+    }
+  
+    .serviceValue {
+      font-size: 14px;
+      margin: 10px;
+    }
+
 
     .services {
       display: flex;
