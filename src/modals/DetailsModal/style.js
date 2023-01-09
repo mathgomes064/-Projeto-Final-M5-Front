@@ -69,6 +69,7 @@ export const DetailsStyle = styled.div`
     margin-left: 8px;
     margin-top: 8px;
     height: 120px;
+    text-align: center;
   }
 
   .infosModal {

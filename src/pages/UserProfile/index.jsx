@@ -24,19 +24,21 @@ const UserProfile = () => {
       <ContainerMain>
         <HeaderUserProfile />
         <UserInfo>
-          <div>
-            <h1>{user?.username}</h1>
-            <h1>{user?.email}</h1>
-            <h1>{user?.fone}</h1>
-          </div>
-          <div>
-            <h1>{user?.bio}</h1>
+          <div className="innerDiv">
+            <div className="data">
+              <h1>username: {user?.username}</h1>
+              <h1>email: {user?.email}</h1>
+              <h1>phone: {user?.fone}</h1>
+            </div>
+            <div className="bio">
+              <h1>{user?.bio}</h1>
+            </div>
           </div>
         </UserInfo>
         <ContainerInfo>
           <ContainerService>
             <div className="tittleAndButton">
-              <h1>Meus Serviços</h1>
+              <h1>Serviços:</h1>
               <div>
                 <button>Cadastrados</button>
                 <button>Contratados</button>
@@ -47,24 +49,6 @@ const UserProfile = () => {
                 <li>
                   <div>
                     <h1>Cliente 1</h1>
-                    <p>Finalizado</p>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <h1>Cliente 2</h1>
-                    <p>Finalizado</p>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <h1>Cliente 3</h1>
-                    <p>Finalizado</p>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <h1>Cliente 4</h1>
                     <p>Finalizado</p>
                   </div>
                 </li>
@@ -96,19 +80,21 @@ const UserProfile = () => {
             </div>
           </ContainerCard>
         </ContainerInfo>
-        <ContainerFooter>
-          <div className="footerImages">
-            <img src={instagram} alt="" />
-            <img src={facebook} alt="" />
-            <img src={git} alt="" />
-            <img src={linkedin} alt="" />
+        <ContainerFooter> 
+          <div className="innerDiv">
+            <div className="footerImages">
+              <div>
+                <img src={instagram} alt="" />
+                <img src={facebook} alt="" />
+                <img src={git} alt="" />
+                <img src={linkedin} alt="" />
+              </div>
+              <p>
+                Desenvolvido por: Daniel Matos | Esther Suriel | Matheus Gomes |
+                Sidarta Kauã |Tainá Tenório
+              </p>
+            </div>
             <img className="logo" src={logo} alt="" />
-          </div>
-          <div>
-            <p>
-              Desenvolvido por: Daniel Matos | Esther Suriel | Matheus Gomes | Sidarta Kauã |Tainá
-              Tenório
-            </p>
           </div>
         </ContainerFooter>
       </ContainerMain>

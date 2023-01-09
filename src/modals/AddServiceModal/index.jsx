@@ -10,6 +10,7 @@ import Button from "../../components/Button";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ServicesContext } from "../../context/Services";
+import { AiOutlineCloseSquare } from 'react-icons/ai';
 
 const style = {
   position: "absolute",
@@ -61,7 +62,7 @@ const AddServiceModal = () => {
             <Container>
               <div className="title">
                 <h3>Cadastre o serviço</h3>
-                <button onClick={handleClose}>X</button>
+                <AiOutlineCloseSquare className="closeButton" onClick={handleClose}/>
               </div>
               <div className="body">
                 <form onSubmit={handleSubmit(handleAdd)}>

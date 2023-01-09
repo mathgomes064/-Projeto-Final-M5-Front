@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const BodyStyle = styled.div`
+  min-height: 100vh;
+  height: 100%;
   @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
   min-height: 100vh;
@@ -40,15 +42,22 @@ export const BodyStyle = styled.div`
     border-radius: 0px;
   }
 
+  .serviceCard > p{
+    text-align: center;
+  }
+
   .serviceImage {
     width: 70%;
     height: 40%;
   }
 
-  .serviceName,
+  .serviceName{
+    font-size: 17px;
+    margin: 10px;
+  }
+  
   .serviceValue {
     font-size: 17px;
-    font-weight: bold;
     margin: 10px;
   }
 
@@ -63,6 +72,27 @@ export const BodyStyle = styled.div`
   }
 
   @media (min-width: 770px) {
+
+    .serviceName{
+    height: 40px;
+    font-size: 14px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+
+    .serviceUserName{
+      font-size: 14px;
+      margin: 10px;
+    }
+  
+    .serviceValue {
+      font-size: 14px;
+      margin: 10px;
+    }
+
+
     .services {
       display: flex;
       justify-content: center;
@@ -71,11 +101,11 @@ export const BodyStyle = styled.div`
 
     h2 {
       display: block;
-      color: var(--white);
+      color: var(--color-primary);
       text-align: center;
       font-size: 25px;
       font-weight: 700;
-      margin: 10px 0px;
+      margin: 20px 0px;
     }
     .servicesContainer {
       margin-top: 0px;

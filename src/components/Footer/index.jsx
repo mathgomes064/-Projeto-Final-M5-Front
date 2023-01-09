@@ -8,8 +8,7 @@ import { FooterStyle } from "./style";
 
 export const Footer = () => {
   return (
-    <FooterStyle>
-      <footer className="innerFooter">
+      <FooterStyle className="footer">
         <div className="innerDiv">
           <div className="developersInfo">
             <div className="liksAndNames">
@@ -49,7 +48,7 @@ export const Footer = () => {
             <img src={logo}></img>
           </div>
         </div>
-      </footer>
-    </FooterStyle>
+      </FooterStyle>
+
   );
 };

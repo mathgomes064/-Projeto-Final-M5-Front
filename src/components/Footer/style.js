@@ -1,23 +1,16 @@
 import styled from "styled-components";
 
-export const FooterStyle = styled.div`
-  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;&display=swap");
-  footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    /* position: absolute;
-    bottom: 0; */
-  }
-  div {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+export const FooterStyle = styled.footer`
+border-top: 1px solid var(--color-primary);
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 110px;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;&display=swap");
 
-  .innerFooter {
+  .footer{
     width: 100vw;
-    border-top: 1px solid var(--color-primary);
     display: flex;
     justify-content: center;
     align-items: center;
