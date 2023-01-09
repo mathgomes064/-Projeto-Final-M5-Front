@@ -135,10 +135,19 @@ const ServicesProvider = ({ children }) => {
     if (searchField !== "".trim()) {
       setFilteredServices(
         services.filter(
-          ({ category, name, user }) =>
-            category.toLocaleLowerCase().trim().includes(searchField.toLocaleLowerCase().trim()) ||
-            name.toLocaleLowerCase().trim().includes(searchField.toLocaleLowerCase().trim()) ||
-            user.name.toLocaleLowerCase().trim().includes(searchField.toLocaleLowerCase().trim())
+          ({ category, service_name, user }) =>
+            category.name
+              .toLocaleLowerCase()
+              .trim()
+              .includes(searchField.toLocaleLowerCase().trim()) ||
+            service_name
+              .toLocaleLowerCase()
+              .trim()
+              .includes(searchField.toLocaleLowerCase().trim()) ||
+            user.username
+              .toLocaleLowerCase()
+              .trim()
+              .includes(searchField.toLocaleLowerCase().trim())
         )
       );
     } else {
