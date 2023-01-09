@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { UserContext } from "../../context/User";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { AiOutlineCloseSquare } from 'react-icons/ai';
+import { AiOutlineCloseSquare } from "react-icons/ai";
 
 const style = {
   position: "absolute",
@@ -38,7 +38,7 @@ export default function ModalPerfil() {
       data = { ...data, username };
     }
     if (fone) {
-      data = { ...data, contact };
+      data = { ...data, fone };
     }
     if (bio) {
       data = { ...data, bio };
@@ -64,7 +64,7 @@ export default function ModalPerfil() {
           <Container>
             <div className="headerModal">
               <h3 className="h3EditPerfil">Editar Perfil</h3>
-              <AiOutlineCloseSquare className="closeButton" onClick={handleClose}/>
+              <AiOutlineCloseSquare className="closeButton" onClick={handleClose} />
             </div>
             <div>
               <Form onSubmit={handleSubmit(handleEdit)}>
