@@ -10,7 +10,7 @@ const BodyDashboard = () => {
 
   return (
     <BodyStyle>
-      {filteredServices.length === 0? (""):
+      {filteredServices?.length === 0? (""):
       (<h2>Encontre o seu serviço aqui:</h2>)}
       <div className="services">
         <div className="servicesContainer">

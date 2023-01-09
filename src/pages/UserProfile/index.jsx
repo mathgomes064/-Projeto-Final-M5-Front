@@ -46,12 +46,16 @@ const UserProfile = () => {
             </div>
             <div className="services">
               <ul>
-                <li>
-                  <div>
-                    <h1>Cliente 1</h1>
-                    <p>Finalizado</p>
-                  </div>
-                </li>
+                { user?.services?.length === 0 ? (""):
+                (user?.services?.map((service) => {
+                  return(
+                    <li key={service.id}>
+                      <div>
+                        <h1>{service.service_name}</h1>
+                      </div>
+                    </li>
+                  )
+                  }))}
               </ul>
             </div>
           </ContainerService>

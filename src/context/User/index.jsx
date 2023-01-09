@@ -38,7 +38,7 @@ const UserProvider = ({ children }) => {
     //     .then((res) => setUser(res.data))
     //     .finally(() => setLoading(false));
     // }
-  }, [token]);
+  }, [token, services]);
 
   function signOut() {
     setUser(null);
