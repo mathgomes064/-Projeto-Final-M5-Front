@@ -5,21 +5,11 @@ export const Container = styled.div`
   height: auto;
   .title {
     background-color: var(--color-primary);
-    width: 100%;
-    height: 40%;
-    padding: 15px;
-    display: flex;
-    justify-content: space-between;
+    text-align: center;
     color: var(--white);
     h3 {
       font-size: 20px;
     }
-
-    .closeButton{
-      font-size: 20px;
-      cursor: pointer;
-    }
-
     button {
       background-color: transparent;
       border: 0;
@@ -66,7 +56,7 @@ export const Container = styled.div`
       padding: 30px;
     }
     .body {
-      height: 520px;
+      height: 450px;
       Input {
         height: 49px;
       }

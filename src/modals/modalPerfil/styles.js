@@ -4,8 +4,6 @@ export const Container = styled.div`
   .headerModal {
     background: var(--color-primary);
     height: 61px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
   }
 
   .h3EditPerfil {
@@ -13,9 +11,6 @@ export const Container = styled.div`
     color: var(--white);
     padding-top: 21px;
     font-size: 16px;
-
-    #clsBtn {
-    }
   }
 `;
 

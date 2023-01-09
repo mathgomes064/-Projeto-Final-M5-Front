@@ -66,7 +66,6 @@ export default function ModalPerfil() {
           <Container>
             <div className="headerModal">
               <h3 className="h3EditPerfil">Editar Perfil</h3>
-              <AiOutlineCloseSquare className="closeButton" onClick={handleClose} />
             </div>
             <div>
               <Form onSubmit={handleSubmit(handleEdit)}>
