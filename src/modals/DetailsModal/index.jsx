@@ -46,7 +46,7 @@ export default function TransitionsModal({ service }) {
               <div className="serviceModal">
                 <div className="category">{service.category.name}</div>
                 <div className="otherInfos">
-                  <img src={service.user.image}></img>
+                  <img src={`img/${service.category.name}.jpg`}></img>
                   <div className="nameAndValue">
                     <p>{service.user.username}</p>
                     <p>R$ {service.description.service_value}</p>

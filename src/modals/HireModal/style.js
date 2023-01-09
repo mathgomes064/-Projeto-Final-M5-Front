@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ReactWhatsapp from "react-whatsapp";
 
 export const HireStyle = styled.div`
   @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
@@ -69,4 +70,14 @@ export const HireStyle = styled.div`
   .crown {
     color: var(--premium-detail);
   }
+`;
+
+export const ButtonWhats = styled(ReactWhatsapp)`
+  background-color: #25d366;
+  border: none;
+  outline: none;
+  width: 100%;
+  border-radius: 8px;
+
+  cursor: pointer;
 `;

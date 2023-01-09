@@ -15,7 +15,7 @@ export const FooterStyle = styled.div`
     align-items: center;
   }
 
-  .innerPart {
+  .innerFooter {
     width: 100vw;
     border-top: 1px solid var(--color-primary);
     display: flex;
