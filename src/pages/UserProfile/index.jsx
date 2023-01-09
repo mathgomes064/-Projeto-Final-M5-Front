@@ -24,13 +24,15 @@ const UserProfile = () => {
       <ContainerMain>
         <HeaderUserProfile />
         <UserInfo>
-          <div>
-            <h1>{user?.username}</h1>
-            <h1>{user?.email}</h1>
-            <h1>{user?.fone}</h1>
-          </div>
-          <div>
-            <h1>{user?.bio}</h1>
+          <div className="innerDiv">
+            <div className="data">
+              <h1>username: {user?.username}</h1>
+              <h1>email: {user?.email}</h1>
+              <h1>phone: {user?.fone}</h1>
+            </div>
+            <div className="bio">
+              <h1>{user?.bio}</h1>
+            </div>
           </div>
         </UserInfo>
         <ContainerInfo>
@@ -96,19 +98,21 @@ const UserProfile = () => {
             </div>
           </ContainerCard>
         </ContainerInfo>
-        <ContainerFooter>
-          <div className="footerImages">
-            <img src={instagram} alt="" />
-            <img src={facebook} alt="" />
-            <img src={git} alt="" />
-            <img src={linkedin} alt="" />
+        <ContainerFooter> 
+          <div className="innerDiv">
+            <div className="footerImages">
+              <div>
+                <img src={instagram} alt="" />
+                <img src={facebook} alt="" />
+                <img src={git} alt="" />
+                <img src={linkedin} alt="" />
+              </div>
+              <p>
+                Desenvolvido por: Daniel Matos | Esther Suriel | Matheus Gomes |
+                Sidarta Kauã |Tainá Tenório
+              </p>
+            </div>
             <img className="logo" src={logo} alt="" />
-          </div>
-          <div>
-            <p>
-              Desenvolvido por: Daniel Matos | Esther Suriel | Matheus Gomes | Sidarta Kauã |Tainá
-              Tenório
-            </p>
           </div>
         </ContainerFooter>
       </ContainerMain>
