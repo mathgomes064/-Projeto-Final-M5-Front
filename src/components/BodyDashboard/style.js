@@ -42,6 +42,10 @@ export const BodyStyle = styled.div`
     border-radius: 0px;
   }
 
+  .serviceCard > p{
+    text-align: center;
+  }
+
   .serviceImage {
     width: 70%;
     height: 40%;
@@ -78,11 +82,7 @@ export const BodyStyle = styled.div`
       text-align: center;
       font-size: 25px;
       font-weight: 700;
-<<<<<<< Updated upstream
-      margin: 10px 0px;
-=======
-      margin: 20px 0px
->>>>>>> Stashed changes
+      margin: 20px 0px;
     }
     .servicesContainer {
       margin-top: 0px;

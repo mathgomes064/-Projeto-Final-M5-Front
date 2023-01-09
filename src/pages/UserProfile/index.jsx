@@ -38,7 +38,7 @@ const UserProfile = () => {
         <ContainerInfo>
           <ContainerService>
             <div className="tittleAndButton">
-              <h1>Meus Serviços</h1>
+              <h1>Serviços:</h1>
               <div>
                 <button>Cadastrados</button>
                 <button>Contratados</button>
@@ -49,24 +49,6 @@ const UserProfile = () => {
                 <li>
                   <div>
                     <h1>Cliente 1</h1>
-                    <p>Finalizado</p>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <h1>Cliente 2</h1>
-                    <p>Finalizado</p>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <h1>Cliente 3</h1>
-                    <p>Finalizado</p>
-                  </div>
-                </li>
-                <li>
-                  <div>
-                    <h1>Cliente 4</h1>
                     <p>Finalizado</p>
                   </div>
                 </li>
