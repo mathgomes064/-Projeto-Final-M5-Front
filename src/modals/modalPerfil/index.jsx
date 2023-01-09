@@ -29,15 +29,15 @@ export default function ModalPerfil() {
 
   const { register, handleSubmit } = useForm();
 
-  const handleEdit = ({ name, contact, bio, image }) => {
+  const handleEdit = ({ username, fone, bio, image }) => {
     const userId = localStorage.getItem("@Nice-jobs:id");
 
     let data = {};
 
-    if (name) {
-      data = { ...data, name };
+    if (username) {
+      data = { ...data, username };
     }
-    if (contact) {
+    if (fone) {
       data = { ...data, contact };
     }
     if (bio) {
@@ -49,9 +49,6 @@ export default function ModalPerfil() {
 
     editUser(data, userId);
     handleClose();
-    setTimeout(() => {
-      location.reload();
-    }, 500);
   };
 
   return (
@@ -72,30 +69,18 @@ export default function ModalPerfil() {
             <div>
               <Form onSubmit={handleSubmit(handleEdit)}>
                 <label>Nome</label>
-                <input
-                  type="text"
-                  placeholder="Insira seu novo nome"
-                  {...register("name")}
-                />
+                <input type="text" placeholder="Insira seu novo nome" {...register("username")} />
                 <label>Contato</label>
                 <input
                   className="contact"
                   type="number"
                   placeholder="Insira seu novo contato"
-                  {...register("contact")}
+                  {...register("fone")}
                 />
                 <label>Bio</label>
-                <input
-                  type="text"
-                  placeholder="Insira sua nova bio"
-                  {...register("bio")}
-                />
+                <input type="text" placeholder="Insira sua nova bio" {...register("bio")} />
                 <label>Imagem</label>
-                <input
-                  type="url"
-                  placeholder="Insira sua nova imagem"
-                  {...register("image")}
-                />
+                <input type="url" placeholder="Insira sua nova imagem" {...register("image")} />
                 <button type="submit">Salvar</button>
               </Form>
             </div>

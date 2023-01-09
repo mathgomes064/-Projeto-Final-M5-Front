@@ -137,11 +137,11 @@ const UserProvider = ({ children }) => {
   const editUser = (data, id) => {
     if (token) {
       api.defaults.headers.authorization = `Bearer ${token}`;
-
+      console.log(data);
       api
-        .patch(`/users/${id}`, data)
+        .patch(`/users/${id}/`, data)
         .then(({ data }) => {
-          setUser(data.user);
+          setUser(data);
           toast.success("Usuário editado com sucesso!", {
             position: "top-right",
             autoClose: 2000,
