@@ -1,12 +1,14 @@
-import { useContext, useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import { Container, Form, Button } from "./styles";
-import { useForm } from "react-hook-form";
 import { UserContext } from "../../context/User";
+
+import { useContext, useState } from "react";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { AiOutlineCloseSquare } from "react-icons/ai";
+
+import { Container, Form, Button } from "./styles";
 
 const style = {
   position: "absolute",
@@ -53,7 +55,7 @@ export default function ModalPerfil() {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Editar Perfil</Button>
+      <Button onMouseDown={handleOpen}>Editar Perfil</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -64,23 +66,34 @@ export default function ModalPerfil() {
           <Container>
             <div className="headerModal">
               <h3 className="h3EditPerfil">Editar Perfil</h3>
-              <AiOutlineCloseSquare className="closeButton" onClick={handleClose} />
             </div>
             <div>
               <Form onSubmit={handleSubmit(handleEdit)}>
                 <label>Nome</label>
-                <input type="text" placeholder="Insira seu novo nome" {...register("username")} />
+                <input
+                  type="text"
+                  placeholder="Nome"
+                  {...register("name")}
+                />
                 <label>Contato</label>
                 <input
                   className="contact"
                   type="number"
-                  placeholder="Insira seu novo contato"
-                  {...register("fone")}
+                  placeholder="Contato"
+                  {...register("contact")}
                 />
                 <label>Bio</label>
-                <input type="text" placeholder="Insira sua nova bio" {...register("bio")} />
+                <input
+                  type="text"
+                  placeholder="Biografia"
+                  {...register("bio")}
+                />
                 <label>Imagem</label>
-                <input type="url" placeholder="Insira sua nova imagem" {...register("image")} />
+                <input
+                  type="url"
+                  placeholder="Imagem"
+                  {...register("image")}
+                />
                 <button type="submit">Salvar</button>
               </Form>
             </div>

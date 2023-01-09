@@ -4,30 +4,13 @@ export const Container = styled.div`
   .headerModal {
     background: var(--color-primary);
     height: 61px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .closeButton{
-    color: var(--white);
-    margin-right: 18px;
-    font-size: 20px;
-    cursor: pointer;
   }
 
   .h3EditPerfil {
+    text-align: center;
     color: var(--white);
-    font-size: 23px;
-    margin-left: 80px;
-  }
-
-  p {
-    padding-left: 276px;
-    margin-top: -22px;
-    font-size: 21px;
-    color: var(--white);
-    cursor: pointer;
+    padding-top: 21px;
+    font-size: 16px;
   }
 `;
 
@@ -45,7 +28,7 @@ export const Form = styled.form`
 
   label {
     font-weight: 400;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 27px;
     margin-top: 7px;
     margin-left: 20px;
