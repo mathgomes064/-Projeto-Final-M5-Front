@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
 export const BodyStyle = styled.div`
+  min-height: 100vh;
+  height: 100%;
   @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
   min-height: 100vh;
@@ -63,6 +65,7 @@ export const BodyStyle = styled.div`
   }
 
   @media (min-width: 770px) {
+
     .services {
       display: flex;
       justify-content: center;
@@ -71,11 +74,15 @@ export const BodyStyle = styled.div`
 
     h2 {
       display: block;
-      color: var(--white);
+      color: var(--color-primary);
       text-align: center;
       font-size: 25px;
       font-weight: 700;
+<<<<<<< Updated upstream
       margin: 10px 0px;
+=======
+      margin: 20px 0px
+>>>>>>> Stashed changes
     }
     .servicesContainer {
       margin-top: 0px;

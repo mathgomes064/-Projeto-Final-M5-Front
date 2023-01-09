@@ -19,7 +19,6 @@ const HeaderUserProfile = () => {
         <img src={defaultUserProfilePic} alt="user" />
         <div>
           <h1>{user?.username}</h1>
-          <h2>Desenvolvedor</h2>
         </div>
       </div>
     </Container>

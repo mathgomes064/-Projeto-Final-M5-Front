@@ -14,12 +14,35 @@ export const ContainerMain = styled.main`
 `;
 
 export const UserInfo = styled.section`
-  width: 83vw;
+  width: 100%;
+  height: 150px;
   margin-top: 40px;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: var( --color-primary)
+  justify-content: center;
+  color: var( --color-primary);
+  border-bottom: 1px solid var(--color-primary);
+
+  .innerDiv{
+    width: 82.5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .innerDiv > .data{
+    width: 30%;
+    height: 80%;
+  }
+
+  .innerDiv > .bio{
+    width: 30%;
+    height: 80%;
+    text-align: right;
+  }
+
+  div > h1{
+    font-size: 18px;
+  }
 `;
 
 export const ContainerInfo = styled.section`
@@ -249,20 +272,35 @@ export const ContainerFooter = styled.footer`
   height: 120px;
   border-top: 1px solid var(--color-primary);
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   margin-top: 10px;
 
-  .footerImages {
+  .innerDiv{
+    width: 98%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
-    width: 320px;
   }
 
-  img {
-    width: 30px;
+  .footerImages {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 320px;
+    height: 70px;
+  }
+
+  .footerImages > div{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .innerDiv > img {
+    width: 85px;
   }
 
   .logo {
@@ -271,7 +309,7 @@ export const ContainerFooter = styled.footer`
 
   p {
     width: 300px;
-    height: 40px;
+    height: 30px;
     font-size: 12px;
   }
 `;
