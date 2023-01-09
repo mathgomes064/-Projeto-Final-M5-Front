@@ -4,15 +4,22 @@ export const Container = styled.div`
   .headerModal {
     background: var(--color-primary);
     height: 61px;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .closeButton{
+    color: var(--white);
+    margin-right: 18px;
+    font-size: 20px;
+    cursor: pointer;
   }
 
   .h3EditPerfil {
     color: var(--white);
-    padding-top: 21px;
     font-size: 23px;
-    padding-left: 76px;
+    margin-left: 80px;
   }
 
   p {
@@ -34,7 +41,6 @@ export const Form = styled.form`
     padding-left: 10px;
     height: 35px;
     margin-left: 15px;
-    border-radius: 6px;
   }
 
   label {
@@ -50,7 +56,6 @@ export const Form = styled.form`
     margin-left: 17px;
     margin-top: 18px;
     height: 35px;
-    border-radius: 6px;
     background: var(--color-primary);
     color: var(--white);
     border: none;

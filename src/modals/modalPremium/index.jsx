@@ -4,6 +4,7 @@ import Modal from "@mui/material/Modal";
 import { Container, Button } from "./styles";
 import { FaCrown } from "react-icons/fa";
 import { toast } from "react-toastify";
+import { AiOutlineCloseSquare } from 'react-icons/ai';
 
 const style = {
   position: "absolute",
@@ -14,7 +15,6 @@ const style = {
   height: 400,
   bgcolor: "background.paper",
   boxShadow: 24,
-  borderRadius: 2,
   p: 0,
 };
 
@@ -47,9 +47,7 @@ export default function ModalPremium() {
       >
         <Box sx={style}>
           <Container>
-            <p className="pClose" onClick={handleClose}>
-              X
-            </p>
+            <AiOutlineCloseSquare className="closeButton" onClick={handleClose}/>
             <p className="signature">
               <FaCrown className="crown" /> Faça uma assinatura para utilizar
               esse recurso
