@@ -3,6 +3,9 @@ import styled from "styled-components";
 export const BodyStyle = styled.div`
   @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
+  min-height: 100vh;
+  height: 100%;
+
   h2 {
     display: none;
     color: var(--color-primary);
@@ -72,7 +75,7 @@ export const BodyStyle = styled.div`
       text-align: center;
       font-size: 25px;
       font-weight: 700;
-      margin: 10px 0px
+      margin: 10px 0px;
     }
     .servicesContainer {
       margin-top: 0px;
