@@ -47,7 +47,7 @@ const AddServiceModal = () => {
 
   return (
     <div>
-      <ModalButton onClick={handleOpen}>Cadastrar Serviço</ModalButton>
+      <ModalButton onMouseDown={handleOpen}>Cadastrar Serviço</ModalButton>
       <Modal
         open={open}
         onClose={handleClose}
@@ -62,6 +62,7 @@ const AddServiceModal = () => {
             <Container>
               <div className="title">
                 <h3>Cadastre o serviço</h3>
+                <button onMouseDown={handleClose}>X</button>
                 <AiOutlineCloseSquare className="closeButton" onClick={handleClose}/>
               </div>
               <div className="body">
