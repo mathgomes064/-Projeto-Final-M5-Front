@@ -7,7 +7,6 @@ justify-content: center;
 align-items: center;
 width: 100%;
 height: 110px;
-background-color: gray;
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;&display=swap");
 
   .footer{
