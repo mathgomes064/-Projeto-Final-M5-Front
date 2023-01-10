@@ -16,6 +16,10 @@ const HeaderDashboard = () => {
   const { filterSearchField } = useContext(ServicesContext);
   const navigate = useNavigate()
 
+  function refreshPage() {
+    window.location.reload()
+  }
+
   return (
     <Header>
       <section className="infoUser">
@@ -30,7 +34,7 @@ const HeaderDashboard = () => {
           <Menu />
         </section>
         <div className="navegationDiv">
-          <img onClick={() => navigate("/dashboard")} className="whiteLogo" src={logo} alt="logo branca" />
+          <img onClick={refreshPage} className="whiteLogo" src={logo} alt="logo branca" />
         </div>
     </Header>
   );
