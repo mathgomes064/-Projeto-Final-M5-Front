@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useContext } from "react";
 import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
@@ -7,6 +8,7 @@ import { Container } from "./styles";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { useForm } from "react-hook-form";
+import { ServicesContext } from "../../context/Services";
 
 const style = {
   position: "absolute",
@@ -21,6 +23,8 @@ const EditServiceModal = () => {
   const handleClose = () => setOpen(false);
 
   const { register, handleSubmit } = useForm();
+
+  const { editService } = useContext(ServicesContext);
 
   return (
     <div>
@@ -42,12 +46,8 @@ const EditServiceModal = () => {
                 <button onClick={handleClose}>X</button>
               </div>
               <div className="body">
-                <form onSubmit={handleSubmit()}>
-                  <Input
-                    label="Editar preço"
-                    placeholder="R$100"
-                    {...register("value")}
-                  />
+                <form onSubmit={handleSubmit(editService)}>
+                  <Input label="Editar preço" placeholder="R$100" {...register("value")} />
 
                   <Input
                     label="Editar detalhes"
@@ -56,17 +56,10 @@ const EditServiceModal = () => {
                   />
                   <div>
                     <label title="select"> Editar Categoria </label>
-                    <select
-                      label="Categoria"
-                      title="select"
-                      id="select"
-                      {...register("type")}
-                    >
+                    <select label="Categoria" title="select" id="select" {...register("type")}>
                       <option value="Frete">Frete</option>
                       <option value="Construção Civil">Construção Civil</option>
-                      <option value="Serviços Domésticos">
-                        Serviços Domésticos
-                      </option>
+                      <option value="Serviços Domésticos">Serviços Domésticos</option>
                       <option value="Outros">Outros</option>
                     </select>
                   </div>

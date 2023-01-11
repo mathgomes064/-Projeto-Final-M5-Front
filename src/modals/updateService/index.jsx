@@ -10,7 +10,7 @@ import Button from "../../components/Button";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ServicesContext } from "../../context/Services";
-import { AiOutlineCloseSquare } from 'react-icons/ai';
+import { AiOutlineCloseSquare } from "react-icons/ai";
 
 const style = {
   position: "absolute",
@@ -19,7 +19,7 @@ const style = {
   transform: "translate(-50%, -50%)",
 };
 
-const AddServiceModal = () => {
+const AddServiceModal = ({ service_id }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -37,11 +37,10 @@ const AddServiceModal = () => {
     resolver: yupResolver(schema),
   });
 
-  const { createService } = useContext(ServicesContext);
+  const { editService } = useContext(ServicesContext);
 
   const handleAdd = (data) => {
-    console.log(data);
-    createService(data);
+    editService(data, service_id);
     handleClose();
   };
 
@@ -66,7 +65,6 @@ const AddServiceModal = () => {
               <div className="body">
                 <form onSubmit={handleSubmit(handleAdd)}>
                   <Input
-                    
                     label="Nome do serviço"
                     placeholder="Frete"
                     {...register("service_name")}
