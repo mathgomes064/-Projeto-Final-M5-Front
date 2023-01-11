@@ -78,8 +78,8 @@ const UserProfile = () => {
             </div>
             <div className="services">
               <ul>
-                {user?.services?.length === 0 ? (""):
-                (user?.services?.map((service) => {
+                {userE?.services?.length === 0 ? (""):
+                (userE?.services?.map((service) => {
                   return(
                     <li key={service.id} onClick={()=>{
                         filteredServices.map((i)=>{
