@@ -15,45 +15,54 @@ import instagram from "../../assets/face.png";
 import linkedin from "../../assets/git.png";
 import git from "../../assets/in.png";
 import { UserContext } from "../../context/User";
-import { ServicesContext } from "../../context/Services"
+import { ServicesContext } from "../../context/Services";
 import { useContext } from "react";
 import { useState } from "react";
+import AddServiceModal from "../../modals/updateService";
 
 const UserProfile = () => {
-  const { filteredServices, editService, deleteService } = useContext(ServicesContext);
+  const { filteredServices, deleteService } = useContext(ServicesContext);
   const { user } = useContext(UserContext);
   const [serviceP, setService] = useState(null);
   const [userE, setUser] = useState(user);
+  const [serviceUpdate, setUpdate] = useState(false);
   const [serviceDelete, setDelete] = useState(false);
-  
+
   return (
     <>
       <ContainerMain>
-      {serviceDelete?
-                  <div className="options">
-                      <div className="deleteContaine">
-                        <p>Tem serteza que deseja deletar este cerviço?</p>
-                        <div className="buttons">
-                          <button onClick={()=>{
-                            setDelete(false) 
-                            deleteService(serviceP.id)
-                            setService(null)
-                            filteredServices.forEach((element, i)=>{
-                              if(element.id===serviceP.id){
-                                filteredServices.splice(i,1)
-                              }
-                            })
-                            userE.services.forEach((service, i) => {
-                              if(service.id===serviceP.id){
-                                userE.services.splice(i,1)
-                              }
-                            })
-                            }}>Sim</button>
-                          <button onClick={()=>setDelete(false)}>Não</button>
-                        </div>
-                      </div>
-                  </div>:("")
-        }
+        {serviceUpdate ? <AddServiceModal /> : ""}
+        {serviceDelete ? (
+          <div className="options">
+            <div className="deleteContaine">
+              <p>Tem serteza que deseja deletar este cerviço?</p>
+              <div className="buttons">
+                <button
+                  onClick={() => {
+                    setDelete(false);
+                    deleteService(serviceP.id);
+                    setService(null);
+                    filteredServices.forEach((element, i) => {
+                      if (element.id === serviceP.id) {
+                        filteredServices.splice(i, 1);
+                      }
+                    });
+                    userE.services.forEach((service, i) => {
+                      if (service.id === serviceP.id) {
+                        userE.services.splice(i, 1);
+                      }
+                    });
+                  }}
+                >
+                  Sim
+                </button>
+                <button onClick={() => setDelete(false)}>Não</button>
+              </div>
+            </div>
+          </div>
+        ) : (
+          ""
+        )}
         <HeaderUserProfile />
         <UserInfo>
           <div className="innerDiv">
@@ -78,53 +87,66 @@ const UserProfile = () => {
             </div>
             <div className="services">
               <ul>
-                {userE?.services?.length === 0 ? (""):
-                (userE?.services?.map((service) => {
-                  return(
-                    <li key={service.id} onClick={()=>{
-                        filteredServices.map((i)=>{
-                          if(i.id===service.id){
-                             setService(i)
-                      }})}}>
-                      <div>
-                        <h1>{service.service_name}</h1>
-                      </div>
-                    </li>
-                  )
-                  }))}
+                {userE?.services?.length === 0
+                  ? ""
+                  : userE?.services?.map((service) => {
+                      return (
+                        <li
+                          key={service.id}
+                          onClick={() => {
+                            filteredServices.map((i) => {
+                              if (i.id === service.id) {
+                                setService(i);
+                              }
+                            });
+                          }}
+                        >
+                          <div>
+                            <h1>{service.service_name}</h1>
+                          </div>
+                        </li>
+                      );
+                    })}
               </ul>
             </div>
           </ContainerService>
 
           <ContainerCard>
-            {serviceP === null? 
-             <img src={image}/>
-            :
-            <div className="card">
-              <div className="userInfo">
-                <img src={defaultUserProfilePic} alt="" />
-                <div>
-                  <h1>{user?.username}</h1>
-                  <span>Frete</span>
-                  <p>{serviceP.description.service_value}</p>
+            {serviceP === null ? (
+              <img src={image} />
+            ) : (
+              <div className="card">
+                <div className="userInfo">
+                  <img src={defaultUserProfilePic} alt="" />
+                  <div>
+                    <h1>{user?.username}</h1>
+                    <span>Frete</span>
+                    <p>{serviceP.description.service_value}</p>
+                  </div>
+                </div>
+                <p>
+                  <span>Atuação:</span>
+                  {serviceP.description.atuation_area}
+                </p>
+                <p>
+                  <span>Serviço:</span>
+                  {serviceP.service_name}
+                </p>
+                <p>
+                  <span>Descrição:</span>
+                  {serviceP.description.service_description}
+                </p>
+
+                <div className="editButtons">
+                  <AddServiceModal service_id={serviceP.id} />
+                  <button onClick={() => setDelete(true)}>Deletar</button>
+                  <button onClick={() => setService(null)}>Finalizar</button>
                 </div>
               </div>
-
-              <p>
-                {serviceP.description.service_description}
-              </p>
-
-              <div className="editButtons">
-                <button>Editar</button>
-                <button onClick={()=>setDelete(true)}>Deletar</button>
-                <button>Finalizar</button>
-              </div>
-            </div>
-          }
+            )}
           </ContainerCard>
-
         </ContainerInfo>
-        <ContainerFooter> 
+        <ContainerFooter>
           <div className="innerDiv">
             <div className="footerImages">
               <div>
@@ -134,8 +156,8 @@ const UserProfile = () => {
                 <img src={linkedin} alt="" />
               </div>
               <p>
-                Desenvolvido por: Daniel Matos | Esther Suriel | Matheus Gomes |
-                Sidarta Kauã |Tainá Tenório
+                Desenvolvido por: Daniel Matos | Esther Suriel | Matheus Gomes | Sidarta Kauã |Tainá
+                Tenório
               </p>
             </div>
             <img className="logo" src={logo} alt="" />

@@ -8,12 +8,14 @@ export const BodyStyle = styled.div`
   min-height: 100vh;
   height: 100%;
 
-  h2 {
-    display: none;
-    color: var(--color-primary);
+  .services{
   }
 
   .servicesContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
     margin-top: 30px;
     display: flex;
     flex-direction: row;
@@ -39,7 +41,11 @@ export const BodyStyle = styled.div`
     height: 300px;
     margin: 10px;
     border: 1px solid var(--grey-3);
-    border-radius: 0px;
+  }
+
+  .serviceCard:hover{
+    transition: 244ms;
+    transform: scale(1.1)
   }
 
   .serviceCard > p{

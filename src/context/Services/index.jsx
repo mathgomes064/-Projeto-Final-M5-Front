@@ -66,9 +66,26 @@ const ServicesProvider = ({ children }) => {
   };
 
   const editService = (data, serviceId) => {
+    const formattedData = {
+      service_name: data.service_name,
+      description: {
+        service_description: data.service_description,
+        service_value: data.service_value,
+        atuation_area: "Brasil",
+      },
+      category: {
+        name: data.category,
+      },
+    };
+    console.log(formattedData);
     api
-      .patch(`/services/${serviceId}`, data)
-      .then(() =>
+      .patch(`/services/${serviceId}/`, formattedData)
+      .then(() => {
+        api.get("/services/").then((res) => {
+          setServices(res.data.results);
+          setFilteredServices(res.data.results);
+        });
+
         toast.success("Serviço editado com sucesso!", {
           position: "top-right",
           autoClose: 2000,
@@ -78,8 +95,8 @@ const ServicesProvider = ({ children }) => {
           draggable: true,
           progress: undefined,
           toastId: 1,
-        })
-      )
+        });
+      })
       .catch(() =>
         toast.error("Algo deu errado!", {
           position: "top-right",
