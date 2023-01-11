@@ -47,9 +47,9 @@ const UserProfile = () => {
                         filteredServices.splice(i, 1);
                       }
                     });
-                    userE.services.forEach((service, i) => {
+                    user.services.forEach((service, i) => {
                       if (service.id === serviceP.id) {
-                        userE.services.splice(i, 1);
+                        user.services.splice(i, 1);
                       }
                     });
                   }}
@@ -87,26 +87,24 @@ const UserProfile = () => {
             </div>
             <div className="services">
               <ul>
-                {userE?.services?.length === 0
-                  ? ""
-                  : userE?.services?.map((service) => {
-                      return (
-                        <li
-                          key={service.id}
-                          onClick={() => {
-                            filteredServices.map((i) => {
-                              if (i.id === service.id) {
-                                setService(i);
-                              }
-                            });
-                          }}
-                        >
-                          <div>
-                            <h1>{service.service_name}</h1>
-                          </div>
-                        </li>
-                      );
-                    })}
+                {user?.services?.map((service) => {
+                  return (
+                    <li
+                      key={service.id}
+                      onClick={() => {
+                        filteredServices.map((i) => {
+                          if (i.id === service.id) {
+                            setService(i);
+                          }
+                        });
+                      }}
+                    >
+                      <div>
+                        <h1>{service.service_name}</h1>
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
           </ContainerService>
@@ -138,7 +136,7 @@ const UserProfile = () => {
                 </p>
 
                 <div className="editButtons">
-                  <AddServiceModal service_id={serviceP.id} />
+                  <AddServiceModal service={serviceP} service_id={serviceP.id} />
                   <button onClick={() => setDelete(true)}>Deletar</button>
                   <button onClick={() => setService(null)}>Finalizar</button>
                 </div>
