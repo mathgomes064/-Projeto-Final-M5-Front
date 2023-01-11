@@ -77,7 +77,6 @@ const ServicesProvider = ({ children }) => {
         name: data.category,
       },
     };
-    console.log(formattedData);
     api
       .patch(`/services/${serviceId}/`, formattedData)
       .then(() => {
@@ -85,7 +84,7 @@ const ServicesProvider = ({ children }) => {
           setServices(res.data.results);
           setFilteredServices(res.data.results);
         });
-
+        console.log("deu certo");
         toast.success("Serviço editado com sucesso!", {
           position: "top-right",
           autoClose: 2000,

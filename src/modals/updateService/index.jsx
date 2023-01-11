@@ -19,7 +19,7 @@ const style = {
   transform: "translate(-50%, -50%)",
 };
 
-const AddServiceModal = ({ service_id }) => {
+const AddServiceModal = ({ service, service_id }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -67,21 +67,37 @@ const AddServiceModal = ({ service_id }) => {
                   <Input
                     label="Nome do serviço"
                     placeholder="Frete"
-                    {...register("service_name")}
+                    {...register("service_name", {
+                      value: service.service_name,
+                    })}
                   />
                   <span className="error">{errors.service_name?.message}</span>
-                  <Input label="Preço" placeholder="R$100" {...register("service_value")} />
+                  <Input
+                    label="Preço"
+                    placeholder="R$100"
+                    {...register("service_value", {
+                      value: service.description.service_value,
+                    })}
+                  />
                   <span className="error">{errors.service_value?.message}</span>
 
                   <Input
                     label="Detalhes"
                     placeholder="Descreva seu serviço"
-                    {...register("service_description")}
+                    {...register("service_description", {
+                      value: service.description.service_description,
+                    })}
                   />
                   <span className="error">{errors.service_description?.message}</span>
                   <div>
                     <label name="select">Categoria</label>
-                    <select label="Categoria" title="select" id="select" {...register("category")}>
+                    <select
+                      label="Categoria"
+                      title="select"
+                      id="select"
+                      defaultValue={service.category.name}
+                      {...register("category")}
+                    >
                       <option value="Construção civil">Construção Civil</option>
                       <option value="Manutenção de Eletrônicos">Manutenção de Eletronicos</option>
                       <option value="Frete">Frete</option>
