@@ -38,7 +38,6 @@ export const ServiceScheduleModal = ({ setOpenDetailsModal, setOpenContact, serv
 
   const toSchedule = async (data) => {
     data.service_id = service.id;
-    console.log(data);
     try {
       await api.post("/schedules/", data);
 
@@ -75,6 +74,7 @@ export const ServiceScheduleModal = ({ setOpenDetailsModal, setOpenContact, serv
         onClick={() => {
           setOpenSchedule(true);
         }}
+        variant="contained"
       >
         Agendar
       </Button>
