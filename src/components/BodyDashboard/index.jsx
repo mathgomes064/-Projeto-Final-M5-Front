@@ -4,6 +4,7 @@ import { ServicesContext } from "../../context/Services";
 import { BodyStyle } from "./style";
 import TransitionsModal from "../../modals/DetailsModal";
 import EmptyServices from "../EmptyServices";
+import Animation from "../dashboardCall";
 
 const BodyDashboard = () => {
   const { filteredServices } = useContext(ServicesContext);
@@ -11,7 +12,7 @@ const BodyDashboard = () => {
   return (
     <BodyStyle>
       {filteredServices?.length === 0? (""):
-      (<h2>Encontre o seu serviço aqui:</h2>)}
+      (<Animation/>)}
       <div className="services">
         <div className="servicesContainer">
           {filteredServices ? (
