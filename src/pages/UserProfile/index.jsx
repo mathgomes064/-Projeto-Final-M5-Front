@@ -18,17 +18,21 @@ import { UserContext } from "../../context/User";
 import { ServicesContext } from "../../context/Services"
 import { useContext } from "react";
 import { useState } from "react";
+import AddServiceModal from "../../modals/updateService"
 
 const UserProfile = () => {
-  const { filteredServices, editService, deleteService } = useContext(ServicesContext);
+  const { filteredServices, deleteService } = useContext(ServicesContext);
   const { user } = useContext(UserContext);
   const [serviceP, setService] = useState(null);
   const [userE, setUser] = useState(user);
+  const [serviceUpdate, setUpdate] = useState(false);
   const [serviceDelete, setDelete] = useState(false);
   
+  console.log(filteredServices)
   return (
     <>
       <ContainerMain>
+      {serviceUpdate?<AddServiceModal/>:""}
       {serviceDelete?
                   <div className="options">
                       <div className="deleteContaine">
@@ -109,15 +113,23 @@ const UserProfile = () => {
                   <p>{serviceP.description.service_value}</p>
                 </div>
               </div>
-
               <p>
+                <span>Atuação:</span>
+                {serviceP.description.atuation_area}
+              </p>
+              <p>
+                <span>Serviço:</span>
+                {serviceP.service_name}
+              </p>
+              <p>
+                <span>Descrição:</span>
                 {serviceP.description.service_description}
               </p>
 
               <div className="editButtons">
-                <button>Editar</button>
+                <AddServiceModal service_id={serviceP.id}/>
                 <button onClick={()=>setDelete(true)}>Deletar</button>
-                <button>Finalizar</button>
+                <button onClick={()=>setService(null)}>Finalizar</button>
               </div>
             </div>
           }

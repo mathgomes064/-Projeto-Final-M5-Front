@@ -287,6 +287,7 @@ export const ContainerCard = styled.section`
   .card > .editButtons {
     width: 100%;
     display: flex;
+    align-items: center;
     justify-content: space-around;
   }
 
@@ -320,6 +321,11 @@ export const ContainerCard = styled.section`
     max-height: 20rem;
     width: auto;
     height: auto;
+  }
+
+  p span{
+    color: var(--color-primary);
+    margin: 20px;
   }
 `;
 
