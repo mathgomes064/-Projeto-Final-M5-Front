@@ -66,8 +66,19 @@ const ServicesProvider = ({ children }) => {
   };
 
   const editService = (data, serviceId) => {
+    const formattedData = {
+      service_name: data.service_name,
+      // description: {
+      //   service_description: data.service_description,
+      //   service_value: data.service_value,
+      //   atuation_area: "Brasil",
+      // },
+      // category: {
+      //   name: data.category
+      // }
+    };
     api
-      .patch(`/services/${serviceId}`, data)
+      .patch(`/services/${serviceId}`, formattedData)
       .then(() =>
         toast.success("Serviço editado com sucesso!", {
           position: "top-right",
