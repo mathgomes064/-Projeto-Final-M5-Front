@@ -53,7 +53,7 @@ export default function TransitionsModal({ service }) {
                   </div>
                 </div>
                 <p className="description">{service.description.service_description}</p>
-                <HireModal service={service}></HireModal>
+                <HireModal setOpenDetailsModal={setOpen} service={service}></HireModal>
               </div>
             </DetailsStyle>
           </Box>
