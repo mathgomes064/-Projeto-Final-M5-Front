@@ -12,7 +12,7 @@ import { BsFillChatDotsFill } from "react-icons/bs";
 import { FaCrown } from "react-icons/fa";
 import { SiGooglecalendar } from "react-icons/si";
 
-import { ServiceScheduleModal } from "../serviceScheduleModal"
+import { ServiceScheduleModal } from "../serviceScheduleModal";
 
 // import ReactWhatsapp from "react-whatsapp";
 
@@ -25,7 +25,7 @@ const style = {
   boxShadow: 20,
 };
 
-export default function HireModal({ service }) {
+export default function HireModal({ setOpenDetailsModal, service }) {
   const [openContact, setOpenContact] = React.useState(false);
 
   return (
@@ -72,7 +72,11 @@ export default function HireModal({ service }) {
                   </div>
                 </div>
                 <section className="checkSchedule">
-                <ServiceScheduleModal service={service}/>
+                  <ServiceScheduleModal
+                    setOpenContact={setOpenContact}
+                    setOpenDetailsModal={setOpenDetailsModal}
+                    service={service}
+                  />
                 </section>
               </div>
             </HireStyle>
