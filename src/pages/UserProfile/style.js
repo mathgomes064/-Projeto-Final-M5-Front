@@ -11,6 +11,55 @@ export const ContainerMain = styled.main`
   @media screen and (min-width: 1000px) {
     height: 100vh;
   }
+
+  .options{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  .deleteContaine{
+    width: 20rem;
+    height: 10rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+  }
+
+  .deleteContaine p{
+    box-sizing: content-box;
+    padding: 15px;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+  }
+  .buttons{
+    display: flex;
+    gap: 3rem;
+  }
+  .buttons button{
+    background-color: var(--color-primary);
+    color: var(--white);
+    border-radius: 0px;
+    height: 30px;
+    width: 50px;
+    font-weight: 700;
+    text-transform: none;
+    cursor: pointer;
+    border: none;
+
+    :hover {
+      background-color: var(--color-primary-focus);
+      color: var(--black);
+    }
+  }
 `;
 
 export const UserInfo = styled.section`
@@ -185,7 +234,8 @@ export const ContainerCard = styled.section`
   align-items: center;
 
   .card {
-    max-width: 320px;
+    width:100%;
+    max-width: 420px;
     height: 300px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 0px;
@@ -265,6 +315,12 @@ export const ContainerCard = styled.section`
     width: 340px;
     height: 340px;
   }
+  img{
+    max-width: 100rem;
+    max-height: 20rem;
+    width: auto;
+    height: auto;
+  }
 `;
 
 export const ContainerFooter = styled.footer`
@@ -312,4 +368,5 @@ export const ContainerFooter = styled.footer`
     height: 30px;
     font-size: 12px;
   }
+
 `;
