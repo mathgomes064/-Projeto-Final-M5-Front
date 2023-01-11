@@ -7,6 +7,7 @@ import {
   ContainerService,
   UserInfo,
 } from "./style";
+import image from "../../assets/technology-pana.png";
 import defaultUserProfilePic from "../../assets/Amongus 3.png";
 import logo from "../../assets/newlogo.png";
 import facebook from "../../assets/insta.png";
@@ -14,14 +15,45 @@ import instagram from "../../assets/face.png";
 import linkedin from "../../assets/git.png";
 import git from "../../assets/in.png";
 import { UserContext } from "../../context/User";
+import { ServicesContext } from "../../context/Services"
 import { useContext } from "react";
+import { useState } from "react";
 
 const UserProfile = () => {
+  const { filteredServices, editService, deleteService } = useContext(ServicesContext);
   const { user } = useContext(UserContext);
-
+  const [serviceP, setService] = useState(null);
+  const [userE, setUser] = useState(user);
+  const [serviceDelete, setDelete] = useState(false);
+  
   return (
     <>
       <ContainerMain>
+      {serviceDelete?
+                  <div className="options">
+                      <div className="deleteContaine">
+                        <p>Tem serteza que deseja deletar este cerviço?</p>
+                        <div className="buttons">
+                          <button onClick={()=>{
+                            setDelete(false) 
+                            deleteService(serviceP.id)
+                            setService(null)
+                            filteredServices.forEach((element, i)=>{
+                              if(element.id===serviceP.id){
+                                filteredServices.splice(i,1)
+                              }
+                            })
+                            userE.services.forEach((service, i) => {
+                              if(service.id===serviceP.id){
+                                userE.services.splice(i,1)
+                              }
+                            })
+                            }}>Sim</button>
+                          <button onClick={()=>setDelete(false)}>Não</button>
+                        </div>
+                      </div>
+                  </div>:("")
+        }
         <HeaderUserProfile />
         <UserInfo>
           <div className="innerDiv">
@@ -46,10 +78,14 @@ const UserProfile = () => {
             </div>
             <div className="services">
               <ul>
-                { user?.services?.length === 0 ? (""):
+                {user?.services?.length === 0 ? (""):
                 (user?.services?.map((service) => {
                   return(
-                    <li key={service.id}>
+                    <li key={service.id} onClick={()=>{
+                        filteredServices.map((i)=>{
+                          if(i.id===service.id){
+                             setService(i)
+                      }})}}>
                       <div>
                         <h1>{service.service_name}</h1>
                       </div>
@@ -59,30 +95,34 @@ const UserProfile = () => {
               </ul>
             </div>
           </ContainerService>
+
           <ContainerCard>
+            {serviceP === null? 
+             <img src={image}/>
+            :
             <div className="card">
               <div className="userInfo">
                 <img src={defaultUserProfilePic} alt="" />
                 <div>
                   <h1>{user?.username}</h1>
                   <span>Frete</span>
-                  <p>R$100,00</p>
+                  <p>{serviceP.description.service_value}</p>
                 </div>
               </div>
 
               <p>
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet est, maiores repellat
-                molestias quo sapiente praesentium inventore quisquam dolor perspiciatis ad
-                exercitationem accusamus earum aut ea id dolorum minus repudiandae?
+                {serviceP.description.service_description}
               </p>
 
               <div className="editButtons">
                 <button>Editar</button>
-                <button>Deletar</button>
+                <button onClick={()=>setDelete(true)}>Deletar</button>
                 <button>Finalizar</button>
               </div>
             </div>
+          }
           </ContainerCard>
+
         </ContainerInfo>
         <ContainerFooter> 
           <div className="innerDiv">

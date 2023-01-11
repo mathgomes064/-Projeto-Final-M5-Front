@@ -96,7 +96,7 @@ const ServicesProvider = ({ children }) => {
 
   const deleteService = (serviceId) => {
     api
-      .patch(`/services/${serviceId}`)
+      .delete(`/services/${serviceId}`)
       .then(() =>
         toast.success("Serviço deletado com sucesso!", {
           position: "top-right",
