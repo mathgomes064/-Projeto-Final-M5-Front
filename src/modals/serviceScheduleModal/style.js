@@ -34,17 +34,24 @@ export const ScheduleModal = styled.div`
 
       .scheduleData {
         display: flex;
-        gap: 30px;
-        /* align-items: center; */
+        gap: 10px;
+        align-items: center;
         justify-content: center;
+        flex-direction: column;
 
         input {
-          /* border: 1px solid black; */
+          width: 300px;
+          border-bottom: 1px solid grey;
+
+          :hover {
+            transition: all 0.2s;
+            background: rgba(0, 0, 0, 0.1);
+          }
         }
       }
       .confirmDate {
         margin: 0 auto;
-        margin-top: 90px;
+        margin-top: 50px;
 
         button {
           background: var(--color-primary);
