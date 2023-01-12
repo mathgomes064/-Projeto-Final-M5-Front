@@ -67,9 +67,9 @@ const UserProfile = () => {
         <UserInfo>
           <div className="innerDiv">
             <div className="data">
-              <h1>username: {user?.username}</h1>
-              <h1>email: {user?.email}</h1>
-              <h1>phone: {user?.fone}</h1>
+              <h1>Nome: {user?.username}</h1>
+              <h1>Email: {user?.email}</h1>
+              <h1>Telefone: {user?.fone}</h1>
             </div>
             <div className="bio">
               <h1>{user?.bio}</h1>
@@ -118,7 +118,7 @@ const UserProfile = () => {
                   <img src={defaultUserProfilePic} alt="" />
                   <div>
                     <h1>{user?.username}</h1>
-                    <span>Frete</span>
+                    <span>{serviceP.category.name}</span>
                     <p>{serviceP.description.service_value}</p>
                   </div>
                 </div>

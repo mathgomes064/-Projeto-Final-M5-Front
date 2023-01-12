@@ -71,12 +71,14 @@ export default function ModalPerfil() {
               <Form onSubmit={handleSubmit(handleEdit)}>
                 <label>Nome</label>
                 <input
+                  autoComplete="off"
                   type="text"
                   placeholder="Nome"
                   {...register("name")}
                 />
                 <label>Contato</label>
                 <input
+                  autoComplete="off"
                   className="contact"
                   type="number"
                   placeholder="Contato"
@@ -84,12 +86,14 @@ export default function ModalPerfil() {
                 />
                 <label>Bio</label>
                 <input
+                  autoComplete="off"
                   type="text"
                   placeholder="Biografia"
                   {...register("bio")}
                 />
                 <label>Imagem</label>
                 <input
+                  autoComplete="off"
                   type="url"
                   placeholder="Imagem"
                   {...register("image")}

@@ -65,6 +65,7 @@ const AddServiceModal = ({ service, service_id }) => {
               <div className="body">
                 <form onSubmit={handleSubmit(handleAdd)}>
                   <Input
+                    autoComplete="off"
                     label="Nome do serviço"
                     placeholder="Frete"
                     {...register("service_name", {
@@ -82,6 +83,7 @@ const AddServiceModal = ({ service, service_id }) => {
                   <span className="error">{errors.service_value?.message}</span>
 
                   <Input
+                    autoComplete="off"
                     label="Detalhes"
                     placeholder="Descreva seu serviço"
                     {...register("service_description", {
