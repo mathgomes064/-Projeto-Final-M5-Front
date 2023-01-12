@@ -74,7 +74,7 @@ export default function ModalPerfil() {
                   autoComplete="off"
                   type="text"
                   placeholder="Nome"
-                  {...register("name")}
+                  {...register("username")}
                 />
                 <label>Contato</label>
                 <input
@@ -82,7 +82,7 @@ export default function ModalPerfil() {
                   className="contact"
                   type="number"
                   placeholder="Contato"
-                  {...register("contact")}
+                  {...register("fone")}
                 />
                 <label>Bio</label>
                 <input
@@ -92,12 +92,7 @@ export default function ModalPerfil() {
                   {...register("bio")}
                 />
                 <label>Imagem</label>
-                <input
-                  autoComplete="off"
-                  type="url"
-                  placeholder="Imagem"
-                  {...register("image")}
-                />
+                <input autoComplete="off" type="url" placeholder="Imagem" {...register("image")} />
                 <button type="submit">Salvar</button>
               </Form>
             </div>
