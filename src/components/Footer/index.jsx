@@ -39,8 +39,7 @@ export const Footer = () => {
                 </a>
               </div>
               <p className="credits">
-                ©Projeto Front-End desenvolvido por: Daniel Matos | Esther Suriel
-                Matheus Gomes | Sidarta Kauã |Tainá Tenório
+                ©Desenvolvido por: Daniel Matos | Gabriel Martins | Matheus Gomes | Paulo Silva | Rafael Formiga | Rodrigo Nunes
               </p>
             </div>
           </div>
