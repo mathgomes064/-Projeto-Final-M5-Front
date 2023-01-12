@@ -34,7 +34,7 @@ export default function TransitionsModal({ service }) {
         aria-describedby="transition-modal-description"
         open={open}
         onClose={handleClose}
-        closeAfterTransition
+        closeaftertranstion="true"
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,
@@ -44,16 +44,16 @@ export default function TransitionsModal({ service }) {
           <Box sx={style}>
             <DetailsStyle>
               <div className="serviceModal">
-                <div className="category">{service.category}</div>
+                <div className="category">{service.category.name}</div>
                 <div className="otherInfos">
-                  <img src={service.user.image}></img>
+                  <img src={`img/${service.category.name}.jpg`}></img>
                   <div className="nameAndValue">
-                    <p>{service.user.name}</p>
-                    <p>R$ {service.value},00</p>
+                    <p>{service.user.username}</p>
+                    <p>R$ {service.description.service_value}</p>
                   </div>
                 </div>
-                <p className="description">{service.description}</p>
-                <HireModal service={service}></HireModal>
+                <p className="description">{service.description.service_description}</p>
+                <HireModal setOpenDetailsModal={setOpen} service={service}></HireModal>
               </div>
             </DetailsStyle>
           </Box>

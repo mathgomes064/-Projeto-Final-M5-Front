@@ -68,12 +68,20 @@ export const Container = styled.div`
 `;
 
 export const ModalButton = styled.button`
-  margin: 2px 0px;
-  background-color: transparent;
-  border: 0;
-  padding: 0;
-  font-size: 16px;
-  font-weight: 600;
+  width: 67px;
+  height: 30px;
+  font-size: 15px;
+  font-weight: bold;
+  background-color: var(--white);
   color: var(--color-primary);
+  border: none;
+  border-radius: 5px;
+  padding: 0;
   cursor: pointer;
+  border-radius: 0px;
+  :hover {
+    background-color: var(--color-primary-focus);
+    color: var(--white);
+    transition: 144ms;
+  }
 `;

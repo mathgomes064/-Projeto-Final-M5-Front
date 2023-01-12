@@ -1,21 +1,25 @@
 import styled from "styled-components";
 
-export const Button = styled.button`
-  background: #06c3bd;
-  border: 1px solid #ffffff;
-  border-radius: 5px;
-  color: #ffffff;
-  height: 26px;
-  font-size: 11px;
-  width: 70px;
-  cursor: pointer;
+export const CategoriesList = styled.ul`
+  display: flex;
+  flex-direction: row;
+  height: 35px;
+  align-items: center;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+  justify-content: center;
+  li {
+    font-size: 12px;
+    color: var(--color-primary);
 
-  @media screen and (min-width: 829px) {
-    height: 40px;
+    a {
+      text-decoration: none;
+      :visited {
+        color: inherit;
+      }
+    }
   }
-`;
 
-export const P = styled.p`
-  font-size: 22px;
-  margin-left: 180px;
+  @media screen and (min-width: 600px) {
+    gap: 1rem;
+  }
 `;

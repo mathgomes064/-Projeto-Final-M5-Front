@@ -2,9 +2,9 @@ import { createGlobalStyle } from "styled-components";
 
 const Global = createGlobalStyle`
 :root{
-    --color-primary: #06C3BD;
+    --color-primary: #067B9F;
     --color-primary-focus: #00EEE6;
-    --background-color: #AFC5CC;
+    --background-color: #012E57;
     --premium-detail: #FCCA46;
     --grey-1:#B1AFAF;
     --grey-2: #D9D9D9;
@@ -44,6 +44,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	min-height: 100vh;
 }
 ol, ul {
 	list-style: none;

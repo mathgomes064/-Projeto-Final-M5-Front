@@ -1,34 +1,44 @@
 import styled from "styled-components";
 
-export const FooterStyle = styled.div`
-  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;&display=swap");
-  footer {
+export const FooterStyle = styled.footer`
+border-top: 1px solid var(--color-primary);
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100%;
+height: 95px;
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;&display=swap");
+
+  .footer{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .innerDiv {
+    width: 95%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .liksAndNames {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    bottom: 0;
-  }
-  div {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-  .blueLine {
-    height: 1px;
-    background-color: var(--color-primary);
-    width: 100vw;
   }
 
   img {
-    width: 40vw;
-    max-width: 150px;
-    height: 15vh;
-    max-height: 80px;
+    width: 25vw;
+    max-width: 80px;
+    height: 12.5vh;
+    max-height: 45px;
   }
 
   .links {
-    margin: 10px;
+    margin: 5px;
     width: 10vw;
     max-width: 25px;
     height: 5vh;
@@ -36,9 +46,8 @@ export const FooterStyle = styled.div`
   }
 
   .credits {
-    font-weight: 200;
-    width: 100vw;
-    max-width: 250px;
+    width: 350px;
+    height: 50px;
     text-align: center;
     font-size: 15px;
   }

@@ -1,38 +1,29 @@
 import { useContext } from "react";
 import { ServicesContext } from "../../context/Services";
-import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from "react-icons/ai";
 
 import { BodyStyle } from "./style";
 import TransitionsModal from "../../modals/DetailsModal";
 import EmptyServices from "../EmptyServices";
+import Animation from "../dashboardCall";
 
 const BodyDashboard = () => {
   const { filteredServices } = useContext(ServicesContext);
 
   return (
     <BodyStyle>
-      <h2>Encontre seu serviço aqui</h2>
+      {filteredServices?.length === 0? (""):
+      (<Animation/>)}
       <div className="services">
-        <button className="nextButton">
-          <AiOutlineDoubleLeft className="nextButton" />
-        </button>
-
         <div className="servicesContainer">
           {filteredServices ? (
             filteredServices.length > 0 ? (
               filteredServices.map((service) => {
                 return (
-                  <div
-                    key={`${service.id} & ${service.user.id}`}
-                    className="serviceCard"
-                  >
-                    <img
-                      src={service.user.image}
-                      className="serviceImage"
-                    ></img>
-                    <p className="serviceName">{service.name}</p>
-                    <p className="serviceUserName">{service.user.name}</p>
-                    <p className="serviceValue">R$ {service.value},00</p>
+                  <div key={`${service.id} & ${service.user.id}`} className="serviceCard">
+                    <img src={`img/${service.category.name}.jpg`} className="serviceImage"></img>
+                    <p className="serviceName">{service.service_name}</p>
+                    <p className="serviceUserName">{service.user.username}</p>
+                    <p className="serviceValue">R$ {service.description.service_value}</p>
                     <TransitionsModal service={service}></TransitionsModal>
                   </div>
                 );
@@ -44,10 +35,6 @@ const BodyDashboard = () => {
             <EmptyServices />
           )}
         </div>
-
-        <button className="nextButton">
-          <AiOutlineDoubleRight className="nextButton" />
-        </button>
       </div>
     </BodyStyle>
   );

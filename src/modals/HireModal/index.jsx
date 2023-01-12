@@ -5,12 +5,16 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Button from "@mui/material/Button";
 
-import { HireStyle } from "./style";
+import { HireStyle, ButtonWhats } from "./style";
 import { BsWhatsapp } from "react-icons/bs";
 import { FiMail } from "react-icons/fi";
 import { BsFillChatDotsFill } from "react-icons/bs";
 import { FaCrown } from "react-icons/fa";
 import { SiGooglecalendar } from "react-icons/si";
+
+import { ServiceScheduleModal } from "../serviceScheduleModal";
+
+// import ReactWhatsapp from "react-whatsapp";
 
 const style = {
   position: "absolute",
@@ -21,30 +25,29 @@ const style = {
   boxShadow: 20,
 };
 
-export default function HireModal({ service }) {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+export default function HireModal({ setOpenDetailsModal, service }) {
+  const [openContact, setOpenContact] = React.useState(false);
 
   return (
     <div>
       <HireStyle>
-        <Button className="hireButton" onClick={handleOpen}>
+        <Button className="hireButton" onClick={() => setOpenContact(true)}>
           Contratar
         </Button>
       </HireStyle>
       <Modal
+        keepMounted={false}
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
+        open={openContact}
+        onClose={() => setOpenContact(false)}
+        closeaftertranstion={true}
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,
         }}
       >
-        <Fade in={open}>
+        <Fade in={openContact}>
           <Box sx={style}>
             <HireStyle>
               <div className="hireModal">
@@ -52,10 +55,12 @@ export default function HireModal({ service }) {
                   <p>Entre em contato com {service.user.name}</p>
                 </div>
                 <div className="otherInfos">
-                  <div className="infos">
-                    <BsWhatsapp className="icon" />
-                    <p>{service.user.contact}</p>
-                  </div>
+                  <ButtonWhats number={service.user.fone}>
+                    <div className="infos">
+                      <BsWhatsapp className="icon" />
+                      <p>{service.user.fone}</p>
+                    </div>
+                  </ButtonWhats>
                   <div className="infos">
                     <FiMail className="icon" />
                     <p>{service.user.email}</p>
@@ -66,6 +71,13 @@ export default function HireModal({ service }) {
                     <FaCrown className="crown" />
                   </div>
                 </div>
+                <section className="checkSchedule">
+                  <ServiceScheduleModal
+                    setOpenContact={setOpenContact}
+                    setOpenDetailsModal={setOpenDetailsModal}
+                    service={service}
+                  />
+                </section>
               </div>
             </HireStyle>
           </Box>

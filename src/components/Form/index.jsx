@@ -13,12 +13,12 @@ import Button from "../Button";
 import { ContainerLogin, ContainerRegister } from "./styles";
 
 const Form = ({ type }) => {
-  const { login, register: registerFn } = useContext(UserContext);
+  const { login, register: registerFn, loading } = useContext(UserContext);
 
   const {
     register: registerLogin,
     handleSubmit: handleLogin,
-    formState: { errors: errorsLogin },
+    formState: { errors: errorsLogin, },
   } = useForm({
     resolver: yupResolver(schemaLogin),
   });
@@ -39,7 +39,7 @@ const Form = ({ type }) => {
             <Input
               className="divPassword"
               placeholder="seu@email.com"
-              {...registerLogin("email")}
+              {...registerLogin("email", {required: true})}
               label="Email"
             />
             <span className="error">{errorsLogin.email?.message}</span>
@@ -49,36 +49,26 @@ const Form = ({ type }) => {
             <InputPassword
               placeholder="Senha"
               id="password"
-              {...registerLogin("password")}
+              {...registerLogin("password", {required: true})}
               label="Senha"
             />
             <span className="error">{errorsLogin.password?.message}</span>
           </div>
 
-          <Button type="submit">Login</Button>
+          <Button loading={loading} type="submit">Login</Button>
         </ContainerLogin>
       ) : (
         <ContainerRegister onSubmit={handleSubmit(registerFn)}>
           <div className="form">
             <div className="column">
               <div className="infoSelector">
-                <Input
-                  placeholder="Nome"
-                  id="name"
-                  {...register("name")}
-                  label="Nome"
-                />
+                <Input placeholder="Nome" id="name" {...register("username")} label="Nome" />
 
-                <span>{errorsRegister.name?.message}</span>
+                <span>{errorsRegister.username?.message}</span>
               </div>
 
               <div className="infoSelector">
-                <Input
-                  placeholder="Email"
-                  id="email"
-                  {...register("email")}
-                  label="Email"
-                />
+                <Input placeholder="Email" id="email" {...register("email")} label="Email" />
 
                 <span>{errorsRegister.email?.message}</span>
               </div>
@@ -112,20 +102,15 @@ const Form = ({ type }) => {
                   placeholder="(00) 0 0000 - 0000"
                   id="contact"
                   label="Contato"
-                  type="number"
-                  {...register("contact")}
+                  type="text"
+                  {...register("fone")}
                 />
 
-                <span>{errorsRegister.contact?.message}</span>
+                <span>{errorsRegister.fone?.message}</span>
               </div>
 
               <div className="infoSelector">
-                <Input
-                  placeholder="Fale sobre você"
-                  id="bio"
-                  {...register("bio")}
-                  label="Bio"
-                />
+                <Input placeholder="Fale sobre você" id="bio" {...register("bio")} label="Bio" />
 
                 <span>{errorsRegister.bio?.message}</span>
               </div>
@@ -133,7 +118,7 @@ const Form = ({ type }) => {
               <div className="selectDiv">
                 <label htmlFor="select">Pretendo</label>
 
-                <select title="type" id="select" {...register("type")}>
+                <select title="type" id="select" {...register("is_offering")}>
                   <option value="Fornecer Serviço">Fornecer Serviço</option>
                   <option value="Contratar Serviço">Contratar Serviço</option>
                 </select>

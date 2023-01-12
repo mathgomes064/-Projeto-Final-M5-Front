@@ -1,11 +1,14 @@
-import { useContext, useState } from "react";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
-import { Container, Form, Button } from "./styles";
-import { useForm } from "react-hook-form";
 import { UserContext } from "../../context/User";
+
+import { useContext, useState } from "react";
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { AiOutlineCloseSquare } from "react-icons/ai";
+
+import { Container, Form, Button } from "./styles";
 
 const style = {
   position: "absolute",
@@ -16,7 +19,6 @@ const style = {
   height: 400,
   bgcolor: "background.paper",
   boxShadow: 24,
-  borderRadius: 2,
   p: 0,
 };
 
@@ -29,16 +31,16 @@ export default function ModalPerfil() {
 
   const { register, handleSubmit } = useForm();
 
-  const handleEdit = ({ name, contact, bio, image }) => {
+  const handleEdit = ({ username, fone, bio, image }) => {
     const userId = localStorage.getItem("@Nice-jobs:id");
 
     let data = {};
 
-    if (name) {
-      data = { ...data, name };
+    if (username) {
+      data = { ...data, username };
     }
-    if (contact) {
-      data = { ...data, contact };
+    if (fone) {
+      data = { ...data, fone };
     }
     if (bio) {
       data = { ...data, bio };
@@ -49,14 +51,11 @@ export default function ModalPerfil() {
 
     editUser(data, userId);
     handleClose();
-    setTimeout(() => {
-      location.reload();
-    }, 500);
   };
 
   return (
     <div>
-      <Button onClick={handleOpen}>Editar Perfil</Button>
+      <Button onMouseDown={handleOpen}>Editar Perfil</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -67,33 +66,36 @@ export default function ModalPerfil() {
           <Container>
             <div className="headerModal">
               <h3 className="h3EditPerfil">Editar Perfil</h3>
-              <p onClick={handleClose}>X</p>
             </div>
             <div>
               <Form onSubmit={handleSubmit(handleEdit)}>
                 <label>Nome</label>
                 <input
+                  autoComplete="off"
                   type="text"
-                  placeholder="Insira seu novo nome"
+                  placeholder="Nome"
                   {...register("name")}
                 />
                 <label>Contato</label>
                 <input
+                  autoComplete="off"
                   className="contact"
                   type="number"
-                  placeholder="Insira seu novo contato"
+                  placeholder="Contato"
                   {...register("contact")}
                 />
                 <label>Bio</label>
                 <input
+                  autoComplete="off"
                   type="text"
-                  placeholder="Insira sua nova bio"
+                  placeholder="Biografia"
                   {...register("bio")}
                 />
                 <label>Imagem</label>
                 <input
+                  autoComplete="off"
                   type="url"
-                  placeholder="Insira sua nova imagem"
+                  placeholder="Imagem"
                   {...register("image")}
                 />
                 <button type="submit">Salvar</button>

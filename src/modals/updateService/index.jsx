@@ -10,7 +10,7 @@ import Button from "../../components/Button";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ServicesContext } from "../../context/Services";
-import { AiOutlineCloseSquare } from 'react-icons/ai';
+import { AiOutlineCloseSquare } from "react-icons/ai";
 
 const style = {
   position: "absolute",
@@ -19,7 +19,7 @@ const style = {
   transform: "translate(-50%, -50%)",
 };
 
-const AddServiceModal = () => {
+const AddServiceModal = ({ service, service_id }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -37,17 +37,16 @@ const AddServiceModal = () => {
     resolver: yupResolver(schema),
   });
 
-  const { createService } = useContext(ServicesContext);
+  const { editService } = useContext(ServicesContext);
 
   const handleAdd = (data) => {
-    console.log(data);
-    createService(data);
+    editService(data, service_id);
     handleClose();
   };
 
   return (
     <div>
-      <ModalButton onMouseDown={handleOpen}>Cadastrar Serviço</ModalButton>
+      <ModalButton onMouseDown={handleOpen}>Editar</ModalButton>
       <Modal
         open={open}
         onClose={handleClose}
@@ -61,28 +60,46 @@ const AddServiceModal = () => {
           <Box sx={style}>
             <Container>
               <div className="title">
-                <h3>Cadastre o serviço</h3>
+                <h3>Atualizar serviço</h3>
               </div>
               <div className="body">
                 <form onSubmit={handleSubmit(handleAdd)}>
                   <Input
+                    autoComplete="off"
                     label="Nome do serviço"
                     placeholder="Frete"
-                    {...register("service_name")}
+                    {...register("service_name", {
+                      value: service.service_name,
+                    })}
                   />
                   <span className="error">{errors.service_name?.message}</span>
-                  <Input label="Preço" placeholder="R$100" {...register("service_value")} />
+                  <Input
+                    label="Preço"
+                    placeholder="R$100"
+                    {...register("service_value", {
+                      value: service.description.service_value,
+                    })}
+                  />
                   <span className="error">{errors.service_value?.message}</span>
 
                   <Input
+                    autoComplete="off"
                     label="Detalhes"
                     placeholder="Descreva seu serviço"
-                    {...register("service_description")}
+                    {...register("service_description", {
+                      value: service.description.service_description,
+                    })}
                   />
                   <span className="error">{errors.service_description?.message}</span>
                   <div>
                     <label name="select">Categoria</label>
-                    <select label="Categoria" title="select" id="select" {...register("category")}>
+                    <select
+                      label="Categoria"
+                      title="select"
+                      id="select"
+                      defaultValue={service.category.name}
+                      {...register("category")}
+                    >
                       <option value="Construção civil">Construção Civil</option>
                       <option value="Manutenção de Eletrônicos">Manutenção de Eletronicos</option>
                       <option value="Frete">Frete</option>
@@ -90,7 +107,7 @@ const AddServiceModal = () => {
                       <option value="Outros">Outros</option>
                     </select>
                   </div>
-                  <Button type="submit">Cadastrar</Button>
+                  <Button type="submit">Atualizar</Button>
                 </form>
               </div>
             </Container>

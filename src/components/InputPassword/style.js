@@ -14,10 +14,11 @@ export const Container = styled.div`
     width: 100%;
     padding: 0 15px;
     margin-top: 12px;
-    border-radius: 10px;
+    border-radius: 0px;
     background-color: var(--grey-3);
+    box-shadow: 0px 3px gray;
     input {
-      border: 0;
+      border: 0px;
       outline: 0;
       height: 100%;
       width: 80%;

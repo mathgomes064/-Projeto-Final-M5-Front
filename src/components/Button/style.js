@@ -1,10 +1,13 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+display: flex;
+justify-content: center;
+
   .button {
     background-color: var(--color-primary);
     color: var(--white);
-    border-radius: 5px;
+    border-radius: 0px;
     height: 50px;
     max-width: 100%;
     font-weight: 700;

@@ -6,32 +6,35 @@ import { UserContext } from "../User";
 export const ServicesContext = createContext({});
 
 const ServicesProvider = ({ children }) => {
-  const {
-    token,
-    services,
-    setServices,
-    setFilteredServices,
-    filteredServices,
-  } = useContext(UserContext);
+  const { token, services, setServices, setFilteredServices, filteredServices } =
+    useContext(UserContext);
 
   useEffect(() => {
     if (token) {
       api.defaults.headers.authorization = `Bearer ${token}`;
-      api.get("/services?_expand=user").then((res) => setServices(res.data));
+      api.get("/services/").then((res) => {
+        setServices(res.data.results);
+        setFilteredServices(res.data.results);
+      });
     }
-  }, [services]);
+  }, [token]);
 
-  //   api.get("/services).then((res) => setServices(res));
-
-  const createService = (data, userId) => {
+  const createService = (data) => {
     const formattedData = {
-      ...data,
-      userId: userId,
+      service_name: data.service_name,
+      description: {
+        service_description: data.service_description,
+        service_value: data.service_value,
+        atuation_area: "Brasil",
+      },
+      category: {
+        name: data.category,
+      },
     };
 
     api
-      .post("/services", formattedData)
-      .then(() =>
+      .post("/services/", formattedData)
+      .then(() => {
         toast.success("Serviço cadastrado com sucesso!", {
           position: "top-right",
           autoClose: 2000,
@@ -41,8 +44,13 @@ const ServicesProvider = ({ children }) => {
           draggable: true,
           progress: undefined,
           toastId: 1,
-        })
-      )
+        });
+
+        api.get("/services/").then((res) => {
+          setServices(res.data.results);
+          setFilteredServices(res.data.results);
+        });
+      })
       .catch(() =>
         toast.error("Algo deu errado!", {
           position: "top-right",
@@ -58,9 +66,25 @@ const ServicesProvider = ({ children }) => {
   };
 
   const editService = (data, serviceId) => {
+    const formattedData = {
+      service_name: data.service_name,
+      description: {
+        service_description: data.service_description,
+        service_value: data.service_value,
+        atuation_area: "Brasil",
+      },
+      category: {
+        name: data.category,
+      },
+    };
     api
-      .patch(`/services/${serviceId}`, data)
-      .then(() =>
+      .patch(`/services/${serviceId}/`, formattedData)
+      .then(() => {
+        api.get("/services/").then((res) => {
+          setServices(res.data.results);
+          setFilteredServices(res.data.results);
+        });
+        console.log("deu certo");
         toast.success("Serviço editado com sucesso!", {
           position: "top-right",
           autoClose: 2000,
@@ -70,8 +94,8 @@ const ServicesProvider = ({ children }) => {
           draggable: true,
           progress: undefined,
           toastId: 1,
-        })
-      )
+        });
+      })
       .catch(() =>
         toast.error("Algo deu errado!", {
           position: "top-right",
@@ -88,7 +112,7 @@ const ServicesProvider = ({ children }) => {
 
   const deleteService = (serviceId) => {
     api
-      .patch(`/services/${serviceId}`)
+      .delete(`/services/${serviceId}`)
       .then(() =>
         toast.success("Serviço deletado com sucesso!", {
           position: "top-right",
@@ -119,9 +143,7 @@ const ServicesProvider = ({ children }) => {
     if (filterType === "Todos") {
       setFilteredServices(services);
     } else {
-      setFilteredServices(
-        services.filter(({ category }) => category === filterType)
-      );
+      setFilteredServices(services.filter(({ category }) => category.name === filterType));
     }
   };
 
@@ -129,16 +151,16 @@ const ServicesProvider = ({ children }) => {
     if (searchField !== "".trim()) {
       setFilteredServices(
         services.filter(
-          ({ category, name, user }) =>
-            category
+          ({ category, service_name, user }) =>
+            category.name
               .toLocaleLowerCase()
               .trim()
               .includes(searchField.toLocaleLowerCase().trim()) ||
-            name
+            service_name
               .toLocaleLowerCase()
               .trim()
               .includes(searchField.toLocaleLowerCase().trim()) ||
-            user.name
+            user.username
               .toLocaleLowerCase()
               .trim()
               .includes(searchField.toLocaleLowerCase().trim())
