@@ -35,7 +35,7 @@ const UserProfile = () => {
         {serviceDelete ? (
           <div className="options">
             <div className="deleteContaine">
-              <p>Tem serteza que deseja deletar este cerviço?</p>
+              <p>Tem certeza que deseja deletar este serviço?</p>
               <div className="buttons">
                 <button
                   onClick={() => {
@@ -154,8 +154,7 @@ const UserProfile = () => {
                 <img src={linkedin} alt="" />
               </div>
               <p>
-                Desenvolvido por: Daniel Matos | Esther Suriel | Matheus Gomes | Sidarta Kauã |Tainá
-                Tenório
+                ©Desenvolvido por: Daniel Matos | Gabriel Martins | Matheus Gomes | Paulo Silva | Rafael Formiga | Rodrigo Nunes
               </p>
             </div>
             <img className="logo" src={logo} alt="" />

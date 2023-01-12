@@ -6,7 +6,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 width: 100%;
-height: 110px;
+height: 95px;
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;&display=swap");
 
   .footer{
@@ -46,9 +46,8 @@ height: 110px;
   }
 
   .credits {
-    font-weight: 200;
-    width: 100vw;
-    max-width: 250px;
+    width: 350px;
+    height: 50px;
     text-align: center;
     font-size: 15px;
   }

@@ -334,12 +334,12 @@ export const ContainerFooter = styled.footer`
   height: 120px;
   border-top: 1px solid var(--color-primary);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin-top: 10px;
 
   .innerDiv{
-    width: 98%;
+    width: 99%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -350,7 +350,7 @@ export const ContainerFooter = styled.footer`
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 320px;
+    width: 350px;
     height: 70px;
   }
 
@@ -370,9 +370,10 @@ export const ContainerFooter = styled.footer`
   }
 
   p {
-    width: 300px;
-    height: 30px;
+    width: 350px;
+    height: 35.5px;
     font-size: 12px;
+    text-align: center;
   }
 
 `;
