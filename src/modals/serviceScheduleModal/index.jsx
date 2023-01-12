@@ -85,6 +85,7 @@ export const ServiceScheduleModal = ({ setOpenDetailsModal, setOpenContact, serv
         slotProps={{
           timeout: 500,
         }}
+        closeAfterTransition="true"
       >
         <Box sx={style}>
           <ScheduleModal>

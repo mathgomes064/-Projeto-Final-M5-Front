@@ -1,12 +1,12 @@
-import Button from "@mui/material/Button";
+import LoadingButton from '@mui/lab/LoadingButton';
 import { Container } from "./style";
 
-const BasicButtons = ({ children, type }) => {
+const BasicButtons = ({ children, type, loading }) => {
   return (
     <Container>
-      <Button className="button" variant="contained" type={type}>
+      <LoadingButton loading={loading} loadingindicator="Loading..." className="button" variant="contained" type={type}>
         {children}
-      </Button>
+      </LoadingButton>
     </Container>
   );
 };

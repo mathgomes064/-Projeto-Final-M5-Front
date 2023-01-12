@@ -41,7 +41,7 @@ export default function HireModal({ setOpenDetailsModal, service }) {
         aria-describedby="transition-modal-description"
         open={openContact}
         onClose={() => setOpenContact(false)}
-        closeAfterTransitions
+        closeaftertranstion={true}
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,

@@ -51,7 +51,7 @@ const AddServiceModal = () => {
       <Modal
         open={open}
         onClose={handleClose}
-        closeAfterTransition
+        closeaftertransition="true"
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,

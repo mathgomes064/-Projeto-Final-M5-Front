@@ -34,7 +34,7 @@ export default function TransitionsModal({ service }) {
         aria-describedby="transition-modal-description"
         open={open}
         onClose={handleClose}
-        closeAfterTransition
+        closeaftertranstion="true"
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,

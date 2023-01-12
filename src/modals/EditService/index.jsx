@@ -32,7 +32,7 @@ const EditServiceModal = () => {
       <Modal
         open={open}
         onClose={handleClose}
-        closeAfterTransition
+        closeAfterTransition="true"
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,

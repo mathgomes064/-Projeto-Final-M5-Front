@@ -13,12 +13,12 @@ import Button from "../Button";
 import { ContainerLogin, ContainerRegister } from "./styles";
 
 const Form = ({ type }) => {
-  const { login, register: registerFn } = useContext(UserContext);
+  const { login, register: registerFn, loading } = useContext(UserContext);
 
   const {
     register: registerLogin,
     handleSubmit: handleLogin,
-    formState: { errors: errorsLogin },
+    formState: { errors: errorsLogin, },
   } = useForm({
     resolver: yupResolver(schemaLogin),
   });
@@ -39,7 +39,7 @@ const Form = ({ type }) => {
             <Input
               className="divPassword"
               placeholder="seu@email.com"
-              {...registerLogin("email")}
+              {...registerLogin("email", {required: true})}
               label="Email"
             />
             <span className="error">{errorsLogin.email?.message}</span>
@@ -49,13 +49,13 @@ const Form = ({ type }) => {
             <InputPassword
               placeholder="Senha"
               id="password"
-              {...registerLogin("password")}
+              {...registerLogin("password", {required: true})}
               label="Senha"
             />
             <span className="error">{errorsLogin.password?.message}</span>
           </div>
 
-          <Button type="submit">Login</Button>
+          <Button loading={loading} type="submit">Login</Button>
         </ContainerLogin>
       ) : (
         <ContainerRegister onSubmit={handleSubmit(registerFn)}>
