@@ -8,7 +8,9 @@ export const BodyStyle = styled.div`
   min-height: 100vh;
   height: 100%;
 
-  .services{
+  .services {
+    .pagination {
+    }
   }
 
   .servicesContainer {
@@ -43,12 +45,12 @@ export const BodyStyle = styled.div`
     border: 1px solid var(--grey-3);
   }
 
-  .serviceCard:hover{
+  .serviceCard:hover {
     transition: 244ms;
-    transform: scale(1.1)
+    transform: scale(1.1);
   }
 
-  .serviceCard > p{
+  .serviceCard > p {
     text-align: center;
   }
 
@@ -57,11 +59,11 @@ export const BodyStyle = styled.div`
     height: 40%;
   }
 
-  .serviceName{
+  .serviceName {
     font-size: 17px;
     margin: 10px;
   }
-  
+
   .serviceValue {
     font-size: 17px;
     margin: 10px;
@@ -78,26 +80,24 @@ export const BodyStyle = styled.div`
   }
 
   @media (min-width: 770px) {
-
-    .serviceName{
-    height: 40px;
-    font-size: 14px;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .serviceName {
+      height: 40px;
+      font-size: 14px;
+      margin: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
-    .serviceUserName{
+    .serviceUserName {
       font-size: 14px;
       margin: 10px;
     }
-  
+
     .serviceValue {
       font-size: 14px;
       margin: 10px;
     }
-
 
     .services {
       display: flex;

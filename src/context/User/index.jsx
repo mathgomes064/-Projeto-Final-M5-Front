@@ -25,19 +25,13 @@ const UserProvider = ({ children }) => {
           localStorage.setItem("@Nice-jobs:id", data.id);
           setUser(data);
         })
-        .catch((err) => signOut());
+        .catch((err) => {
+          console.log(err)
+          signOut()
+        });
     } else {
       signOut();
     }
-
-    // const userId = localStorage.getItem("@Nice-jobs:id");
-
-    // if (userId) {
-    //   api
-    //     .get(`/users/${userId}`)
-    //     .then((res) => setUser(res.data))
-    //     .finally(() => setLoading(false));
-    // }
   }, [token, services]);
 
   function signOut() {
@@ -56,9 +50,8 @@ const UserProvider = ({ children }) => {
         setToken(data.access);
 
         navigate("/dashboard", { replace: true });
-        setTimeout(() => {
-          setLoading(false);
-        }, 2000);
+        setLoading(false)
+        
 
         toast.success("Usuário logado com sucesso!", {
           position: "top-right",
@@ -72,16 +65,20 @@ const UserProvider = ({ children }) => {
         });
       })
       .catch(() =>
-        toast.error("Email ou senha inválidos!", {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          toastId: 1,
-        })
+        {
+          setLoading(false);
+          toast.error("Email ou senha inválidos!", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            toastId: 1,
+          })
+          
+        }
       );
   };
 
@@ -137,7 +134,6 @@ const UserProvider = ({ children }) => {
   const editUser = (data, id) => {
     if (token) {
       api.defaults.headers.authorization = `Bearer ${token}`;
-      console.log(data);
       api
         .patch(`/users/${id}/`, data)
         .then(({ data }) => {

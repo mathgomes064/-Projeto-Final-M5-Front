@@ -40,7 +40,6 @@ const AddServiceModal = () => {
   const { createService } = useContext(ServicesContext);
 
   const handleAdd = (data) => {
-    console.log(data);
     createService(data);
     handleClose();
   };
@@ -51,7 +50,6 @@ const AddServiceModal = () => {
       <Modal
         open={open}
         onClose={handleClose}
-        closeaftertransition="true"
         BackdropComponent={Backdrop}
         BackdropProps={{
           timeout: 500,
