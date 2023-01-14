@@ -30,7 +30,6 @@ const ServicesProvider = ({ children }) => {
         next = next?.slice(nextSliceIndex)
         previous = previous?.slice(previousSliceIndex)
 
-
         if(e.innerText == "Próxima") {
           if(next !== undefined) {
             setCurrentPage(next)
