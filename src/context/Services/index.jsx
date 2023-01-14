@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import api from "../../services/api";
 import { UserContext } from "../User";
@@ -9,15 +9,53 @@ const ServicesProvider = ({ children }) => {
   const { token, services, setServices, setFilteredServices, filteredServices } =
     useContext(UserContext);
 
-  useEffect(() => {
-    if (token) {
-      api.defaults.headers.authorization = `Bearer ${token}`;
-      api.get("/services/").then((res) => {
-        setServices(res.data.results);
-        setFilteredServices(res.data.results);
-      });
+    const [currentPage, setCurrentPage] = useState("?page=1")
+
+    useEffect(() => {
+      if (token) {
+        api.defaults.headers.authorization = `Bearer ${token}`;
+        api.get(`/services${currentPage}`).then((res) => {
+          setServices(res.data.results);
+          setFilteredServices(res.data.results);
+        });
+      }
+    }, [token, currentPage]);
+
+    console.log(currentPage)
+    
+    const handlePagination = (e) => {
+      api.get(`/services${currentPage}`).then((res) => {
+        let {next, previous} = res.data
+        const nextSliceIndex = next?.split("").findIndex(str => str == "?")
+        const previousSliceIndex = previous?.split("").findIndex(str => str == "?")
+        next = next?.slice(nextSliceIndex)
+        previous = previous?.slice(previousSliceIndex)
+        console.log(next)
+        console.log(previous)
+
+        if(e.innerText == "Próxima") {
+          if(next !== undefined) {
+            setCurrentPage(next)
+            console.log(e.innerText, currentPage)
+          } else {
+            console.log("next tratado")
+          }
+          
+        } else {
+          if(typeof previous == undefined || previous !== "/") {
+            
+            setCurrentPage("?page=1")
+            console.log("previous tratado")
+          } else {
+            setCurrentPage(previous)
+          }
+          console.log(e, currentPage)
+          
+        }
+        
+      })
+  
     }
-  }, [token]);
 
   const createService = (data) => {
     const formattedData = {
@@ -174,6 +212,7 @@ const ServicesProvider = ({ children }) => {
   return (
     <ServicesContext.Provider
       value={{
+        handlePagination,
         services,
         createService,
         editService,

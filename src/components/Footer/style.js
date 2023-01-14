@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
 export const FooterStyle = styled.footer`
-border-top: 1px solid var(--color-primary);
-display: flex;
-justify-content: center;
-align-items: center;
-width: 100%;
-height: 95px;
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;&display=swap");
+  border-top: 1px solid var(--color-primary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 95px;
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@200;&display=swap");
 
-  .footer{
+  .footer {
     width: 100vw;
     display: flex;
     justify-content: center;
@@ -50,5 +50,6 @@ height: 95px;
     height: 50px;
     text-align: center;
     font-size: 15px;
+    font-weight: 200;
   }
 `;

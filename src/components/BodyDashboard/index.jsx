@@ -7,13 +7,16 @@ import EmptyServices from "../EmptyServices";
 import Animation from "../dashboardCall";
 
 const BodyDashboard = () => {
-  const { filteredServices } = useContext(ServicesContext);
+  const { filteredServices, handlePagination } = useContext(ServicesContext);
 
   return (
     <BodyStyle>
       {filteredServices?.length === 0? (""):
       (<Animation/>)}
       <div className="services">
+      <div className="previousPage">
+              <button onClick={(e) => {handlePagination(e.target)}}>Anterior</button>
+          </div>
         <div className="servicesContainer">
           {filteredServices ? (
             filteredServices.length > 0 ? (
@@ -35,6 +38,9 @@ const BodyDashboard = () => {
             <EmptyServices />
           )}
         </div>
+          <div className="nextPage">
+              <button onClick={(e) => {handlePagination(e.target)}}>Próxima</button>
+          </div>
       </div>
     </BodyStyle>
   );
